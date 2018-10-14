@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CEREBROModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Ci" />
+    </Key>
+    <Property Name="Ci" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
+    <Property Name="Tel" Type="Int32" />
+    <Property Name="Direccion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresas" Relationship="Self.Empresa_Empleado" FromRole="Empleados" ToRole="Empresas" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="RUT" />
+    </Key>
+    <Property Name="RUT" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Zona_Latitud" Type="Double" />
+    <Property Name="Zona_Longitud" Type="Double" />
+    <NavigationProperty Name="Empleados" Relationship="Self.Empresa_Empleado" FromRole="Empresas" ToRole="Empleados" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.Empresa_Usuarios" FromRole="Empresas" ToRole="Usuarios" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.Empresa_Vehiculo" FromRole="Empresas" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Sensores" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Api" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Maximo" Type="Int32" />
+    <Property Name="Minimo" Type="Int32" />
+    <Property Name="Envio_Siempre" Type="Boolean" />
+    <Property Name="Frecuencia" Type="Int32" />
+    <Property Name="Fecha_Lectura" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Sensor" FromRole="Sensores" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Tipo_Evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Periodo" Type="Int32" />
+    <Property Name="Maximo" Type="Int32" />
+    <Property Name="Minimo" Type="Int32" />
+    <Property Name="Accion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Tipo_Evento" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Mail" />
+    </Key>
+    <Property Name="Mail" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_User" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empresas" Relationship="Self.Empresa_Usuarios" FromRole="Usuarios" ToRole="Empresas" />
+  </EntityType>
+  <EntityType Name="Vehiculos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Empleado" Type="Int32" />
+    <Property Name="RUT_empresa" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.Empresa_Vehiculo" FromRole="Vehiculos" ToRole="Empresas" />
+    <NavigationProperty Name="Sensores" Relationship="Self.Vehiculo_Sensor" FromRole="Vehiculos" ToRole="Sensores" />
+    <NavigationProperty Name="Tipo_Evento" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Vehiculos" ToRole="Tipo_Evento" />
+  </EntityType>
+  <Association Name="Empresa_Empleado">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+  </Association>
+  <Association Name="Empresa_Usuarios">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="Empresa_Vehiculo">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="1" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+  </Association>
+  <Association Name="Vehiculo_Sensor">
+    <End Role="Sensores" Type="Self.Sensores" Multiplicity="*" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
+  </Association>
+  <Association Name="Vehiculo_Tipo_Evento">
+    <End Role="Tipo_Evento" Type="Self.Tipo_Evento" Multiplicity="*" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CEREBROEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+    <EntitySet Name="Sensores" EntityType="Self.Sensores" />
+    <EntitySet Name="Tipo_Evento" EntityType="Self.Tipo_Evento" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" />
+    <AssociationSet Name="Empresa_Empleado" Association="Self.Empresa_Empleado">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="Empresa_Usuarios" Association="Self.Empresa_Usuarios">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="Empresa_Vehiculo" Association="Self.Empresa_Vehiculo">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="Vehiculo_Sensor" Association="Self.Vehiculo_Sensor">
+      <End Role="Sensores" EntitySet="Sensores" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="Vehiculo_Tipo_Evento" Association="Self.Vehiculo_Tipo_Evento">
+      <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SensorMotor" BaseType="CEREBROModel.Sensores">
+    <Property Name="Temperatura" Type="Double" />
+    <Property Name="Presion" Type="Double" />
+  </EntityType>
+  <EntityType Name="SensorSeguridad" BaseType="CEREBROModel.Sensores">
+    <Property Name="Alarma_Activa" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SensorGPS" BaseType="CEREBROModel.Sensores">
+    <Property Name="Latitud" Type="Double" />
+    <Property Name="Longitud" Type="Double" />
+    <Property Name="Velocidad" Type="Int32" />
+    <Property Name="Aceleracion" Type="Double" />
+  </EntityType>
+  <EntityType Name="SensorCombustible" BaseType="CEREBROModel.Sensores">
+    <Property Name="Nivel_Combustible" Type="Int32" />
+  </EntityType>
+</Schema>
