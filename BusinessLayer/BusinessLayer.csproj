@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Controladores\BLEmpleado.cs" />
+    <Compile Include="Controladores\BLEmpresa.cs" />
+    <Compile Include="Controladores\BLSensor.cs" />
+    <Compile Include="Controladores\BLTipo_Evento.cs" />
+    <Compile Include="Controladores\BLVehiculo.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
