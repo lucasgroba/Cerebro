@@ -14,5 +14,6 @@ namespace SHARE.Entities
         public int Minimo { get; set; }
         public String Accion { get; set; }
         public bool Activo { get; set; }
+        public List<Vehiculo> Lista_Vehiculo { get; set; }
     }
 }

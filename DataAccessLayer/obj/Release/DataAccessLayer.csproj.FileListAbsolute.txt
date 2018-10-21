@@ -1,0 +1,16 @@
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\EntityFramework.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\EntityFramework.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.pdb

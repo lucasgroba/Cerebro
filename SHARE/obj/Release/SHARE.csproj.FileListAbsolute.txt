@@ -1,0 +1,5 @@
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.csproj.CoreCompileInputs.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.pdb

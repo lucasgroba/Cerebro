@@ -12,18 +12,12 @@ namespace DataAccessLayer.Controladores
     {
         public void AddEmpleado(Empleado emp)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 if (emp != null)
                 {
-                    Empleado empDB = emp;
                     Empleados nuevo = new Empleados();
-                    nuevo.Activo = empDB.Activo;
-                    nuevo.Nombre = empDB.Nombre;
-                    nuevo.Ci = empDB.Ci;
-                    nuevo.Direccion = empDB.Direccion;
-                    nuevo.Fecha_Nac = empDB.Fecha_Nac;
-                    nuevo.Tel = empDB.Tel;
+                    nuevo.setModel(emp);
                     db.Empleados.Add(nuevo);
                 }
             }
@@ -31,7 +25,7 @@ namespace DataAccessLayer.Controladores
 
         public void DeleteEmpleado(int Id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 db.Empleados.Remove(db.Empleados.Find(Id));
                 db.SaveChanges();
@@ -42,7 +36,7 @@ namespace DataAccessLayer.Controladores
         public List<Empleado> GetAllEmpleados()
         {
             List<Empleado> listaRetorno = new List<Empleado>();
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Empleados select e).ToList();
                 return new ConvertType().EmpleadoDBToEmpleado(ListEmp);
@@ -52,7 +46,7 @@ namespace DataAccessLayer.Controladores
         public Empleado GetEmpleado(int Id)
         {
             List<Empleado> listaRetorno = new List<Empleado>();
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Empleados where e.Ci == Id select e).ToList();
                 return new ConvertType().EmpleadoDBToEmpleado(ListEmp).First();

@@ -13,18 +13,12 @@ namespace DataAccessLayer.Controladores
     {
         public void AddTipo_Evento(Tipo_Evento eve)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 if (eve != null)
                 {
-                    Tipo_Evento empDB = eve;
                     Tipo_Eventos nuevo = new Tipo_Eventos();
-                    nuevo.Accion = eve.Accion;
-                    nuevo.Activo = eve.Activo;
-                    nuevo.Id = eve.Id;
-                    nuevo.Maximo = eve.Maximo;
-                    nuevo.Minimo = eve.Minimo;
-                    nuevo.Periodo = eve.Periodo;
+                    nuevo.setModel(eve);
                     db.Tipo_Evento.Add(nuevo);
                 }
             }
@@ -32,7 +26,7 @@ namespace DataAccessLayer.Controladores
 
         public void DeleteTipo_Evento(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 db.Tipo_Evento.Remove(db.Tipo_Evento.Find(id));
                 db.SaveChanges();
@@ -41,7 +35,7 @@ namespace DataAccessLayer.Controladores
 
         public List<Tipo_Evento> GetAllTipo_Evento()
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Tipo_Evento select e).ToList();
                 return new ConvertType().Tipo_EventoDBToTipo_Evento(ListEmp);
@@ -50,7 +44,7 @@ namespace DataAccessLayer.Controladores
 
         public Tipo_Evento GetTipo_Evento(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Tipo_Evento where e.Id==id select e).ToList();
                 return new ConvertType().Tipo_EventoDBToTipo_Evento(ListEmp).First();

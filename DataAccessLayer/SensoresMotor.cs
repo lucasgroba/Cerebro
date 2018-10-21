@@ -14,7 +14,7 @@ namespace DataAccessLayer
     
     public partial class SensoresMotor : Sensores
     {
-        public Nullable<double> Temperatura { get; set; }
         public Nullable<double> Presion { get; set; }
+        public Nullable<double> Temperatura { get; set; }
     }
 }

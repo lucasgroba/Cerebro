@@ -9,14 +9,14 @@ namespace DataAccessLayer.Intefaces
 {
     public interface IDALE_Usuario
     {
-        void AddUsuario(Usuario usu);
+        //void AddUsuario(Usuario usu);
 
-        void DeleteUsuario(String mail);
+        //void DeleteUsuario(String mail);
 
-        void UpdateUsuario(Usuario usu);
+        //void UpdateUsuario(Usuario usu);
 
-        List<Usuario> GetAllUsuarios();
+        //List<Usuario> GetAllUsuarios();
 
-        Usuario GetUsuario(int mail);
+        //Usuario GetUsuario(int mail);
     }
 }

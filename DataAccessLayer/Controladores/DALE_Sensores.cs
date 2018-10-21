@@ -13,25 +13,13 @@ namespace DataAccessLayer.Controladores
     {
         public void AddSensor(Sensor sen)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 if (sen is SensorGPS)
                 {
                     SensorGPS vehi = (SensorGPS)sen;
                     SensoresGPS nuevo = new SensoresGPS();
-                    nuevo.Id = vehi.Id;
-                    nuevo.Api = vehi.API;
-                    nuevo.Activo = vehi.Activo;
-                    nuevo.Activo = vehi.Activo;
-                    nuevo.Frecuencia = vehi.Frecuencia;
-                    nuevo.Fecha_Lectura = vehi.Fecha_Lectura;
-                    nuevo.Envio_Siempre = vehi.Envio_Siempre;
-                    nuevo.Maximo = vehi.Maximo;
-                    nuevo.Minimo = vehi.Minimo;
-                    nuevo.Aceleracion = vehi.Aceleracion;
-                    nuevo.Velocidad = vehi.Velocidad;
-                    nuevo.Latitud = vehi.Latitud;
-                    nuevo.Longitud = vehi.Longitud;
+                    nuevo.setModel(vehi);
                     db.Sensores.Add(nuevo);
                 }
                 else
@@ -40,16 +28,7 @@ namespace DataAccessLayer.Controladores
                     {
                         SensorCombustible vehi = (SensorCombustible)sen;
                         SensoresCombustible nuevo = new SensoresCombustible();
-                        nuevo.Id = vehi.Id;
-                        nuevo.Api = vehi.API;
-                        nuevo.Activo = vehi.Activo;
-                        nuevo.Activo = vehi.Activo;
-                        nuevo.Frecuencia = vehi.Frecuencia;
-                        nuevo.Fecha_Lectura = vehi.Fecha_Lectura;
-                        nuevo.Envio_Siempre = vehi.Envio_Siempre;
-                        nuevo.Maximo = vehi.Maximo;
-                        nuevo.Minimo = vehi.Minimo;
-                        nuevo.Nivel_Combustible = vehi.Nivel;
+                        nuevo.setModel(vehi);
                         db.Sensores.Add(nuevo);
                     }
                     else
@@ -58,17 +37,7 @@ namespace DataAccessLayer.Controladores
                         {
                             SensorMotor vehi = (SensorMotor)sen;
                             SensoresMotor nuevo = new SensoresMotor();
-                            nuevo.Id = vehi.Id;
-                            nuevo.Api = vehi.API;
-                            nuevo.Activo = vehi.Activo;
-                            nuevo.Activo = vehi.Activo;
-                            nuevo.Frecuencia = vehi.Frecuencia;
-                            nuevo.Fecha_Lectura = vehi.Fecha_Lectura;
-                            nuevo.Envio_Siempre = vehi.Envio_Siempre;
-                            nuevo.Maximo = vehi.Maximo;
-                            nuevo.Minimo = vehi.Minimo;
-                            nuevo.Presion = vehi.Presion;
-                            nuevo.Temperatura = vehi.Temperatura;
+                            nuevo.setModel(vehi);
                             db.Sensores.Add(nuevo);
                         }
                         else
@@ -77,16 +46,7 @@ namespace DataAccessLayer.Controladores
                             {
                                 SensorSeguridad vehi = (SensorSeguridad)sen;
                                 SensoresSeguridad nuevo = new SensoresSeguridad();
-                                nuevo.Id = vehi.Id;
-                                nuevo.Api = vehi.API;
-                                nuevo.Activo = vehi.Activo;
-                                nuevo.Activo = vehi.Activo;
-                                nuevo.Frecuencia = vehi.Frecuencia;
-                                nuevo.Fecha_Lectura = vehi.Fecha_Lectura;
-                                nuevo.Envio_Siempre = vehi.Envio_Siempre;
-                                nuevo.Maximo = vehi.Maximo;
-                                nuevo.Minimo = vehi.Minimo;
-                                nuevo.Alarma_Activa = nuevo.Alarma_Activa;
+                                nuevo.setModel(vehi);
                                 db.Sensores.Add(nuevo);
                             }
                         }
@@ -97,7 +57,7 @@ namespace DataAccessLayer.Controladores
 
         public void DeleteSensor(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 db.Sensores.Remove(db.Sensores.Find(id));
                 db.SaveChanges();
@@ -106,7 +66,7 @@ namespace DataAccessLayer.Controladores
 
         public List<Sensor> GetAllSensor()
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Sensores select e).ToList();
                 return new ConvertType().SensorDBToSensor(ListEmp);
@@ -115,7 +75,7 @@ namespace DataAccessLayer.Controladores
 
         public Sensor GetSensor(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Sensores where e.Id == id select e).ToList();
                 return new ConvertType().SensorDBToSensor(ListEmp).First();

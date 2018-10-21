@@ -1,0 +1,15 @@
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\EntityFramework.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\EntityFramework.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.csproj.CopyComplete
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.pdb

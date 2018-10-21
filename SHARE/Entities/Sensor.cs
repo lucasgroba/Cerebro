@@ -16,5 +16,6 @@ namespace SHARE.Entities
         public int Frecuencia { get; set; }
         public DateTime Fecha_Lectura { get; set; }
         public bool Activo { get; set; }
+        public Vehiculo VehiculoRef { get; set; }
     }
 }

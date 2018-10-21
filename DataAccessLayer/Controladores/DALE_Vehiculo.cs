@@ -13,23 +13,20 @@ namespace DataAccessLayer.Controladores
     {
         public void AddVehiculo(Vehiculo vehi)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
-                Vehiculos nuevo = new Vehiculos();
-                nuevo.Id = vehi.Id;
-                nuevo.Id_Empleado = vehi.Id_Empleado;
-                nuevo.Marca = vehi.Marca;
-                nuevo.Modelo = vehi.Modelo;
-                nuevo.Activo = vehi.Activo;
-                nuevo.Sensores = new ConvertType().SensorToSensorDB(vehi.Lista_Sensores, vehi.Id);
-                nuevo.Tipo_Evento = new ConvertType().Tipo_EventoToTipo_EventoDB(vehi.Lista_Tipo_Eventos);
-                db.Vehiculos.Add(nuevo);
+                if(vehi != null)
+                {
+                    Vehiculos nuevo = new Vehiculos();
+                    nuevo.setModel(vehi);
+                    db.Vehiculos.Add(nuevo);
+                }
             }
         }
 
         public void DeleteVehiculo(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 db.Vehiculos.Remove(db.Vehiculos.Find(id));
                 db.SaveChanges();
@@ -38,7 +35,7 @@ namespace DataAccessLayer.Controladores
 
         public List<Vehiculo> GetAllVehiculos()
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Vehiculos select e).ToList();
                 return new ConvertType().VehiculoDBToVehiculo(ListEmp);
@@ -47,7 +44,7 @@ namespace DataAccessLayer.Controladores
 
         public Vehiculo GetVehiculo(int id)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Vehiculos where e.Id==id select e).ToList();
                 return new ConvertType().VehiculoDBToVehiculo(ListEmp).First();

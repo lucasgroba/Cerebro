@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="134b018d1ede42f193da385f9539beab" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="CEREBROModel.AspNetRoles" Width="1.5" PointX="0.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.AspNetUserClaims" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.AspNetUserLogins" Width="1.5" PointX="4" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Usuarios" Width="1.5" PointX="4" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Empleados" Width="1.5" PointX="3.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Empresas" Width="1.5" PointX="5.375" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Sensores" Width="1.75" PointX="7.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Tipo_Eventos" Width="1.5" PointX="9.375" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Vehiculos" Width="1.5" PointX="7.375" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="CEREBROModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.FK__Empleados__RUT_E__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.FK__Vehiculos__RUT_E__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.FK__Sensores__Id_Veh__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.Empresa_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="CEREBROModel.Vehiculo_Tipo_Evento" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CEREBROModel.SensoresGPS" Width="1.5" PointX="3.25" PointY="19.125" />
+        <InheritanceConnector EntityType="CEREBROModel.SensoresGPS" />
+        <EntityTypeShape EntityType="CEREBROModel.SensoresMotor" Width="1.5" PointX="5.625" PointY="19.125" IsExpanded="true" />
+        <InheritanceConnector EntityType="CEREBROModel.SensoresMotor" />
+        <EntityTypeShape EntityType="CEREBROModel.SensoresSeguridad" Width="1.5" PointX="8.25" PointY="19.125" />
+        <InheritanceConnector EntityType="CEREBROModel.SensoresSeguridad" />
+        <EntityTypeShape EntityType="CEREBROModel.SensoresCombustible" Width="1.5" PointX="11.125" PointY="19.125" />
+        <InheritanceConnector EntityType="CEREBROModel.SensoresCombustible" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CEREBROModelStoreContainer" CdmEntityContainer="CEREBRO_Entities1">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="CEREBROModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="CEREBROModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="CEREBROModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="CEREBROModel.Usuarios">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="CEREBROModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="Ci" ColumnName="Ci" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="RUT_Empresa" ColumnName="RUT_Empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="CEREBROModel.Empresas">
+        <MappingFragment StoreEntitySet="Empresas">
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Zona_Latitud" ColumnName="Zona_Latitud" />
+          <ScalarProperty Name="Zona_Longitud" ColumnName="Zona_Longitud" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sensores">
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.Sensores)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Vehiculo" ColumnName="Id_Vehiculo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Fecha_Lectura" ColumnName="Fecha_Lectura" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="Envio_Siempre" ColumnName="Envio_Siempre" />
+          <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+          <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+          <ScalarProperty Name="Api" ColumnName="Api" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresMotor)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Presion" ColumnName="Presion" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <Condition ColumnName="Tipo_Sensor" Value="M" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresSeguridad)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Alarma_Activa" ColumnName="Alarma_Activa" />
+          <Condition ColumnName="Tipo_Sensor" Value="S" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresCombustible)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nivel_Combustible" ColumnName="Nivel_Combustible" />
+          <Condition ColumnName="Tipo_Sensor" Value="C" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresGPS)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Aceleracion" ColumnName="Aceleracion" />
+          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <Condition ColumnName="Tipo_Sensor" Value="G" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Evento">
+      <EntityTypeMapping TypeName="CEREBROModel.Tipo_Eventos">
+        <MappingFragment StoreEntitySet="Tipo_Evento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+          <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculos">
+      <EntityTypeMapping TypeName="CEREBROModel.Vehiculos">
+        <MappingFragment StoreEntitySet="Vehiculos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="RUT_Empresa" ColumnName="RUT_Empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="CEREBROModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Empresa_Usuarios" TypeName="CEREBROModel.Empresa_Usuarios" StoreEntitySet="Empresa_Usuarios">
+      <EndProperty Name="Empresas">
+        <ScalarProperty Name="RUT" ColumnName="Id_Empresa" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="Id_Usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Vehiculo_Tipo_Evento" TypeName="CEREBROModel.Vehiculo_Tipo_Evento" StoreEntitySet="Vehiculo_Tipo_Evento">
+      <EndProperty Name="Tipo_Evento">
+        <ScalarProperty Name="Id" ColumnName="Id_Tipo_Evento" />
+      </EndProperty>
+      <EndProperty Name="Vehiculos">
+        <ScalarProperty Name="Id" ColumnName="Id_Vehiculo" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

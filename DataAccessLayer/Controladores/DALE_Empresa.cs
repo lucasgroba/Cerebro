@@ -13,26 +13,21 @@ namespace DataAccessLayer
 
         public void AddEmpresa(Empresa emp)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 if (emp != null)
                 {
-                    Empresa empDB = emp;
                     Empresas nuevo = new Empresas();
-                    nuevo.RUT = empDB.RUT;
-                    nuevo.Nombre = empDB.Nombre;
-                    nuevo.Zona_Latitud = empDB.Zona_Latitud;
-                    nuevo.Zona_Longitud = empDB.Zona_Longitud;
-                    nuevo.Activo = empDB.Activo;
+                    nuevo.setModel(emp);
                     db.Empresas.Add(nuevo);
-                    throw new NotImplementedException();
+                    
                 }
             }
         }
 
         public void DeleteEmpresa(int RUT)
         {
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 db.Empresas.Remove(db.Empresas.Find(RUT));
                 db.SaveChanges();
@@ -43,7 +38,7 @@ namespace DataAccessLayer
         public List<Empresa> GetAllEmpresas()
         {
             List<Empresa> listaRetorno = new List<Empresa>();
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Empresas select e).ToList();
                 return new ConvertType().EmpresaDBToEmpresa(ListEmp);
@@ -54,7 +49,7 @@ namespace DataAccessLayer
         public Empresa GetEmpresa(int RUT)
         {
             List<Empresa> listaRetorno = new List<Empresa>();
-            using (CEREBRO_Entities db = new CEREBRO_Entities())
+            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
             {
                 var ListEmp = (from e in db.Empresas where e.RUT == RUT select e ).ToList();
                 return new ConvertType().EmpresaDBToEmpresa(ListEmp).First();

@@ -8,9 +8,9 @@ namespace SHARE.Entities
 {
     public class Usuario
     {
-        public String Mail { get; set; }
-        public String Pass { get; set; }
-        public String Tipo_User { get; set; }
-        public List<Empresa> Lista_Empresas { get; set; }
+        //public String Mail { get; set; }
+        //public String Pass { get; set; }
+        //public String Tipo_User { get; set; }
+        //public List<Empresa> Lista_Empresas { get; set; }
     }
 }
