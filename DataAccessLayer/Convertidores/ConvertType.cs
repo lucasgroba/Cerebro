@@ -40,11 +40,15 @@ namespace DataAccessLayer.Convertidores
         public List<Vehiculos> VehiculoToVehiculoDB(List<Vehiculo> lista_vehiculo, int rut)
         {
             List<Vehiculos> retorno = new List<Vehiculos>();
-            foreach (Vehiculo vehi in lista_vehiculo)
+            if(lista_vehiculo != null)
             {
-                Vehiculos nuevo = new Vehiculos();
-                nuevo.setModel(vehi);
-                retorno.Add(nuevo);
+                foreach (Vehiculo vehi in lista_vehiculo)
+                {
+                    Vehiculos nuevo = new Vehiculos();
+                    nuevo.setModel(vehi);
+                    retorno.Add(nuevo);
+                }
+
             }
             return retorno;
         }
@@ -64,11 +68,15 @@ namespace DataAccessLayer.Convertidores
         public List<Empleados> EmpleadoToEmpleadoDB(List<Empleado> lista, int rut)
         {
             List<Empleados> retorno = new List<Empleados>();
-            foreach (Empleado vehi in lista)
+            if(lista != null)
             {
-                Empleados nuevo = new Empleados();
-                nuevo.setModel(vehi);
-                retorno.Add(nuevo);
+                foreach (Empleado vehi in lista)
+                {
+                    Empleados nuevo = new Empleados();
+                    nuevo.setModel(vehi);
+                    retorno.Add(nuevo);
+                }
+
             }
             return retorno;
         }

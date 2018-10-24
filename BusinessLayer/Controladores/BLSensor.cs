@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Controladores
 {
-    class BLSensor
+    public class BLSensor
     {
 
         IDALE_Sensor DALEmp = new DALE_Sensores();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Controladores
 {
-    class BLTipo_Evento
+    public class BLTipo_Evento
     {
 
         IDALE_Tipo_Evento DALEmp = new DALE_Tipo_Evento();

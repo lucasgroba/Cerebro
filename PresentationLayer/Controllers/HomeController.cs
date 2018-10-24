@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SHARE.Entities;
+using BusinessLayer.Controladores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,16 @@ namespace PresentationLayer.Controllers
     {
         public ActionResult Index()
         {
+
+            //ALTA  EMPRESA
+            Empresa emp = new Empresa();
+            emp.Activo = true;
+            emp.Nombre = "LGROBA_ENTERPRISE";
+            emp.RUT = 1;
+            emp.Zona_Latitud = 1.2222;
+            emp.Zona_Longitud = 1.33333;
+            BLEmpresa BLEmp = new BLEmpresa();
+            BLEmp.AltaEmpresa(emp);
             return View();
         }
 

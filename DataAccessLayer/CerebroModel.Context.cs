@@ -13,10 +13,10 @@ namespace DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CEREBRO_Entities1 : DbContext
+    public partial class CEREBROEntities1 : DbContext
     {
-        public CEREBRO_Entities1()
-            : base("name=CEREBRO_Entities1")
+        public CEREBROEntities1()
+            : base("name=CEREBROEntities1")
         {
         }
     
@@ -28,7 +28,7 @@ namespace DataAccessLayer
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Usuarios> AspNetUsers { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
         public virtual DbSet<Empresas> Empresas { get; set; }
         public virtual DbSet<Sensores> Sensores { get; set; }

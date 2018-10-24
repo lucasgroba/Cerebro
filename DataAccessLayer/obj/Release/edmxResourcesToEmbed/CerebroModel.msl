@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CEREBROModelStoreContainer" CdmEntityContainer="CEREBRO_Entities1">
+  <EntityContainerMapping StorageEntityContainer="CEREBROModelStoreContainer" CdmEntityContainer="CEREBROEntities1">
     <EntitySetMapping Name="AspNetRoles">
       <EntityTypeMapping TypeName="CEREBROModel.AspNetRoles">
         <MappingFragment StoreEntitySet="AspNetRoles">
@@ -28,7 +28,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
+    <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="CEREBROModel.Usuarios">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -84,6 +84,23 @@
           <ScalarProperty Name="Api" ColumnName="Api" />
         </MappingFragment>
       </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresGPS)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Aceleracion" ColumnName="Aceleracion" />
+          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <Condition ColumnName="Tipo_Sensor" Value="G" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresCombustible)">
+        <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nivel_Combustible" ColumnName="Nivel_Combustible" />
+          <Condition ColumnName="Tipo_Sensor" Value="C" />
+        </MappingFragment>
+      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresMotor)">
         <MappingFragment StoreEntitySet="Sensores">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -97,23 +114,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Alarma_Activa" ColumnName="Alarma_Activa" />
           <Condition ColumnName="Tipo_Sensor" Value="S" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresCombustible)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nivel_Combustible" ColumnName="Nivel_Combustible" />
-          <Condition ColumnName="Tipo_Sensor" Value="C" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresGPS)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Aceleracion" ColumnName="Aceleracion" />
-          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
-          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
-          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
-          <Condition ColumnName="Tipo_Sensor" Value="G" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

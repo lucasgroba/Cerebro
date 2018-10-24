@@ -12,7 +12,7 @@ namespace DataAccessLayer
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Sensores
+    public partial class Sensores
     {
         public int Id { get; set; }
         public string Api { get; set; }

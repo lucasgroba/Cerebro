@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Controladores
 {
-    class BLEmpleado
+    public class BLEmpleado
     {
         IDALE_Empleado DALEmp = new DALE_Empleado();
 

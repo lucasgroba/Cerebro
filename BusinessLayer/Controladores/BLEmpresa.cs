@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Controladores
 {
-    class BLEmpresa
+    public class BLEmpresa
     {
         IDALE_Empresa DALEmp = new DALE_Empresa();
 

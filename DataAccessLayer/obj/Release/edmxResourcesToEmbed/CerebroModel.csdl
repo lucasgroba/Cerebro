@@ -56,7 +56,7 @@
     </Key>
     <Property Name="Ci" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Name="Fecha_Nac" Type="DateTime" Precision="0" Nullable="true" />
+    <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
     <Property Name="Tel" Type="Int32" />
     <Property Name="Direccion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
@@ -76,7 +76,7 @@
     <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Vehiculos__RUT_E__6383C8BA" FromRole="Empresas" ToRole="Vehiculos" />
     <NavigationProperty Name="Usuarios" Relationship="Self.Empresa_Usuarios" FromRole="Empresas" ToRole="AspNetUsers" />
   </EntityType>
-  <EntityType Name="Sensores" Abstract="true">
+  <EntityType Name="Sensores">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -86,7 +86,7 @@
     <Property Name="Minimo" Type="Int32" />
     <Property Name="Envio_Siempre" Type="Boolean" />
     <Property Name="Frecuencia" Type="Int32" />
-    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" ConcurrencyMode="None" />
+    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="Activo" Type="Boolean" />
     <Property Name="Id_Vehiculo" Type="Int32" />
     <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Sensores__Id_Veh__66603565" FromRole="Sensores" ToRole="Vehiculos" />
@@ -193,22 +193,22 @@
     <End Role="Tipo_Evento" Type="CEREBROModel.Tipo_Eventos" Multiplicity="*" />
     <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="CEREBRO_Entities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CEREBROEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
-    <EntitySet Name="Usuarios" EntityType="CEREBROModel.Usuarios" />
+    <EntitySet Name="AspNetUsers" EntityType="CEREBROModel.Usuarios" />
     <EntitySet Name="Empleados" EntityType="Self.Empleados" />
     <EntitySet Name="Empresas" EntityType="Self.Empresas" />
     <EntitySet Name="Sensores" EntityType="Self.Sensores" />
     <EntitySet Name="Tipo_Evento" EntityType="CEREBROModel.Tipo_Eventos" />
     <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="Usuarios" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="Usuarios" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
     <AssociationSet Name="FK__Empleados__RUT_E__60A75C0F" Association="Self.FK__Empleados__RUT_E__60A75C0F">
@@ -225,11 +225,11 @@
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUsers" EntitySet="Usuarios" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
     <AssociationSet Name="Empresa_Usuarios" Association="Self.Empresa_Usuarios">
       <End Role="Empresas" EntitySet="Empresas" />
-      <End Role="AspNetUsers" EntitySet="Usuarios" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
     <AssociationSet Name="Vehiculo_Tipo_Evento" Association="Self.Vehiculo_Tipo_Evento">
       <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
@@ -237,10 +237,13 @@
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="SensoresGPS" BaseType="CEREBROModel.Sensores">
-    <Property Name="Aceleracion" Type="Double" />
-    <Property Name="Velocidad" Type="Int32" />
     <Property Name="Longitud" Type="Double" />
     <Property Name="Latitud" Type="Double" />
+    <Property Name="Velocidad" Type="Int32" />
+    <Property Name="Aceleracion" Type="Double" />
+  </EntityType>
+  <EntityType Name="SensoresCombustible" BaseType="CEREBROModel.Sensores">
+    <Property Name="Nivel_Combustible" Type="Int32" />
   </EntityType>
   <EntityType Name="SensoresMotor" BaseType="CEREBROModel.Sensores">
     <Property Name="Presion" Type="Double" />
@@ -248,8 +251,5 @@
   </EntityType>
   <EntityType Name="SensoresSeguridad" BaseType="CEREBROModel.Sensores">
     <Property Name="Alarma_Activa" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="SensoresCombustible" BaseType="CEREBROModel.Sensores">
-    <Property Name="Nivel_Combustible" Type="Int32" />
   </EntityType>
 </Schema>

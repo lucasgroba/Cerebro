@@ -91,7 +91,7 @@
     <Property Name="Minimo" Type="int" />
     <Property Name="Envio_Siempre" Type="bit" />
     <Property Name="Frecuencia" Type="int" />
-    <Property Name="Fecha_Lectura" Type="timestamp" StoreGeneratedPattern="None" Nullable="false" />
+    <Property Name="Fecha_Lectura" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Latitud" Type="float" />
     <Property Name="Longitud" Type="float" />
     <Property Name="Velocidad" Type="int" />

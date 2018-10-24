@@ -14,9 +14,9 @@ namespace DataAccessLayer
     
     public partial class SensoresGPS : Sensores
     {
-        public Nullable<double> Aceleracion { get; set; }
-        public Nullable<int> Velocidad { get; set; }
         public Nullable<double> Longitud { get; set; }
         public Nullable<double> Latitud { get; set; }
+        public Nullable<int> Velocidad { get; set; }
+        public Nullable<double> Aceleracion { get; set; }
     }
 }

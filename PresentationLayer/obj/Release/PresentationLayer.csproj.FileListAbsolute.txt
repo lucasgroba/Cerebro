@@ -130,3 +130,10 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\obj\Release\Presentat
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\obj\Release\PresentationLayer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\obj\Release\PresentationLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\obj\Release\PresentationLayer.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\BusinessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\DataAccessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\BusinessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\DataAccessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\DataAccessLayer.dll.config
