@@ -73,47 +73,15 @@
     <EntitySetMapping Name="Sensores">
       <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.Sensores)">
         <MappingFragment StoreEntitySet="Sensores">
+          <ScalarProperty Name="Tipo_Sensor" ColumnName="Tipo_Sensor" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Id_Vehiculo" ColumnName="Id_Vehiculo" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="Fecha_Lectura" ColumnName="Fecha_Lectura" />
           <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
           <ScalarProperty Name="Envio_Siempre" ColumnName="Envio_Siempre" />
           <ScalarProperty Name="Minimo" ColumnName="Minimo" />
           <ScalarProperty Name="Maximo" ColumnName="Maximo" />
           <ScalarProperty Name="Api" ColumnName="Api" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresGPS)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Aceleracion" ColumnName="Aceleracion" />
-          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
-          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
-          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
-          <Condition ColumnName="Tipo_Sensor" Value="G" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresCombustible)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nivel_Combustible" ColumnName="Nivel_Combustible" />
-          <Condition ColumnName="Tipo_Sensor" Value="C" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresMotor)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Presion" ColumnName="Presion" />
-          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
-          <Condition ColumnName="Tipo_Sensor" Value="M" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(CEREBROModel.SensoresSeguridad)">
-        <MappingFragment StoreEntitySet="Sensores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Alarma_Activa" ColumnName="Alarma_Activa" />
-          <Condition ColumnName="Tipo_Sensor" Value="S" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -165,5 +133,32 @@
         <ScalarProperty Name="Id" ColumnName="Id_Vehiculo" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="LecturaSensores">
+      <EntityTypeMapping TypeName="CEREBROModel.LecturaSensores">
+        <MappingFragment StoreEntitySet="LecturaSensores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Sensor" ColumnName="Id_Sensor" />
+          <ScalarProperty Name="Alarma_Activa" ColumnName="Alarma_Activa" />
+          <ScalarProperty Name="Nivel_Combustible" ColumnName="Nivel_Combustible" />
+          <ScalarProperty Name="Presion" ColumnName="Presion" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Aceleracion" ColumnName="Aceleracion" />
+          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Fecha_Lectura" ColumnName="Fecha_Lectura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="CEREBROModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

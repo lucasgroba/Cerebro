@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CEREBROModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <NavigationProperty Name="Empresas" Relationship="Self.Empresa_Usuarios" FromRole="AspNetUsers" ToRole="Empresas" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Ci" />
+    </Key>
+    <Property Name="Ci" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
+    <Property Name="Tel" Type="Int32" />
+    <Property Name="Direccion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+    <Property Name="RUT_Empresa" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK__Empleados__RUT_E__60A75C0F" FromRole="Empleados" ToRole="Empresas" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="RUT" />
+    </Key>
+    <Property Name="RUT" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Zona_Latitud" Type="Double" />
+    <Property Name="Zona_Longitud" Type="Double" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__RUT_E__60A75C0F" FromRole="Empresas" ToRole="Empleados" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Vehiculos__RUT_E__6383C8BA" FromRole="Empresas" ToRole="Vehiculos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.Empresa_Usuarios" FromRole="Empresas" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Sensores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Api" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Maximo" Type="Int32" Nullable="false" />
+    <Property Name="Minimo" Type="Int32" Nullable="false" />
+    <Property Name="Envio_Siempre" Type="Boolean" Nullable="false" />
+    <Property Name="Frecuencia" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Id_Vehiculo" Type="Int32" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Sensores__Id_Veh__66603565" FromRole="Sensores" ToRole="Vehiculos" />
+    <NavigationProperty Name="LecturaSensores" Relationship="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" FromRole="Sensores" ToRole="LecturaSensores" />
+    <Property Name="Tipo_Sensor" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Tipo_Eventos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Periodo" Type="Int32" Nullable="false" />
+    <Property Name="Maximo" Type="Int32" Nullable="false" />
+    <Property Name="Minimo" Type="Int32" Nullable="false" />
+    <Property Name="Accion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Tipo_Evento" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Vehiculos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Empleado" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="RUT_Empresa" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK__Vehiculos__RUT_E__6383C8BA" FromRole="Vehiculos" ToRole="Empresas" />
+    <NavigationProperty Name="Sensores" Relationship="Self.FK__Sensores__Id_Veh__66603565" FromRole="Vehiculos" ToRole="Sensores" />
+    <NavigationProperty Name="Tipo_Evento" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Vehiculos" ToRole="Tipo_Evento" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="CEREBROModel.Usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="CEREBROModel.Usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleados__RUT_E__60A75C0F">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="RUT" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="RUT_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehiculos__RUT_E__6383C8BA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="RUT" />
+      </Principal>
+      <Dependent Role="Vehiculos">
+        <PropertyRef Name="RUT_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sensores__Id_Veh__66603565">
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
+    <End Role="Sensores" Type="Self.Sensores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sensores">
+        <PropertyRef Name="Id_Vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="CEREBROModel.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="Empresa_Usuarios">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="CEREBROModel.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="Vehiculo_Tipo_Evento">
+    <End Role="Tipo_Evento" Type="CEREBROModel.Tipo_Eventos" Multiplicity="*" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CEREBROEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="CEREBROModel.Usuarios" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+    <EntitySet Name="Sensores" EntityType="Self.Sensores" />
+    <EntitySet Name="Tipo_Evento" EntityType="CEREBROModel.Tipo_Eventos" />
+    <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleados__RUT_E__60A75C0F" Association="Self.FK__Empleados__RUT_E__60A75C0F">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehiculos__RUT_E__6383C8BA" Association="Self.FK__Vehiculos__RUT_E__6383C8BA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sensores__Id_Veh__66603565" Association="Self.FK__Sensores__Id_Veh__66603565">
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+      <End Role="Sensores" EntitySet="Sensores" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="Empresa_Usuarios" Association="Self.Empresa_Usuarios">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="Vehiculo_Tipo_Evento" Association="Self.Vehiculo_Tipo_Evento">
+      <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <EntitySet Name="LecturaSensores" EntityType="CEREBROModel.LecturaSensores" />
+    <AssociationSet Name="FK__LecturaSe__Id_Se__09A971A2" Association="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2">
+      <End Role="Sensores" EntitySet="Sensores" />
+      <End Role="LecturaSensores" EntitySet="LecturaSensores" />
+    </AssociationSet>
+    <EntitySet Name="C__MigrationHistory" EntityType="CEREBROModel.C__MigrationHistory" />
+    <EntitySet Name="Usuarios1Set" EntityType="CEREBROModel.Usuarios1" />
+  </EntityContainer>
+  <EntityType Name="LecturaSensores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+    <Property Name="Latitud" Type="Double" />
+    <Property Name="Longitud" Type="Double" />
+    <Property Name="Velocidad" Type="Int32" />
+    <Property Name="Aceleracion" Type="Double" />
+    <Property Name="Temperatura" Type="Double" />
+    <Property Name="Presion" Type="Double" />
+    <Property Name="Nivel_Combustible" Type="Int32" />
+    <Property Name="Alarma_Activa" Type="Boolean" />
+    <Property Name="Id_Sensor" Type="Int32" />
+    <NavigationProperty Name="Sensores" Relationship="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" FromRole="LecturaSensores" ToRole="Sensores" />
+    <Property Name="Id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__LecturaSe__Id_Se__09A971A2">
+    <End Type="CEREBROModel.Sensores" Role="Sensores" Multiplicity="0..1" />
+    <End Type="CEREBROModel.LecturaSensores" Role="LecturaSensores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LecturaSensores">
+        <PropertyRef Name="Id_Sensor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Usuarios1">
+    <Key>
+      <PropertyRef Name="Mail" />
+    </Key>
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+</Schema>

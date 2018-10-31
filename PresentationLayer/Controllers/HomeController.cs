@@ -14,14 +14,14 @@ namespace PresentationLayer.Controllers
         {
 
             //ALTA  EMPRESA
-            Empresa emp = new Empresa();
-            emp.Activo = true;
-            emp.Nombre = "LGROBA_ENTERPRISE";
-            emp.RUT = 1;
-            emp.Zona_Latitud = 1.2222;
-            emp.Zona_Longitud = 1.33333;
-            BLEmpresa BLEmp = new BLEmpresa();
-            BLEmp.AltaEmpresa(emp);
+            //Empresa emp = new Empresa();
+            //emp.Activo = true;
+            //emp.Nombre = "LGROBA_ENTERPRISE";
+            //emp.RUT = 1;
+            //emp.Zona_Latitud = 1.2222;
+            //emp.Zona_Longitud = 1.33333;
+            //BLEmpresa BLEmp = new BLEmpresa();
+            //BLEmp.AltaEmpresa(emp);
             return View();
         }
 

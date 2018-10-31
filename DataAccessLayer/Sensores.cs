@@ -14,16 +14,24 @@ namespace DataAccessLayer
     
     public partial class Sensores
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sensores()
+        {
+            this.LecturaSensores = new HashSet<LecturaSensores>();
+        }
+    
         public int Id { get; set; }
         public string Api { get; set; }
-        public Nullable<int> Maximo { get; set; }
-        public Nullable<int> Minimo { get; set; }
-        public Nullable<bool> Envio_Siempre { get; set; }
-        public Nullable<int> Frecuencia { get; set; }
-        public System.DateTime Fecha_Lectura { get; set; }
-        public Nullable<bool> Activo { get; set; }
+        public int Maximo { get; set; }
+        public int Minimo { get; set; }
+        public bool Envio_Siempre { get; set; }
+        public int Frecuencia { get; set; }
+        public bool Activo { get; set; }
         public Nullable<int> Id_Vehiculo { get; set; }
+        public string Tipo_Sensor { get; set; }
     
         public virtual Vehiculos Vehiculos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LecturaSensores> LecturaSensores { get; set; }
     }
 }

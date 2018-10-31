@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SHARE.Entities
 {   
-    public abstract class Sensor
+    public class Sensor
     {
         public int Id { get; set; }
         public String API { get; set; }
@@ -14,8 +14,9 @@ namespace SHARE.Entities
         public int Minimo { get; set; }
         public bool Envio_Siempre { get; set; }
         public int Frecuencia { get; set; }
-        public DateTime Fecha_Lectura { get; set; }
         public bool Activo { get; set; }
+        public String Tipo_Sensor { get; set;}
         public Vehiculo VehiculoRef { get; set; }
+        public List<LecturaSensor> Lecturas { get; set; }
     }
 }

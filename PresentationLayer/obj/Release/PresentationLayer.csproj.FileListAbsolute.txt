@@ -137,3 +137,5 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\BusinessLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\SHARE.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\DataAccessLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\DataAccessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\BusinessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\PresentationLayer\bin\SHARE.dll.config

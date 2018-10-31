@@ -13,51 +13,17 @@ namespace DataAccessLayer.Controladores
     {
         public void AddSensor(Sensor sen)
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                if (sen is SensorGPS)
-                {
-                    SensorGPS vehi = (SensorGPS)sen;
-                    SensoresGPS nuevo = new SensoresGPS();
-                    nuevo.setModel(vehi);
-                    db.Sensores.Add(nuevo);
-                }
-                else
-                {
-                    if (sen is SensorCombustible)
-                    {
-                        SensorCombustible vehi = (SensorCombustible)sen;
-                        SensoresCombustible nuevo = new SensoresCombustible();
-                        nuevo.setModel(vehi);
-                        db.Sensores.Add(nuevo);
-                    }
-                    else
-                    {
-                        if (sen is SensorMotor)
-                        {
-                            SensorMotor vehi = (SensorMotor)sen;
-                            SensoresMotor nuevo = new SensoresMotor();
-                            nuevo.setModel(vehi);
-                            db.Sensores.Add(nuevo);
-                        }
-                        else
-                        {
-                            if (sen is SensorSeguridad)
-                            {
-                                SensorSeguridad vehi = (SensorSeguridad)sen;
-                                SensoresSeguridad nuevo = new SensoresSeguridad();
-                                nuevo.setModel(vehi);
-                                db.Sensores.Add(nuevo);
-                            }
-                        }
-                    }
-                }
+                Sensores nuevo = new Sensores();
+                nuevo.setModel(sen);
+                db.Sensores.Add(nuevo);
             }
         }
 
         public void DeleteSensor(int id)
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 db.Sensores.Remove(db.Sensores.Find(id));
                 db.SaveChanges();
@@ -66,7 +32,7 @@ namespace DataAccessLayer.Controladores
 
         public List<Sensor> GetAllSensor()
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 var ListEmp = (from e in db.Sensores select e).ToList();
                 return new ConvertType().SensorDBToSensor(ListEmp);
@@ -75,7 +41,7 @@ namespace DataAccessLayer.Controladores
 
         public Sensor GetSensor(int id)
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 var ListEmp = (from e in db.Sensores where e.Id == id select e).ToList();
                 return new ConvertType().SensorDBToSensor(ListEmp).First();

@@ -24,8 +24,8 @@ namespace DataAccessLayer
         public int Id { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public Nullable<int> Id_Empleado { get; set; }
-        public Nullable<bool> Activo { get; set; }
+        public int Id_Empleado { get; set; }
+        public bool Activo { get; set; }
         public Nullable<int> RUT_Empresa { get; set; }
     
         public virtual Empresas Empresas { get; set; }

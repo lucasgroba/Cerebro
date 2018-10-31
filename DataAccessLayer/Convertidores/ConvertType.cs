@@ -81,6 +81,29 @@ namespace DataAccessLayer.Convertidores
             return retorno;
         }
 
+        public List<LecturaSensores> LecturaToLecturaDB(List<LecturaSensor> lecturas)
+        {
+            List<LecturaSensores> ret = new List<LecturaSensores>();
+            foreach (LecturaSensor cursor in lecturas)
+            {
+                LecturaSensores nuevo = new LecturaSensores();
+                nuevo.setModel(cursor);
+                ret.Add(nuevo);
+            }
+            return ret;
+        }
+
+        public List<LecturaSensor> LecturaDBToLectura(List<LecturaSensores> lecturas) 
+        {
+            List<LecturaSensor> ret = new List<LecturaSensor>();
+            foreach (LecturaSensores cursor in lecturas)
+            {
+                LecturaSensor nuevo = cursor.getEntity();
+                ret.Add(nuevo);
+            }
+            return ret;
+        }
+
         public List<Empleado> EmpleadoDBToEmpleado(List<Empleados> lista)
         {
             List<Empleado> retorno = new List<Empleado>();
@@ -146,49 +169,14 @@ namespace DataAccessLayer.Convertidores
             return retorno;
         }
 
-        public List<Sensores> SensorToSensorDB(List<Sensor> lista, int id)
+        public List<Sensores> SensorToSensorDB(List<Sensor> lista)
         {
             List<Sensores> retorno = new List<Sensores>();
             foreach (Sensor v in lista)
             {
-                if (v is SensorGPS)
-                {
-                    SensorGPS vehi = (SensorGPS)v;
-                    SensoresGPS nuevo = new SensoresGPS();
-                    nuevo.setModel(vehi);
-                    retorno.Add(nuevo);
-                }
-                else
-                {
-                    if (v is SensorCombustible)
-                    {
-                        SensorCombustible vehi = (SensorCombustible)v;
-                        SensoresCombustible nuevo = new SensoresCombustible();
-                        nuevo.setModel(vehi);
-                        retorno.Add(nuevo);
-                    }
-                    else
-                    {
-                        if (v is SensorMotor)
-                        {
-                            SensorMotor vehi = (SensorMotor)v;
-                            SensoresMotor nuevo = new SensoresMotor();
-                            nuevo.setModel(vehi);
-                            retorno.Add(nuevo);
-                        }
-                        else
-                        {
-                            if (v is SensorSeguridad)
-                            {
-                                SensorSeguridad vehi = (SensorSeguridad)v;
-                                SensoresSeguridad nuevo = new SensoresSeguridad();
-                                nuevo.setModel(vehi);
-                                retorno.Add(nuevo);
-                            }
-                        }
-                    }
-                }
-
+                Sensores nuevo = new Sensores();
+                nuevo.setModel(v);
+                retorno.Add(nuevo);
             }
             return retorno;
         }
@@ -199,40 +187,8 @@ namespace DataAccessLayer.Convertidores
             List<Sensor> retorno = new List<Sensor>();
             foreach (Sensores v in lista)
             {
-                if (v is SensoresGPS)
-                {
-                    SensoresGPS vehi = (SensoresGPS)v;
-                    SensorGPS nuevo = vehi.getEntity();
-                    retorno.Add(nuevo);
-                }
-                else
-                {
-                    if (v is SensoresCombustible)
-                    {
-                        SensoresCombustible vehi = (SensoresCombustible)v;
-                        SensorCombustible nuevo = vehi.getEntity();
-                        retorno.Add(nuevo);
-                    }
-                    else
-                    {
-                        if (v is SensoresMotor)
-                        {
-                            SensoresMotor vehi = (SensoresMotor)v;
-                            SensorMotor nuevo = vehi.getEntity();
-                            retorno.Add(nuevo);
-                        }
-                        else
-                        {
-                            if (v is SensoresSeguridad)
-                            {
-                                SensoresSeguridad vehi = (SensoresSeguridad)v;
-                                SensorSeguridad nuevo = vehi.getEntity();
-                                retorno.Add(nuevo);
-                            }
-                        }
-                    }
-                }
-
+                Sensor nuevo = v.getEntity();
+                retorno.Add(nuevo);
             }
             return retorno;
         }

@@ -13,3 +13,8 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.csproj.CopyComplete
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Release\BusinessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\BusinessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\SHARE.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Release\es\EntityFramework.SqlServer.resources.dll

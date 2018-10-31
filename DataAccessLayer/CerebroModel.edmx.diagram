@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="889e199290bb40e79dc32bc87724ff06" Name="Diagram1" ZoomLevel="83">
+      <Diagram DiagramId="889e199290bb40e79dc32bc87724ff06" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="CEREBROModel.AspNetRoles" Width="1.5" PointX="2.375" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.AspNetUserClaims" Width="1.5" PointX="7.625" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.AspNetUserLogins" Width="1.5" PointX="2.5" PointY="4.625" IsExpanded="true" />
@@ -22,14 +22,9 @@
         <AssociationConnector Association="CEREBROModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="CEREBROModel.Empresa_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="CEREBROModel.Vehiculo_Tipo_Evento" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CEREBROModel.SensoresGPS" Width="1.5" PointX="4.5" PointY="15.625" />
-        <InheritanceConnector EntityType="CEREBROModel.SensoresGPS" />
-        <EntityTypeShape EntityType="CEREBROModel.SensoresCombustible" Width="1.5" PointX="6.75" PointY="15.625" />
-        <InheritanceConnector EntityType="CEREBROModel.SensoresCombustible" />
-        <EntityTypeShape EntityType="CEREBROModel.SensoresMotor" Width="1.5" PointX="8.875" PointY="15.625" />
-        <InheritanceConnector EntityType="CEREBROModel.SensoresMotor" />
-        <EntityTypeShape EntityType="CEREBROModel.SensoresSeguridad" Width="1.5" PointX="10.75" PointY="15.625" />
-        <InheritanceConnector EntityType="CEREBROModel.SensoresSeguridad" />
+        <EntityTypeShape EntityType="CEREBROModel.LecturaSensores" Width="1.5" PointX="12.25" PointY="11.125" />
+        <AssociationConnector Association="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" />
+        <EntityTypeShape EntityType="CEREBROModel.C__MigrationHistory" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

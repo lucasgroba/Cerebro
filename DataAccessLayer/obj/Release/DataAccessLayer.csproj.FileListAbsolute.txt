@@ -14,3 +14,4 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessL
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Release\SHARE.dll.config

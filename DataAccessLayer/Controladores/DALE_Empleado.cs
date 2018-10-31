@@ -12,7 +12,7 @@ namespace DataAccessLayer.Controladores
     {
         public void AddEmpleado(Empleado emp)
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 if (emp != null)
                 {
@@ -25,7 +25,7 @@ namespace DataAccessLayer.Controladores
 
         public void DeleteEmpleado(int Id)
         {
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 db.Empleados.Remove(db.Empleados.Find(Id));
                 db.SaveChanges();
@@ -36,7 +36,7 @@ namespace DataAccessLayer.Controladores
         public List<Empleado> GetAllEmpleados()
         {
             List<Empleado> listaRetorno = new List<Empleado>();
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 var ListEmp = (from e in db.Empleados select e).ToList();
                 return new ConvertType().EmpleadoDBToEmpleado(ListEmp);
@@ -46,7 +46,7 @@ namespace DataAccessLayer.Controladores
         public Empleado GetEmpleado(int Id)
         {
             List<Empleado> listaRetorno = new List<Empleado>();
-            using (CEREBRO_Entities1 db = new CEREBRO_Entities1())
+            using (CEREBROEntities1 db = new CEREBROEntities1())
             {
                 var ListEmp = (from e in db.Empleados where e.Ci == Id select e).ToList();
                 return new ConvertType().EmpleadoDBToEmpleado(ListEmp).First();

@@ -3,4 +3,12 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\SHARE.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.csproj.CoreCompileInputs.cache
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\SHARE.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\EntityFramework.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\EntityFramework.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Release\es\EntityFramework.SqlServer.resources.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Release\SHARE.csproj.CopyComplete
