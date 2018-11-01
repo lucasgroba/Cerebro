@@ -1,4 +1,5 @@
-﻿using SHARE.Entities;
+﻿using BusinessLayer.Controladores;
+using SHARE.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +11,21 @@ namespace WebApiLectura.Controllers
 {
     public class LecturaSensorController : ApiController
     {
-        // GET: api/LecturaSensor
-        public IEnumerable<string> Get()
+        private BLLecturaSensor BLLectura = new BLLecturaSensor();
+        // GET: api/LecturaSensor/1
+        public List<LecturaSensor> Get(int id)
         {
-            return new string[] { "value1", "value2" };
+            return BLLectura.getLecturaSensor(id);
         }
 
-        // GET: api/LecturaSensor/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        
 
         // POST: api/LecturaSensor
         public void Post([FromBody]LecturaSensor value)
         {
+            BLLectura.AltaLectura(value);
 
         }
 
-        // PUT: api/LecturaSensor/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/LecturaSensor/5
-        public void Delete(int id)
-        {
-        }
     }
 }

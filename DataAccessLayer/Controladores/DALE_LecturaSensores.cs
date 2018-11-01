@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Controladores
 {
-    class DALE_LecturaSensores: IDALELecturaSensores
+    public class DALE_LecturaSensores: IDALELecturaSensores
     {
         public void AddLectura(LecturaSensor lec)
         {
