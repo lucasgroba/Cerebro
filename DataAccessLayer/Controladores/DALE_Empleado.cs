@@ -19,6 +19,7 @@ namespace DataAccessLayer.Controladores
                     Empleados nuevo = new Empleados();
                     nuevo.setModel(emp);
                     db.Empleados.Add(nuevo);
+                    db.SaveChanges();
                 }
             }
         }

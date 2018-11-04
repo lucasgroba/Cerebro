@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="CEREBROModel.Empleados" Width="1.5" PointX="2.375" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Empresas" Width="1.5" PointX="5" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Sensores" Width="1.5" PointX="7.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CEREBROModel.Tipo_Eventos" Width="1.5" PointX="9.875" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.Tipo_Eventos" Width="1.5" PointX="10.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Vehiculos" Width="1.5" PointX="7.75" PointY="7.375" IsExpanded="true" />
         <AssociationConnector Association="CEREBROModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="CEREBROModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />

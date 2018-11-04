@@ -16,7 +16,7 @@ namespace SHARE.Entities
         public int Frecuencia { get; set; }
         public bool Activo { get; set; }
         public String Tipo_Sensor { get; set;}
-        public Vehiculo VehiculoRef { get; set; }
+        public int VehiculoRef { get; set; }
         public List<LecturaSensor> Lecturas { get; set; }
     }
 }

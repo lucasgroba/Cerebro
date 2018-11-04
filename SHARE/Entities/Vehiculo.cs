@@ -15,7 +15,7 @@ namespace SHARE.Entities
         public bool Activo { get; set; }
         public List<Sensor> Lista_Sensores { get; set; }
         public List<Tipo_Evento> Lista_Tipo_Eventos { get; set; }
-        public Empresa EmpresaRef { get; set; }
+        public int EmpresaRef { get; set; }
 
     }
 }

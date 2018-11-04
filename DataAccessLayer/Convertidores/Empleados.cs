@@ -9,14 +9,14 @@ namespace DataAccessLayer
 {
     partial class Empleados
     {
-        IDALE_Empresa IDL = new DALE_Empresa();
+        
         public void setModel(Empleado emp)
         {
             Ci = emp.Ci;
             Activo = emp.Activo;
             Direccion = emp.Direccion;
             Nombre = emp.Nombre;
-            RUT_Empresa = emp.EmpresaRef.RUT;
+            RUT_Empresa = emp.EmpresaRef;
             Tel = emp.Tel;
         }
 
@@ -28,7 +28,7 @@ namespace DataAccessLayer
             nuevo.Direccion = Direccion;
             nuevo.Nombre = Nombre;
             nuevo.Tel = (int)Tel;
-            nuevo.EmpresaRef = IDL.GetEmpresa((int)this.RUT_Empresa);
+            nuevo.EmpresaRef = (int)this.RUT_Empresa;
             return nuevo;
 
         }

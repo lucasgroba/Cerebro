@@ -15,17 +15,15 @@ namespace DataAccessLayer
     public partial class LecturaSensores
     {
         public System.DateTime Fecha_Lectura { get; set; }
-        public Nullable<double> Latitud { get; set; }
-        public Nullable<double> Longitud { get; set; }
-        public Nullable<int> Velocidad { get; set; }
-        public Nullable<double> Aceleracion { get; set; }
-        public Nullable<double> Temperatura { get; set; }
-        public Nullable<double> Presion { get; set; }
-        public Nullable<int> Nivel_Combustible { get; set; }
-        public Nullable<bool> Alarma_Activa { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
+        public int Velocidad { get; set; }
+        public double Aceleracion { get; set; }
+        public double Temperatura { get; set; }
+        public double Presion { get; set; }
+        public int Nivel_Combustible { get; set; }
+        public bool Alarma_Activa { get; set; }
         public Nullable<int> Id_Sensor { get; set; }
         public int Id { get; set; }
-    
-        public virtual Sensores Sensores { get; set; }
     }
 }

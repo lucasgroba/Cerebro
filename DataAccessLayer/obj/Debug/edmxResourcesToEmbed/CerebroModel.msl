@@ -160,14 +160,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios1Set">
-      <EntityTypeMapping TypeName="CEREBROModel.Usuarios1">
-        <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="Tipo_User" ColumnName="Tipo_User" />
-          <ScalarProperty Name="Pass" ColumnName="Pass" />
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

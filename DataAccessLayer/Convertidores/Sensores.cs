@@ -25,15 +25,15 @@ namespace DataAccessLayer
             nuevo.Maximo = (int)this.Maximo;
             nuevo.Minimo = (int)this.Minimo;
             nuevo.Tipo_Sensor = this.Tipo_Sensor;
-            nuevo.VehiculoRef = DALV.GetVehiculo((int)this.Id_Vehiculo);
-            nuevo.Lecturas = new ConvertType().LecturaDBToLectura((List<LecturaSensores>) this.LecturaSensores);
+            nuevo.VehiculoRef = (int)this.Id_Vehiculo;
+            nuevo.Lecturas = new ConvertType().LecturaDBToLectura( this.LecturaSensores.ToList<LecturaSensores>());
             return nuevo;
         }
 
         public void setModel(Sensor sen)
         {
             this.Id = sen.Id;
-            this.Id_Vehiculo = sen.VehiculoRef.Id;
+            this.Id_Vehiculo = sen.VehiculoRef;
             this.Activo = sen.Activo;
             this.Api = sen.API;
             this.Envio_Siempre = sen.Envio_Siempre;

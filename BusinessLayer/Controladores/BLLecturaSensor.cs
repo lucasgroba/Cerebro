@@ -27,7 +27,7 @@ namespace BusinessLayer.Controladores
         {
             List<LecturaSensor> lista = DALELectura.GetAllLecturas();
             foreach (LecturaSensor sen in lista) {
-                if(sen.SensorRef.Id != id_sensor)
+                if(sen.SensorRef != id_sensor)
                 {
                     lista.Remove(sen);
                 }

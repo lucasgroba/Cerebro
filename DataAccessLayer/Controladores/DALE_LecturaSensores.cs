@@ -20,6 +20,7 @@ namespace DataAccessLayer.Controladores
                     LecturaSensores nuevo = new LecturaSensores();
                     nuevo.setModel(lec);
                     db.LecturaSensores.Add(nuevo);
+                    db.SaveChanges();
                 }
             }
         }

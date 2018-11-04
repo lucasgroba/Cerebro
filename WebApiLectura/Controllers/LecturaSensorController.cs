@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Controladores;
+using Newtonsoft.Json;
 using SHARE.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,9 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace WebApiLectura.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LecturaSensorController : ApiController
     {
         private BLLecturaSensor BLLectura = new BLLecturaSensor();
@@ -21,9 +24,35 @@ namespace WebApiLectura.Controllers
         
 
         // POST: api/LecturaSensor
-        public void Post([FromBody]LecturaSensor value)
+        public HttpResponseMessage Post([FromBody]LecturaSensor value)
         {
-            BLLectura.AltaLectura(value);
+            //if(json!= null)
+            //{
+            //    LecturaSensor value = JsonConvert.DeserializeObject<LecturaSensor>(json);
+                if (value != null)
+                {
+                    BLLectura.AltaLectura(value);
+                    return new HttpResponseMessage()
+                    {
+                        Content = new StringContent("200")
+                    };
+                }
+                else
+                {
+                    return new HttpResponseMessage()
+                    {
+                        Content = new StringContent("500")
+                    };
+                }
+            //}
+            //else
+            //{
+            //    return new HttpResponseMessage()
+            //    {
+            //        Content = new StringContent("400")
+            //    };
+            //}
+            
 
         }
 

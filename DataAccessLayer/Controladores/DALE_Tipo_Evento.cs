@@ -20,6 +20,7 @@ namespace DataAccessLayer.Controladores
                     Tipo_Eventos nuevo = new Tipo_Eventos();
                     nuevo.setModel(eve);
                     db.Tipo_Evento.Add(nuevo);
+                    db.SaveChanges();
                 }
             }
         }

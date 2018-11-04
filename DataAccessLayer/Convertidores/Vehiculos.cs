@@ -14,7 +14,6 @@ namespace DataAccessLayer
     {
         IDALE_Sensor DALS = new DALE_Sensores();
         IDALE_Tipo_Evento DALT = new DALE_Tipo_Evento();
-        IDALE_Empresa DALE = new DALE_Empresa();
 
         public void setModel(Vehiculo veh)
         {
@@ -22,7 +21,7 @@ namespace DataAccessLayer
             Id_Empleado = veh.Id_Empleado;
             Marca = veh.Marca;
             Modelo = veh.Modelo;
-            RUT_Empresa = veh.EmpresaRef.RUT;
+            RUT_Empresa = veh.EmpresaRef;
             Activo = veh.Activo;
             this.Sensores = new ConvertType().SensorToSensorDB(veh.Lista_Sensores);
             this.Tipo_Evento = new ConvertType().Tipo_EventoToTipo_EventoDB(veh.Lista_Tipo_Eventos);
@@ -38,8 +37,8 @@ namespace DataAccessLayer
             nuevo.Marca = Marca;
             nuevo.Modelo = Modelo;
             nuevo.Activo = (bool)Activo;
-            nuevo.Lista_Sensores = new ConvertType().SensorDBToSensor((List<Sensores>)this.Sensores);
-            nuevo.Lista_Tipo_Eventos = new ConvertType().Tipo_EventoDBToTipo_Evento((List<Tipo_Eventos>)this.Tipo_Evento);
+            nuevo.Lista_Sensores = new ConvertType().SensorDBToSensor(this.Sensores.ToList<Sensores>());
+            nuevo.Lista_Tipo_Eventos = new ConvertType().Tipo_EventoDBToTipo_Evento(this.Tipo_Evento.ToList<Tipo_Eventos>());
             return nuevo;
         }
 

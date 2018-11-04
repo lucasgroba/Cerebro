@@ -20,6 +20,7 @@ namespace DataAccessLayer.Controladores
                     Vehiculos nuevo = new Vehiculos();
                     nuevo.setModel(vehi);
                     db.Vehiculos.Add(nuevo);
+                    db.SaveChanges();
                 }
             }
         }

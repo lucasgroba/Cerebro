@@ -18,6 +18,7 @@ namespace DataAccessLayer.Controladores
                 Sensores nuevo = new Sensores();
                 nuevo.setModel(sen);
                 db.Sensores.Add(nuevo);
+                db.SaveChanges();
             }
         }
 

@@ -22,6 +22,21 @@ namespace PresentationLayer.Controllers
             //emp.Zona_Longitud = 1.33333;
             //BLEmpresa BLEmp = new BLEmpresa();
             //BLEmp.AltaEmpresa(emp);
+            //ALTA LECTURA SENSOR
+            //LecturaSensor nuevo = new LecturaSensor();
+
+            //nuevo.Aceleracion = 10;
+            //nuevo.Alarma_Activa = true;
+            //nuevo.FechaLectura = new DateTime(2018,11,2);
+            //nuevo.Latitud = (float)1.2323;
+            //nuevo.Longitud = (float)1.434312;
+            //nuevo.Nivel_Combustible = 10;
+            //nuevo.Presion = 23;
+            //nuevo.SensorRef = 1;
+            //nuevo.Temperatura = 90;
+            //nuevo.Velocidad = 100;
+            //BLLecturaSensor lsen = new BLLecturaSensor();
+            //lsen.AltaLectura(nuevo);
             return View();
         }
 

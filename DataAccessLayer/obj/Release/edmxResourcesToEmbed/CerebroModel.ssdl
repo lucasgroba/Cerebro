@@ -97,14 +97,14 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fecha_Lectura" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
-    <Property Name="Latitud" Type="float" />
-    <Property Name="Longitud" Type="float" />
-    <Property Name="Velocidad" Type="int" />
-    <Property Name="Aceleracion" Type="float" />
-    <Property Name="Temperatura" Type="float" />
-    <Property Name="Presion" Type="float" />
-    <Property Name="Nivel_Combustible" Type="int" />
-    <Property Name="Alarma_Activa" Type="bit" />
+    <Property Name="Latitud" Type="float" Nullable="false" />
+    <Property Name="Longitud" Type="float" Nullable="false" />
+    <Property Name="Velocidad" Type="int" Nullable="false" />
+    <Property Name="Aceleracion" Type="float" Nullable="false" />
+    <Property Name="Temperatura" Type="float" Nullable="false" />
+    <Property Name="Presion" Type="float" Nullable="false" />
+    <Property Name="Nivel_Combustible" Type="int" Nullable="false" />
+    <Property Name="Alarma_Activa" Type="bit" Nullable="false" />
     <Property Name="Id_Sensor" Type="int" />
   </EntityType>
   <EntityType Name="Sensores">
@@ -187,7 +187,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LecturaSe__Id_Se__6DCC4D03">
+  <Association Name="FK__LecturaSe__Id_Se__7849DB76">
     <End Role="Sensores" Type="Self.Sensores" Multiplicity="0..1" />
     <End Role="LecturaSensores" Type="Self.LecturaSensores" Multiplicity="*" />
     <ReferentialConstraint>
@@ -330,7 +330,7 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Empresa_Usuarios" EntitySet="Empresa_Usuarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__LecturaSe__Id_Se__6DCC4D03" Association="Self.FK__LecturaSe__Id_Se__6DCC4D03">
+    <AssociationSet Name="FK__LecturaSe__Id_Se__7849DB76" Association="Self.FK__LecturaSe__Id_Se__7849DB76">
       <End Role="Sensores" EntitySet="Sensores" />
       <End Role="LecturaSensores" EntitySet="LecturaSensores" />
     </AssociationSet>

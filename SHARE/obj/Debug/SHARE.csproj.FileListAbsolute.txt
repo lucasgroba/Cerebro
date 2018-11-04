@@ -1,6 +1,5 @@
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\SHARE.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\SHARE.pdb
-C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csprojAssemblyReference.cache
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csproj.CoreCompileInputs.cache
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.pdb
@@ -12,3 +11,4 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\EntityFramework.SqlServ
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\es\EntityFramework.resources.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\es\EntityFramework.SqlServer.resources.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csproj.CopyComplete
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csprojAssemblyReference.cache

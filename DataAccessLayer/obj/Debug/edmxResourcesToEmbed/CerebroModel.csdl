@@ -55,10 +55,10 @@
       <PropertyRef Name="Ci" />
     </Key>
     <Property Name="Ci" Type="Int32" Nullable="false" />
-    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
     <Property Name="Tel" Type="Int32" />
-    <Property Name="Direccion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
     <Property Name="RUT_Empresa" Type="Int32" />
     <NavigationProperty Name="Empresas" Relationship="Self.FK__Empleados__RUT_E__60A75C0F" FromRole="Empleados" ToRole="Empresas" />
@@ -68,7 +68,7 @@
       <PropertyRef Name="RUT" />
     </Key>
     <Property Name="RUT" Type="Int32" Nullable="false" />
-    <Property Name="Nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Zona_Latitud" Type="Double" />
     <Property Name="Zona_Longitud" Type="Double" />
     <Property Name="Activo" Type="Boolean" />
@@ -81,7 +81,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Api" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Api" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Maximo" Type="Int32" Nullable="false" />
     <Property Name="Minimo" Type="Int32" Nullable="false" />
     <Property Name="Envio_Siempre" Type="Boolean" Nullable="false" />
@@ -97,11 +97,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Periodo" Type="Int32" Nullable="false" />
-    <Property Name="Maximo" Type="Int32" Nullable="false" />
-    <Property Name="Minimo" Type="Int32" Nullable="false" />
-    <Property Name="Accion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Periodo" Type="Int32" />
+    <Property Name="Maximo" Type="Int32" />
+    <Property Name="Minimo" Type="Int32" />
+    <Property Name="Accion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
     <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Tipo_Evento" ToRole="Vehiculos" />
   </EntityType>
   <EntityType Name="Vehiculos">
@@ -109,8 +109,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Marca" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Name="Modelo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Id_Empleado" Type="Int32" Nullable="false" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="RUT_Empresa" Type="Int32" />
@@ -242,23 +242,21 @@
       <End Role="LecturaSensores" EntitySet="LecturaSensores" />
     </AssociationSet>
     <EntitySet Name="C__MigrationHistory" EntityType="CEREBROModel.C__MigrationHistory" />
-    <EntitySet Name="Usuarios1Set" EntityType="CEREBROModel.Usuarios1" />
   </EntityContainer>
   <EntityType Name="LecturaSensores">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-    <Property Name="Latitud" Type="Double" />
-    <Property Name="Longitud" Type="Double" />
-    <Property Name="Velocidad" Type="Int32" />
-    <Property Name="Aceleracion" Type="Double" />
-    <Property Name="Temperatura" Type="Double" />
-    <Property Name="Presion" Type="Double" />
-    <Property Name="Nivel_Combustible" Type="Int32" />
-    <Property Name="Alarma_Activa" Type="Boolean" />
-    <Property Name="Id_Sensor" Type="Int32" />
-    <NavigationProperty Name="Sensores" Relationship="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" FromRole="LecturaSensores" ToRole="Sensores" />
+    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" Precision="3" />
+    <Property Name="Latitud" Type="Double" Nullable="false" />
+    <Property Name="Longitud" Type="Double" Nullable="false" />
+    <Property Name="Velocidad" Type="Int32" Nullable="false" />
+    <Property Name="Aceleracion" Type="Double" Nullable="false" />
+    <Property Name="Temperatura" Type="Double" Nullable="false" />
+    <Property Name="Presion" Type="Double" Nullable="false" />
+    <Property Name="Nivel_Combustible" Type="Int32" Nullable="false" />
+    <Property Name="Alarma_Activa" Type="Boolean" Nullable="false" />
+    <Property Name="Id_Sensor" Type="Int32" Nullable="true" />
     <Property Name="Id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Association Name="FK__LecturaSe__Id_Se__09A971A2">
@@ -282,13 +280,5 @@
     <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Usuarios1">
-    <Key>
-      <PropertyRef Name="Mail" />
-    </Key>
-    <Property Name="Mail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Name="Pass" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Name="Tipo_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
 </Schema>
