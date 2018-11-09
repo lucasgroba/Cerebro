@@ -26,6 +26,8 @@ namespace DataAccessLayer
         public Nullable<int> Minimo { get; set; }
         public string Accion { get; set; }
         public Nullable<bool> Activo { get; set; }
+        public string Nombre { get; set; }
+        public string Tipo_Sensor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculos> Vehiculos { get; set; }

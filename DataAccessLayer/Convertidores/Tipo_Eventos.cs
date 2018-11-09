@@ -21,6 +21,8 @@ namespace DataAccessLayer
             Maximo = eve.Maximo;
             Minimo = eve.Minimo;
             Periodo = eve.Periodo;
+            Nombre = eve.Nombre;
+            Tipo_Sensor = eve.TipoLectura;
             this.setListModelVehiculos(eve.Lista_Vehiculo);
         }
 
@@ -44,6 +46,8 @@ namespace DataAccessLayer
             nuevo.Maximo = (int)Maximo;
             nuevo.Minimo = (int)Minimo;
             nuevo.Periodo = (int)Periodo;
+            nuevo.Nombre = Nombre;
+            nuevo.TipoLectura = Tipo_Sensor;
             nuevo.Lista_Vehiculo = this.getEntityListaVehiculos();
             return nuevo;
         }

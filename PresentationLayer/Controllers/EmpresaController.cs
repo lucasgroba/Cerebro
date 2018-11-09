@@ -14,9 +14,6 @@ namespace PresentationLayer.Controllers
         }
 
         
-        public string Welcome()
-        {
-            return "This is the Welcome action method...";
-        }
+       
     }
 }
