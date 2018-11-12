@@ -55,13 +55,13 @@ namespace BusinessLayer.Controladores
                             switch (TE.TipoLectura)
                             {
                                 case "V":
-                                        if (!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo))
+                                        if ((!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo))&& lec.Velocidad!=-1)
                                         {
                                             retorno.Add(TE);
                                         }
                                     break;
                                 case "A":
-                                    if (!(lec.Aceleracion <= TE.Maximo) || !(lec.Aceleracion >= TE.Minimo))
+                                    if ((!(lec.Aceleracion <= TE.Maximo) || !(lec.Aceleracion >= TE.Minimo))&& lec.Aceleracion != -1)
                                     {
                                         retorno.Add(TE);
                                     }
@@ -76,13 +76,13 @@ namespace BusinessLayer.Controladores
                             switch (TE.TipoLectura)
                             {
                                 case "P":
-                                    if (!(lec.Presion <= TE.Maximo) || !(lec.Presion >= TE.Minimo))
+                                    if ((!(lec.Presion <= TE.Maximo) || !(lec.Presion >= TE.Minimo))&&lec.Presion !=-1)
                                     {
                                         retorno.Add(TE);
                                     }
                                     break;
                                 case "T":
-                                    if (!(lec.Temperatura <= TE.Maximo) || !(lec.Temperatura >= TE.Minimo))
+                                    if ((!(lec.Temperatura <= TE.Maximo) || !(lec.Temperatura >= TE.Minimo))&& lec.Temperatura !=-1)
                                     {
                                         retorno.Add(TE);
                                     }
@@ -111,7 +111,7 @@ namespace BusinessLayer.Controladores
                             switch (TE.TipoLectura)
                             {
                                 case "C":
-                                    if (lec.Nivel_Combustible < TE.Minimo)
+                                    if (lec.Nivel_Combustible < TE.Minimo && lec.Nivel_Combustible != -1)
                                     {
                                         retorno.Add(TE);
                                     }

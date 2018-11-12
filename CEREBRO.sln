@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiLectura", "WebApiLect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPresentation", "WebPresentation\WebPresentation.csproj", "{E0C94318-96CD-4911-9D3D-A74D2217DD13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmuladorSensor", "EmuladorSensor\EmuladorSensor.csproj", "{CFEBE27C-81E7-4801-A5E1-F02B53A957FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E0C94318-96CD-4911-9D3D-A74D2217DD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C94318-96CD-4911-9D3D-A74D2217DD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C94318-96CD-4911-9D3D-A74D2217DD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFEBE27C-81E7-4801-A5E1-F02B53A957FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFEBE27C-81E7-4801-A5E1-F02B53A957FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFEBE27C-81E7-4801-A5E1-F02B53A957FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFEBE27C-81E7-4801-A5E1-F02B53A957FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

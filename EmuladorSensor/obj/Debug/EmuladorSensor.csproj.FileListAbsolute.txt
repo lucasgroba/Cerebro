@@ -1,0 +1,16 @@
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\EmuladorSensor.exe.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\EmuladorSensor.exe
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\EmuladorSensor.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.Form1.resources
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.Properties.Resources.resources
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.csproj.GenerateResource.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.csproj.CoreCompileInputs.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.exe
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\obj\Debug\EmuladorSensor.csproj.CopyComplete
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\EmuladorSensor\bin\Debug\SHARE.dll.config
