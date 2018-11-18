@@ -16,6 +16,6 @@ namespace SHARE.Entities
         public String Accion { get; set; }
         public bool Activo { get; set; }
         public String TipoLectura { get; set; }
-        public List<Vehiculo> Lista_Vehiculo { get; set; }
+        public List<int> Lista_IDVehiculo { get; set; }
     }
 }

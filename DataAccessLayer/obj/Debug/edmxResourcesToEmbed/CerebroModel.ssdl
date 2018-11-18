@@ -96,7 +96,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Fecha_Lectura" Type="datetime" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="Fecha_Lectura" Type="datetime" Nullable="false" />
     <Property Name="Latitud" Type="float" Nullable="false" />
     <Property Name="Longitud" Type="float" Nullable="false" />
     <Property Name="Velocidad" Type="int" Nullable="false" />
@@ -125,12 +125,14 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Periodo" Type="int" />
     <Property Name="Maximo" Type="int" />
     <Property Name="Minimo" Type="int" />
     <Property Name="Accion" Type="varchar" MaxLength="250" />
     <Property Name="Activo" Type="bit" />
+    <Property Name="Tipo_Sensor" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityType Name="Vehiculo_Tipo_Evento">
     <Key>
@@ -211,7 +213,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Vehiculo___Id_Ti__719CDDE7">
+  <Association Name="FK__Vehiculo___Id_Ti__7E02B4CC">
     <End Role="Tipo_Evento" Type="Self.Tipo_Evento" Multiplicity="1" />
     <End Role="Vehiculo_Tipo_Evento" Type="Self.Vehiculo_Tipo_Evento" Multiplicity="*" />
     <ReferentialConstraint>
@@ -223,7 +225,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Vehiculo___Id_Ve__70A8B9AE">
+  <Association Name="FK__Vehiculo___Id_Ve__7D0E9093">
     <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
     <End Role="Vehiculo_Tipo_Evento" Type="Self.Vehiculo_Tipo_Evento" Multiplicity="*" />
     <ReferentialConstraint>
@@ -338,11 +340,11 @@
       <End Role="Vehiculos" EntitySet="Vehiculos" />
       <End Role="Sensores" EntitySet="Sensores" />
     </AssociationSet>
-    <AssociationSet Name="FK__Vehiculo___Id_Ti__719CDDE7" Association="Self.FK__Vehiculo___Id_Ti__719CDDE7">
+    <AssociationSet Name="FK__Vehiculo___Id_Ti__7E02B4CC" Association="Self.FK__Vehiculo___Id_Ti__7E02B4CC">
       <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
       <End Role="Vehiculo_Tipo_Evento" EntitySet="Vehiculo_Tipo_Evento" />
     </AssociationSet>
-    <AssociationSet Name="FK__Vehiculo___Id_Ve__70A8B9AE" Association="Self.FK__Vehiculo___Id_Ve__70A8B9AE">
+    <AssociationSet Name="FK__Vehiculo___Id_Ve__7D0E9093" Association="Self.FK__Vehiculo___Id_Ve__7D0E9093">
       <End Role="Vehiculos" EntitySet="Vehiculos" />
       <End Role="Vehiculo_Tipo_Evento" EntitySet="Vehiculo_Tipo_Evento" />
     </AssociationSet>

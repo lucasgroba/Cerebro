@@ -27,5 +27,9 @@ namespace BusinessLayer.Controladores
         {
             DALEmp.DeleteEmpleado(id);
         }
+        public Empleado GetEmpleado(int id)
+        {
+            return DALEmp.GetEmpleado(id);
+        }
     }
 }

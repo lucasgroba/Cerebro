@@ -88,6 +88,8 @@
     <EntitySetMapping Name="Tipo_Evento">
       <EntityTypeMapping TypeName="CEREBROModel.Tipo_Eventos">
         <MappingFragment StoreEntitySet="Tipo_Evento">
+          <ScalarProperty Name="Tipo_Sensor" ColumnName="Tipo_Sensor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Periodo" ColumnName="Periodo" />
           <ScalarProperty Name="Maximo" ColumnName="Maximo" />

@@ -41,7 +41,7 @@ namespace DataAccessLayer
             this.Maximo = sen.Maximo;
             this.Minimo = sen.Minimo;
             this.Tipo_Sensor = sen.Tipo_Sensor;
-            this.LecturaSensores = new ConvertType().LecturaToLecturaDB( sen.Lecturas);
+            this.LecturaSensores = new ConvertType().LecturaToLecturaDB(sen.Lecturas);
         }
 
 

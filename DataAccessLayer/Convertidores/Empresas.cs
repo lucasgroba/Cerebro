@@ -31,9 +31,9 @@ namespace DataAccessLayer
             nuevo.RUT = RUT;
             nuevo.Zona_Latitud = (Double)Zona_Latitud;
             nuevo.Zona_Longitud = (Double)Zona_Longitud;
-            nuevo.Lista_Empleados = new ConvertType().EmpleadoDBToEmpleado((List<Empleados>)Empleados);
-            nuevo.Lista_Usuarios = new ConvertType().UsuarioDBToUsuario((List<Usuarios>)Usuarios);
-            nuevo.Lista_Vehiculos = new ConvertType().VehiculoDBToVehiculo((List<Vehiculos>)Vehiculos);
+            nuevo.Lista_Empleados = new ConvertType().EmpleadoDBToEmpleado(Empleados.ToList());
+            nuevo.Lista_Usuarios = new ConvertType().UsuarioDBToUsuario(Usuarios.ToList());
+            nuevo.Lista_Vehiculos = new ConvertType().VehiculoDBToVehiculo(Vehiculos.ToList());
             return nuevo;
 
         }

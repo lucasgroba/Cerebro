@@ -103,6 +103,8 @@
     <Property Name="Accion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
     <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Tipo_Evento" ToRole="Vehiculos" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Sensor" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="Vehiculos">
     <Key>

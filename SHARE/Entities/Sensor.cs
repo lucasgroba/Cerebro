@@ -18,5 +18,9 @@ namespace SHARE.Entities
         public String Tipo_Sensor { get; set;}
         public int VehiculoRef { get; set; }
         public List<LecturaSensor> Lecturas { get; set; }
+        public LecturaSensor GetUltimaLectura() { 
+           int idMax = this.Lecturas.Max(x=>x.Id);
+           return this.Lecturas.Find(x=>x.Id == idMax); 
+        }
     }
 }

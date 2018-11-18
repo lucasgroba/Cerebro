@@ -23,15 +23,16 @@ namespace DataAccessLayer
             Periodo = eve.Periodo;
             Nombre = eve.Nombre;
             Tipo_Sensor = eve.TipoLectura;
-            this.setListModelVehiculos(eve.Lista_Vehiculo);
+            this.setListModelVehiculos(eve.Lista_IDVehiculo);
         }
 
-        public void setListModelVehiculos(List<Vehiculo> Lista_Vehiculos)
+        public void setListModelVehiculos(List<int> Lista_Vehiculos)
         {   List<Vehiculos> lista = new List<Vehiculos>();
-            foreach(Vehiculo veh in Lista_Vehiculos)
+            foreach(int veh in Lista_Vehiculos)
             {
+                
                 Vehiculos nuevo = new Vehiculos();
-                nuevo.setModel(veh);
+                nuevo.setModel(DAL.GetVehiculo(veh));
                 lista.Add(nuevo);
             }
             this.Vehiculos= lista;
@@ -48,18 +49,16 @@ namespace DataAccessLayer
             nuevo.Periodo = (int)Periodo;
             nuevo.Nombre = Nombre;
             nuevo.TipoLectura = Tipo_Sensor;
-            nuevo.Lista_Vehiculo = this.getEntityListaVehiculos();
+            nuevo.Lista_IDVehiculo = this.getEntityListaVehiculos();
             return nuevo;
         }
 
-        public List<Vehiculo> getEntityListaVehiculos()
+        public List<int> getEntityListaVehiculos()
         {
-            List<Vehiculo> lista = new List<Vehiculo>();
+            List<int> lista = new List<int>();
             foreach (Vehiculos v in this.Vehiculos)
             {
-                Vehiculo nuevo = new Vehiculo();
-                nuevo = v.getEntity();
-                lista.Add(nuevo);
+                lista.Add(v.Id);
             }
             return lista;
         }
