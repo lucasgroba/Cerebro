@@ -14,6 +14,6 @@ namespace SHARE.Entities
         public int Tel { get; set; }
         public String Direccion { get; set; }
         public bool Activo { get; set; }
-        public int EmpresaRef { get; set; }
+        public int RUT_Empresa { get; set; }
     }
 }

@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Activo)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleados)
+        </th>
         <th></th>
     </tr>
 
@@ -41,9 +44,9 @@
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RUT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RUT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RUT })
+            @Html.ActionLink("Edit", "Edit", new { id = item.RUT }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RUT }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RUT })
         </td>
     </tr>
 }

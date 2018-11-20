@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.Activo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empresas.Nombre)
+            @Html.DisplayNameFor(model => model.RUT_Empresa)
         </th>
         <th></th>
     </tr>
@@ -50,8 +50,7 @@
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Empresas.Nombre)
-        </td>
+            @Html.DisplayFor(modelItem => item.RUT_Empresa)
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Ci }) |
             @Html.ActionLink("Details", "Details", new { id=item.Ci }) |

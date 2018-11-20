@@ -12,3 +12,17 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\es\EntityFramework.reso
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\bin\Debug\es\EntityFramework.SqlServer.resources.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csproj.CopyComplete
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\SHARE\obj\Debug\SHARE.csprojAssemblyReference.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\SHARE.dll.config
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\SHARE.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\SHARE.pdb
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\EntityFramework.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\EntityFramework.xml
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\obj\Debug\SHARE.csprojAssemblyReference.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\obj\Debug\SHARE.csproj.CoreCompileInputs.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\obj\Debug\SHARE.csproj.CopyComplete
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\obj\Debug\SHARE.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\SHARE\obj\Debug\SHARE.pdb
