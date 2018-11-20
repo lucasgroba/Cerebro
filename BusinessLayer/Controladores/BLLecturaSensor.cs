@@ -16,33 +16,46 @@ namespace BusinessLayer.Controladores
         IDALE_Sensor DALESensor = new DALE_Sensores();
         IDALE_Vehiculo DALEVehiculo = new DALE_Vehiculo();
         IDALE_Tipo_Evento DALETipo_Evento = new DALE_Tipo_Evento();
+        IDALE_Evento DALE_Evento = new DALE_Evento();
         public void AltaLectura(LecturaSensor lec)
         {
             if (lec != null) {
 
                 DALELectura.AddLectura(lec);
-
+                AnalizoLecturas(lec);
             }
 
+        }
+
+        public DateTime getDateUltimaLecturaBuena(int id_sensor, int max, int min)
+        {
+            List<LecturaSensor> listaLecturas = DALELectura.GetLast10Lecturas(id_sensor);
+            DateTime ultimaLucturaBuena = new DateTime(2018,01,01);
+            foreach(LecturaSensor l in listaLecturas)
+            {
+                if (AnalizoLecturas(l).Count.Equals(0))
+                {
+                    if(ultimaLucturaBuena!= null && l.FechaLectura > ultimaLucturaBuena)
+                    {
+                        ultimaLucturaBuena = l.FechaLectura;
+                    }
+                        
+                }
+            }
+            return ultimaLucturaBuena;
         }
 
         public List<LecturaSensor> getLecturaSensor(int id_sensor)
         {
-            List<LecturaSensor> lista = DALELectura.GetAllLecturas();
-            foreach (LecturaSensor sen in lista) {
-                if(sen.SensorRef != id_sensor)
-                {
-                    lista.Remove(sen);
-                }
-            }
-            return lista;
+            return DALELectura.GetAllLecturas(id_sensor);
+            
         }
 
-        public List<Tipo_Evento> AnalizoEventos(LecturaSensor lec) {
+        public List<Evento> AnalizoLecturas(LecturaSensor lec) {
             Vehiculo veh;
             Sensor sen;
             List<Tipo_Evento> ListaEventos;
-            List<Tipo_Evento> retorno = new List<Tipo_Evento>();
+            List<Evento> retorno = new List<Evento>();
             if(lec != null)
             {
                 sen = DALESensor.GetSensor(lec.SensorRef);
@@ -57,13 +70,23 @@ namespace BusinessLayer.Controladores
                                 case "V":
                                         if ((!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo))&& lec.Velocidad!=-1)
                                         {
-                                            retorno.Add(TE);
+                                            
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            retorno.Add(nuevo);
                                         }
                                     break;
                                 case "A":
                                     if ((!(lec.Aceleracion <= TE.Maximo) || !(lec.Aceleracion >= TE.Minimo))&& lec.Aceleracion != -1)
                                     {
-                                        retorno.Add(TE);
+                                        Evento nuevo = new Evento();
+                                        nuevo.TipoEventoRef = TE;
+                                        nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                        nuevo.Fecha = lec.FechaLectura;
+                                        retorno.Add(nuevo);
+                                      
                                     }
                                     break;
                             }
@@ -78,13 +101,21 @@ namespace BusinessLayer.Controladores
                                 case "P":
                                     if ((!(lec.Presion <= TE.Maximo) || !(lec.Presion >= TE.Minimo))&&lec.Presion !=-1)
                                     {
-                                        retorno.Add(TE);
+                                        Evento nuevo = new Evento();
+                                        nuevo.TipoEventoRef = TE;
+                                        nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                        nuevo.Fecha = lec.FechaLectura;
+                                        retorno.Add(nuevo);
                                     }
                                     break;
                                 case "T":
                                     if ((!(lec.Temperatura <= TE.Maximo) || !(lec.Temperatura >= TE.Minimo))&& lec.Temperatura !=-1)
                                     {
-                                        retorno.Add(TE);
+                                        Evento nuevo = new Evento();
+                                        nuevo.TipoEventoRef = TE;
+                                        nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                        nuevo.Fecha = lec.FechaLectura;
+                                        retorno.Add(nuevo);
                                     }
                                     break;
                             }
@@ -98,7 +129,11 @@ namespace BusinessLayer.Controladores
                                 case "S":
                                     if (lec.Alarma_Activa)
                                     {
-                                        retorno.Add(TE);
+                                        Evento nuevo = new Evento();
+                                        nuevo.TipoEventoRef = TE;
+                                        nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                        nuevo.Fecha = lec.FechaLectura;
+                                        retorno.Add(nuevo);
                                     }
                                     break;
                                
@@ -113,7 +148,150 @@ namespace BusinessLayer.Controladores
                                 case "C":
                                     if (lec.Nivel_Combustible < TE.Minimo && lec.Nivel_Combustible != -1)
                                     {
-                                        retorno.Add(TE);
+                                        Evento nuevo = new Evento();
+                                        nuevo.TipoEventoRef = TE;
+                                        nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                        nuevo.Fecha = lec.FechaLectura;
+                                        retorno.Add(nuevo);
+                                    }
+                                    break;
+
+                            }
+                        }
+                        break;
+                }
+            }
+            return retorno;
+        }
+
+        public List<Evento> AnalizoEventos(LecturaSensor lec)
+        {
+            Vehiculo veh;
+            Sensor sen;
+            List<Tipo_Evento> ListaEventos;
+            List<Evento> retorno = new List<Evento>();
+            if (lec != null)
+            {
+                sen = DALESensor.GetSensor(lec.SensorRef);
+                veh = DALEVehiculo.GetVehiculo(sen.VehiculoRef);
+                ListaEventos = veh.Lista_Tipo_Eventos;
+                switch (sen.Tipo_Sensor)
+                {
+                    case "G":
+                        foreach (Tipo_Evento TE in ListaEventos)
+                        {
+                            switch (TE.TipoLectura)
+                            {
+                                case "V":
+                                    if ((!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo)) && lec.Velocidad != -1)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef,TE.Maximo,TE.Minimo)<lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
+                                        
+                                    }
+                                    break;
+                                case "A":
+                                    if ((!(lec.Aceleracion <= TE.Maximo) || !(lec.Aceleracion >= TE.Minimo)) && lec.Aceleracion != -1)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
+
+                                    }
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case "M":
+                        foreach (Tipo_Evento TE in ListaEventos)
+                        {
+                            switch (TE.TipoLectura)
+                            {
+                                case "P":
+                                    if ((!(lec.Presion <= TE.Maximo) || !(lec.Presion >= TE.Minimo)) && lec.Presion != -1)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
+                                    }
+                                    break;
+                                case "T":
+                                    if ((!(lec.Temperatura <= TE.Maximo) || !(lec.Temperatura >= TE.Minimo)) && lec.Temperatura != -1)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
+                        break;
+                    case "S":
+                        foreach (Tipo_Evento TE in ListaEventos)
+                        {
+                            switch (TE.TipoLectura)
+                            {
+                                case "S":
+                                    if (lec.Alarma_Activa)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
+                                    }
+                                    break;
+
+                            }
+                        }
+                        break;
+                    case "C":
+                        foreach (Tipo_Evento TE in ListaEventos)
+                        {
+                            switch (TE.TipoLectura)
+                            {
+                                case "C":
+                                    if (lec.Nivel_Combustible < TE.Minimo && lec.Nivel_Combustible != -1)
+                                    {
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        {
+                                            Evento nuevo = new Evento();
+                                            nuevo.TipoEventoRef = TE;
+                                            nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
+                                            nuevo.Fecha = lec.FechaLectura;
+                                            DALE_Evento.AddEvento(nuevo);
+                                            retorno.Add(nuevo);
+                                        }
                                     }
                                     break;
 

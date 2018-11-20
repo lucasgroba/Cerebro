@@ -36,5 +36,6 @@ namespace DataAccessLayer
         public virtual DbSet<Vehiculos> Vehiculos { get; set; }
         public virtual DbSet<LecturaSensores> LecturaSensores { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<Eventos> Eventos { get; set; }
     }
 }

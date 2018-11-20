@@ -20,7 +20,7 @@ namespace DataAccessLayer
             sen.Aceleracion = (float)this.Aceleracion;
             sen.Alarma_Activa = (bool)this.Alarma_Activa;
             sen.FechaLectura = (DateTime)this.Fecha_Lectura;
-            sen.Latitud = (float)this.Longitud;
+            sen.Latitud = (float)this.Latitud;
             sen.Nivel_Combustible = (int)this.Nivel_Combustible;
             sen.Presion = (float)this.Presion;
             sen.SensorRef = (int)this.Id_Sensor;

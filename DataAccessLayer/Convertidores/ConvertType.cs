@@ -53,6 +53,27 @@ namespace DataAccessLayer.Convertidores
             return retorno;
         }
 
+        public List<Eventos> EventoToEventoDB(List<Evento> ListaEvento)
+        {
+            List<Eventos> retorno = new List<Eventos>();
+            foreach(Evento e in ListaEvento)
+            {
+                Eventos nuevo = new Eventos();
+                nuevo.setModel(e);
+                retorno.Add(nuevo);
+            }
+            return retorno;
+        }
+        public List<Evento> EventoDBToEvento(List<Eventos> ListaEventos)
+        {
+            List<Evento> retorno = new List<Evento>();
+            foreach(Eventos e in ListaEventos)
+            {
+                retorno.Add(e.getEntity());
+            }
+            return retorno;
+        }
+
 
         public List<Vehiculo> VehiculoDBToVehiculo(List<Vehiculos> lista_vehiculo)
         {

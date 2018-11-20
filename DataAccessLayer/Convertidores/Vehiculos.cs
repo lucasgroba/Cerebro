@@ -25,6 +25,7 @@ namespace DataAccessLayer
             Activo = veh.Activo;
             this.Sensores = new ConvertType().SensorToSensorDB(veh.Lista_Sensores);
             this.Tipo_Evento = new ConvertType().Tipo_EventoToTipo_EventoDB(veh.Lista_Tipo_Eventos);
+            this.Eventos = new ConvertType().EventoToEventoDB(veh.Lista_Eventos);
         }
 
 
@@ -39,6 +40,7 @@ namespace DataAccessLayer
             nuevo.Activo = (bool)Activo;
             nuevo.Lista_Sensores = new ConvertType().SensorDBToSensor(this.Sensores.ToList<Sensores>());
             nuevo.Lista_Tipo_Eventos = new ConvertType().Tipo_EventoDBToTipo_Evento(this.Tipo_Evento.ToList<Tipo_Eventos>());
+            nuevo.Lista_Eventos = new ConvertType().EventoDBToEvento(this.Eventos.ToList<Eventos>());
             return nuevo;
         }
 

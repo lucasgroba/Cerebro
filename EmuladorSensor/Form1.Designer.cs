@@ -50,6 +50,7 @@
             this.lTemperatura = new System.Windows.Forms.Label();
             this.lAlarmaActiva = new System.Windows.Forms.Label();
             this.lNivelCombustible = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -245,11 +246,22 @@
             this.lNivelCombustible.TabIndex = 21;
             this.lNivelCombustible.Text = "Nivel de Combustible:";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(69, 335);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 29);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Detener";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 400);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.lNivelCombustible);
             this.Controls.Add(this.lAlarmaActiva);
             this.Controls.Add(this.lTemperatura);
@@ -303,6 +315,7 @@
         private System.Windows.Forms.Label lTemperatura;
         private System.Windows.Forms.Label lAlarmaActiva;
         private System.Windows.Forms.Label lNivelCombustible;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -12,7 +12,9 @@ namespace DataAccessLayer.Intefaces
         void AddLectura(LecturaSensor sen);
 
 
-        List<LecturaSensor> GetAllLecturas();
+        List<LecturaSensor> GetAllLecturas(int id_sens);
+
+        List<LecturaSensor> GetLast10Lecturas(int id_sens);
 
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Empresa.cs" />
+    <Compile Include="Entities\Evento.cs" />
     <Compile Include="Entities\LecturaSensor.cs" />
     <Compile Include="Entities\Sensor.cs" />
     <Compile Include="Entities\Tipo_Evento.cs" />

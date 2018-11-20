@@ -16,11 +16,13 @@ namespace EmuladorSensor
 {
     public partial class Form1 : Form
     {
+        private Thread hiloSender;
         public Form1()
         {
             InitializeComponent();
             InicializaCombos();
             InicializarCampos(false);
+            hiloSender = new Thread(EnvioLecturas);
 
         }
 
@@ -68,14 +70,7 @@ namespace EmuladorSensor
             this.Presion.Text = "-1";
             this.Temperatura.Text = "-1";
             this.NivelCombustible.Text = "-1";
-            this.lLatitud.Visible = visible;
-            this.lLongitud.Visible = visible;
-            this.lAceleracion.Visible = visible;
-            this.lVelocidad.Visible = visible;
-            this.lPresion.Visible = visible;
-            this.lTemperatura.Visible = visible;
-            this.lAlarmaActiva.Visible = visible;
-            this.lNivelCombustible.Visible = visible;
+            
         }
 
         private void Tipo_Sen_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,10 +101,10 @@ namespace EmuladorSensor
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void EnvioLecturas()
         {
-
-            while (true) {
+            while (true)
+            {
                 LecturaSensor lec = new LecturaSensor();
                 lec.Latitud = float.Parse(this.Latitude.Text);
                 lec.Longitud = float.Parse(this.Longitud.Text);
@@ -119,7 +114,7 @@ namespace EmuladorSensor
                 lec.Velocidad = int.Parse(this.Velocidad.Text);
                 lec.Nivel_Combustible = int.Parse(this.NivelCombustible.Text);
                 lec.SensorRef = int.Parse(this.IdSensor.Text);
-                lec.FechaLectura = DateTime.Today;
+                lec.FechaLectura = DateTime.Now;
                 if (this.AlarmaActiva.SelectedItem.Equals("A"))
                 {
                     lec.Alarma_Activa = true;
@@ -132,9 +127,19 @@ namespace EmuladorSensor
                 Console.WriteLine(Call(lec));
                 Thread.Sleep(5000);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            hiloSender.Start();
+            
             
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hiloSender.Abort();
+        }
     }
 }

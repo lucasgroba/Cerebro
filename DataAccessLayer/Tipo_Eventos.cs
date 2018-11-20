@@ -18,6 +18,7 @@ namespace DataAccessLayer
         public Tipo_Eventos()
         {
             this.Vehiculos = new HashSet<Vehiculos>();
+            this.Eventos = new HashSet<Eventos>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace DataAccessLayer
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculos> Vehiculos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Eventos> Eventos { get; set; }
     }
 }

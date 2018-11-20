@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Controladores\BLEmpleado.cs" />
     <Compile Include="Controladores\BLEmpresa.cs" />
+    <Compile Include="Controladores\BLEvento.cs" />
     <Compile Include="Controladores\BLLecturaSensor.cs" />
     <Compile Include="Controladores\BLSensor.cs" />
     <Compile Include="Controladores\BLTipo_Evento.cs" />

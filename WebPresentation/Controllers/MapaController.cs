@@ -19,22 +19,24 @@ namespace WebPresentation.Controllers
 
         public ActionResult ControlFlota(int id)
         {
+            List<Evento> listaEventos = new List<Evento>();
             string markers = "[";
             Empresa emp = blEmpresa.GetEmpresa(id);
             foreach( Vehiculo v in emp.Lista_Vehiculos)
             {
+                listaEventos.AddRange(v.Lista_Eventos);
                 markers += "{";
-                markers += "title: ' ";
+                markers += "'title': ' ";
                 markers += v.Marca;
                 markers +="  "+ v.Modelo+"' ,";
-                markers += "Description:'" + blemp.GetEmpleado(v.Id_Empleado).Nombre +"', ";
+                markers += "'description':'" + blemp.GetEmpleado(v.Id_Empleado).Nombre +"', ";
                 foreach(Sensor s in v.Lista_Sensores)
                 {
                     if (s.Tipo_Sensor.Equals("G"))
                     {
                         LecturaSensor l= s.GetUltimaLectura();
-                        markers += "lat: '" + l.Latitud.ToString()+" ',";
-                        markers += "lng: '" + l.Longitud.ToString() + "' }";
+                        markers += "'lat': '" + l.Latitud.ToString()+" ',";
+                        markers += "'lng': '" + l.Longitud.ToString() + "' }";
                     }
 
                 }
@@ -42,9 +44,11 @@ namespace WebPresentation.Controllers
                 {
                     markers += " , ";
                 }
+
             }
             markers += "]";
             ViewBag.Markers = markers;
+            ViewBag.Eventos = listaEventos;
             return View();
         }
     }
