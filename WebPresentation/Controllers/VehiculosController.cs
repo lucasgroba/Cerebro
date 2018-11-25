@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.Controladores;
 using SHARE.Entities;
+using WebPresentation.Models;
 
 namespace WebPresentation
 {
@@ -16,35 +17,32 @@ namespace WebPresentation
         private BLEmpresa emp = new BLEmpresa();
 
         // GET: Vehiculos
-        public ActionResult Index(int id)
+        public ActionResult Index(int idemp)
         {
-            var vehiculos = emp.GetEmpresa(id);          //Vehiculos.Include(v => v.Empresas);
-            return View(vehiculos.Lista_Vehiculos);
+            var empresa = emp.GetEmpresa(idemp);
+            return View(empresa.Lista_Vehiculos);
         }
 
         // GET: Vehiculos/Details/5
         public ActionResult Details(int idemp, int idvehi)
         {
             var empresa = emp.GetEmpresa(idemp);
-            var vehiculos = empresa.Lista_Vehiculos.Find(x => x.Id == idvehi);
+            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
             if (idemp == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //BLVehiculo vehiculos = empresa.Lista_Vehiculos.Find(id);
-            if (vehiculos == null)
+            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
+            if (vehiculo == null)
             {
                 return HttpNotFound();
             }
-            return View(vehiculos);
+            return View(vehiculo);
         }
 
         // GET: Vehiculos/Create
         public ActionResult Create()
         {
-            var empresas = emp.GetAllEmpresas();
-
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre");
             return View();
         }
 
@@ -53,38 +51,34 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,RUT_Empresa")] Vehiculo vehiculos, int idemp)
+        public ActionResult Create([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo, int idemp)
         {
             var empresa = emp.GetEmpresa(idemp);
-            var empresas = emp.GetAllEmpresas();
             if (ModelState.IsValid)
             {
-                empresa.Lista_Vehiculos.Add(vehiculos);
+                empresa.Lista_Vehiculos.Add(vehiculo);
                 //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", vehiculos.EmpresaRef);
-            return View(vehiculos);
+            return View(vehiculo);
         }
 
         // GET: Vehiculos/Edit/5
         public ActionResult Edit(int idemp, int idvehi)
         {
             var empresa = emp.GetEmpresa(idemp);
-            var empresas = emp.GetAllEmpresas();
-            var vehiculos = empresa.Lista_Vehiculos.Find(x => x.Id == idvehi);
+            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
             if (idemp == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Vehiculos vehiculos = db.Vehiculos.Find(id);
-            if (vehiculos == null)
+            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
+            if (vehiculo == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", vehiculos.EmpresaRef);
-            return View(vehiculos);
+            return View(vehiculo);
         }
 
         // POST: Vehiculos/Edit/5
@@ -92,33 +86,32 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,RUT_Empresa")] Vehiculo vehiculos)
+        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(vehiculos).State = EntityState.Modified;
+                //db.Entry(vehiculo).State = EntityState.Modified;
                 //db.SaveChanges();
                 //return RedirectToAction("Index");
             }
-            //ViewBag.RUT_Empresa = new SelectList(db.Empresas, "RUT", "Nombre", vehiculos.RUT_Empresa);
-            return View(vehiculos);
+            return View(vehiculo);
         }
 
         // GET: Vehiculos/Delete/5
         public ActionResult Delete(int idemp, int idvehi)
         {
             var empresa = emp.GetEmpresa(idemp);
-            var vehiculos = empresa.Lista_Vehiculos.Find(x => x.Id == idvehi);
+            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
             if (idemp == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Vehiculos vehiculos = db.Vehiculos.Find(id);
-            if (vehiculos == null)
+            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
+            if (vehiculo == null)
             {
                 return HttpNotFound();
             }
-            return View(vehiculos);
+            return View(vehiculo);
         }
 
         // POST: Vehiculos/Delete/5
@@ -127,8 +120,8 @@ namespace WebPresentation
         public ActionResult DeleteConfirmed(int idemp, int idvehi)
         {
             var empresa = emp.GetEmpresa(idemp);
-            var vehiculos = empresa.Lista_Vehiculos.Find(x => x.Id == idvehi);
-            empresa.Lista_Vehiculos.Remove(vehiculos);
+            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            empresa.Lista_Vehiculos.Remove(vehiculo);
             //db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -137,7 +130,7 @@ namespace WebPresentation
         {
             if (disposing)
             {
-              //  db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -268,3 +268,6 @@ C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\DataAccess
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\DataAccessLayer.dll.config
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\SHARE.pdb
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\SHARE.dll.config
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\BusinessLayer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\BusinessLayer.pdb
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebPresentation\bin\BusinessLayer.dll.config

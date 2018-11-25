@@ -19,3 +19,16 @@ C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\Data
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\SHARE.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\SHARE.pdb
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\SHARE.dll.config
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete

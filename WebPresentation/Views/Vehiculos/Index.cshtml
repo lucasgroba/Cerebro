@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAccessLayer.Vehiculos>
+﻿@model IEnumerable<SHARE.Entities.Vehiculo>
 
 @{
     ViewBag.Title = "Index";
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Activo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RUT_Empresa)
+            @Html.DisplayNameFor(model => model.EmpresaRef)
         </th>
         <th></th>
     </tr>
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RUT_Empresa)
+            @Html.DisplayFor(modelItem => item.EmpresaRef)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

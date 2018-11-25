@@ -1,4 +1,4 @@
-﻿@model DataAccessLayer.Vehiculos
+﻿@model SHARE.Entities.Vehiculo
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Vehiculos</h4>
+    <h4>Vehiculo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -43,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Empresas.Nombre)
+            @Html.DisplayNameFor(model => model.EmpresaRef)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Empresas.Nombre)
+            @Html.DisplayFor(model => model.EmpresaRef)
         </dd>
 
     </dl>

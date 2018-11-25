@@ -49,13 +49,12 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RUT,Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresa)
+        public ActionResult Create([Bind(Include = "Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresa)
         {
             var empresas = emp.GetAllEmpresas();
             if (ModelState.IsValid)
             {
-                empresas.Remove(empresa);
-                //db.SaveChanges();
+                emp.AltaEmpresa(empresa);
                 return RedirectToAction("Index");
             }
 
@@ -83,7 +82,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RUT,Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
+        public ActionResult Edit([Bind(Include = "Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
         {
             if (ModelState.IsValid)
             {
@@ -98,16 +97,17 @@ namespace WebPresentation
         public ActionResult Delete(int id)
         {
             var empresas = emp.GetAllEmpresas();
+            var empresa = empresas.Find(x => x.RUT == id);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empresa empresa = empresas.Find(x => x.RUT == id);
-            if (empresas == null)
+            //Empresa empresa = empresas.Find(x => x.RUT == id);
+            if (empresa == null)
             {
                 return HttpNotFound();
             }
-            return View(empresas);
+            return View(empresa);
         }
 
         // POST: Empresas/Delete/5

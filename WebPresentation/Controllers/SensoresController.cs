@@ -91,7 +91,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,Id_Vehiculo,Tipo_Sensor")] Sensores sensores)
+        public ActionResult Edit([Bind(Include = "Id,Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,Id_Vehiculo,Tipo_Sensor")] Sensor sensores)
         {
             if (ModelState.IsValid)
             {
