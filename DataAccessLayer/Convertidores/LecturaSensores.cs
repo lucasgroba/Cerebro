@@ -34,7 +34,7 @@ namespace DataAccessLayer
             this.Aceleracion = lec.Aceleracion;
             this.Alarma_Activa = lec.Alarma_Activa;
             this.Fecha_Lectura = lec.FechaLectura;
-            this.Latitud = lec.Longitud;
+            this.Latitud = lec.Latitud;
             this.Nivel_Combustible = lec.Nivel_Combustible;
             this.Presion = lec.Presion;
             this.Id_Sensor = lec.SensorRef;

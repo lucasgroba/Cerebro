@@ -28,5 +28,10 @@ namespace BusinessLayer.Controladores
             DALEmp.DeleteVehiculo(id);
         }
 
+        public Vehiculo GetVehiculo(int id)
+        {
+            return DALEmp.GetVehiculo(id);
+        }
+
     }
 }

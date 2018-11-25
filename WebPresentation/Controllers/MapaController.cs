@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace WebPresentation.Controllers
 {
+    //[Authorize(Roles ="")]
     public class MapaController : Controller
     {
         BLEmpleado blemp = new BLEmpleado();

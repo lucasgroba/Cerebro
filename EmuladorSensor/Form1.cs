@@ -133,13 +133,12 @@ namespace EmuladorSensor
         {
 
             hiloSender.Start();
-            
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            hiloSender.Abort();
+            hiloSender.Suspend();
         }
     }
 }

@@ -52,6 +52,7 @@ namespace DataAccessLayer.Controladores
             }
         }
 
+
         public void UpdateVehiculo(Vehiculo vehi)
         {
             DeleteVehiculo(vehi.Id);

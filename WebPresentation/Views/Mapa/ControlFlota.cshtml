@@ -14,6 +14,7 @@
     <script src="~/scripts/bootstrap.min.js"></script>
     <script src="~/scripts/jquery.validate.min.js"></script>
     <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/EventoHub.js"></script>
     <script type="text/javascript">
 
         var markers = @Html.Raw(ViewBag.Markers);
@@ -70,6 +71,9 @@
                                                     <th scope="col">Fecha</th>
                                                     <th scope="col">Vehiculo</th>
                                                     <th scope="col">Tipo Evento</th>
+                                                    <th scope="col">Latitud</th>
+                                                    <th scope="col">Longitud</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -88,7 +92,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger rounded-0" data-dismiss="modal">Close</button>
@@ -99,9 +103,27 @@
                     </div>
                     <div id="dvMap" class="card" style="width: 100%; height: 400px">
                     </div>
+                    <div id="dvEvent" class="table-responsive" style="width:100%; height: 400px">
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID_Evento</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Vehiculo</th>
+                                        <th scope="col">Tipo Evento</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="Teventos">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     }
 </body>
+
 </html> 

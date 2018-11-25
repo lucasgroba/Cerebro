@@ -18,5 +18,7 @@ namespace DataAccessLayer.Intefaces
         List<Vehiculo> GetAllVehiculos();
 
         Vehiculo GetVehiculo(int id);
+
+       
     }
 }

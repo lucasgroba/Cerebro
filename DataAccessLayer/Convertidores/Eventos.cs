@@ -18,7 +18,7 @@ namespace DataAccessLayer
             this.Id = e.Id;
             this.Fecha = e.Fecha;
             this.Tipo_EventoRef = e.TipoEventoRef.Id;
-            this.Vehiculos.setModel(DAL_V.GetVehiculo(e.VehiculoRef));
+            this.VehiculoRef = e.VehiculoRef;
 
         }
         public Evento getEntity()
