@@ -147,3 +147,5 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\SHARE.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\SHARE.dll.config
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\DataAccessLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\DataAccessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebPresentation\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb

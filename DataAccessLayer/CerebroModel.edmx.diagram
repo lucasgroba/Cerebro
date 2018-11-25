@@ -22,10 +22,10 @@
         <AssociationConnector Association="CEREBROModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="CEREBROModel.Empresa_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="CEREBROModel.Vehiculo_Tipo_Evento" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CEREBROModel.LecturaSensores" Width="1.5" PointX="12.25" PointY="11.125" />
+        <EntityTypeShape EntityType="CEREBROModel.LecturaSensores" Width="1.5" PointX="10.625" PointY="10.875" />
         <AssociationConnector Association="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" />
         <EntityTypeShape EntityType="CEREBROModel.C__MigrationHistory" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CEREBROModel.Eventos" Width="1.5" PointX="10.5" PointY="4" />
+        <EntityTypeShape EntityType="CEREBROModel.Eventos" Width="1.5" PointX="11" PointY="4.5" />
         <AssociationConnector Association="CEREBROModel.FK__Eventos__Tipo_Ev__32767D0B" />
         <AssociationConnector Association="CEREBROModel.FK__Eventos__Vehicul__336AA144" />
       </Diagram>

@@ -16,13 +16,17 @@ namespace BusinessLayer.Controladores
         IDALE_Sensor DALESensor = new DALE_Sensores();
         IDALE_Vehiculo DALEVehiculo = new DALE_Vehiculo();
         IDALE_Tipo_Evento DALETipo_Evento = new DALE_Tipo_Evento();
-        IDALE_Evento DALE_Evento = new DALE_Evento();
-        public void AltaLectura(LecturaSensor lec)
+        BLEvento blEvento = new BLEvento();
+        public List<Evento> AltaLectura(LecturaSensor lec)
         {
             if (lec != null) {
 
                 DALELectura.AddLectura(lec);
-                AnalizoLecturas(lec);
+                return AnalizoEventos(lec);
+            }
+            else
+            {
+               return null;
             }
 
         }
@@ -191,7 +195,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
                                         
@@ -206,7 +210,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
 
@@ -230,7 +234,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -244,7 +248,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -266,7 +270,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -289,7 +293,7 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
-                                            DALE_Evento.AddEvento(nuevo);
+                                            blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
                                     }
