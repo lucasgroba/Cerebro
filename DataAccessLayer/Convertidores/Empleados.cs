@@ -16,7 +16,7 @@ namespace DataAccessLayer
             Activo = emp.Activo;
             Direccion = emp.Direccion;
             Nombre = emp.Nombre;
-            RUT_Empresa = emp.EmpresaRef;
+            RUT_Empresa = emp.RUT_Empresa;
             Tel = emp.Tel;
         }
 
@@ -28,7 +28,7 @@ namespace DataAccessLayer
             nuevo.Direccion = Direccion;
             nuevo.Nombre = Nombre;
             nuevo.Tel = (int)Tel;
-            nuevo.EmpresaRef = (int)this.RUT_Empresa;
+            nuevo.RUT_Empresa = (int)this.RUT_Empresa;
             return nuevo;
 
         }

@@ -14,7 +14,6 @@ namespace DataAccessLayer
         {
             Activo = (bool)emp.Activo;
             Nombre = emp.Nombre;
-            RUT = emp.RUT;
             Zona_Latitud = (Double)emp.Zona_Latitud;
             Zona_Longitud = (Double)emp.Zona_Longitud;
             this.Empleados = new ConvertType().EmpleadoToEmpleadoDB(emp.Lista_Empleados, emp.RUT);

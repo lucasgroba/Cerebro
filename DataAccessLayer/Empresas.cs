@@ -27,7 +27,7 @@ namespace DataAccessLayer
         public Nullable<double> Zona_Latitud { get; set; }
         public Nullable<double> Zona_Longitud { get; set; }
         public Nullable<bool> Activo { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Empleados> Empleados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
