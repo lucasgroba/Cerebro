@@ -27,5 +27,10 @@ namespace BusinessLayer.Controladores
             DALEmp.DeleteEmpresa(RUT);
         }
         public Empresa GetEmpresa(int id) => DALEmp.GetEmpresa(id);
+
+        public List<Empresa> GetAllEmpresas()
+        {
+            return DALEmp.GetAllEmpresas();
+        }
     }
 }

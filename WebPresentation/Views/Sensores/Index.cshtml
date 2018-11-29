@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAccessLayer.Sensores>
+﻿@model IEnumerable<SHARE.Entities.Sensor>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Api)
+            @Html.DisplayNameFor(model => model.API)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Maximo)
@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.Tipo_Sensor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Vehiculos.Marca)
+            @Html.DisplayNameFor(model => model.VehiculoRef)
         </th>
         <th></th>
     </tr>
@@ -41,7 +41,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Api)
+            @Html.DisplayFor(modelItem => item.API)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Maximo)
@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.Tipo_Sensor)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Vehiculos.Marca)
+            @Html.DisplayFor(modelItem => item.VehiculoRef)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

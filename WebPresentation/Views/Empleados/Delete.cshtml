@@ -1,4 +1,4 @@
-﻿@model DataAccessLayer.Empleados
+﻿@model SHARE.Entities.Empleado
 
 @{
     ViewBag.Title = "Delete";
@@ -52,11 +52,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Empresas.Nombre)
+            @Html.DisplayNameFor(model => model.RUT_Empresa)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Empresas.Nombre)
+            @Html.DisplayFor(model => model.RUT_Empresa)
         </dd>
 
     </dl>

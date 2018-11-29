@@ -31,5 +31,10 @@ namespace BusinessLayer.Controladores
         {
             return DALEmp.GetEmpleado(id);
         }
+
+        public List<Empleado> GetAllEmpleados()
+        {
+            return DALEmp.GetAllEmpleados();
+        }
     }
 }

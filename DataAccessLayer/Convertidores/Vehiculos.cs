@@ -38,6 +38,7 @@ namespace DataAccessLayer
             nuevo.Marca = Marca;
             nuevo.Modelo = Modelo;
             nuevo.Activo = (bool)Activo;
+            nuevo.EmpresaRef = Id;
             nuevo.Lista_Sensores = new ConvertType().SensorDBToSensor(this.Sensores.ToList<Sensores>());
             nuevo.Lista_Tipo_Eventos = new ConvertType().Tipo_EventoDBToTipo_Evento(this.Tipo_Evento.ToList<Tipo_Eventos>());
             nuevo.Lista_Eventos = new ConvertType().EventoDBToEvento(this.Eventos.ToList<Eventos>());

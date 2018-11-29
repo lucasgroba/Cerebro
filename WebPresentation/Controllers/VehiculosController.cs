@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
 using BusinessLayer.Controladores;
 using SHARE.Entities;
-using WebPresentation.Models;
 
 namespace WebPresentation
 {
     public class VehiculosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();
+        private BLVehiculo vehi = new BLVehiculo();
 
         // GET: Vehiculos
-        public ActionResult Index(int idemp)
+        public ActionResult Index()
         {
-            var empresa = emp.GetEmpresa(idemp);
-            return View(empresa.Lista_Vehiculos);
+            var vehiculos = vehi.GetAllVehiculos();
+            return View(vehiculos);
         }
 
         // GET: Vehiculos/Details/5
-        public ActionResult Details(int idemp, int idvehi)
+        public ActionResult Details(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
-            if (idemp == 0)
+            var vehiculo = vehi.GetVehiculo(id);    //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -51,13 +44,11 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo, int idemp)
+        public ActionResult Create([Bind(Include = "Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
         {
-            var empresa = emp.GetEmpresa(idemp);
             if (ModelState.IsValid)
             {
-                empresa.Lista_Vehiculos.Add(vehiculo);
-                //db.SaveChanges();
+                vehi.AltaVehiculo(vehiculo);
                 return RedirectToAction("Index");
             }
 
@@ -65,11 +56,10 @@ namespace WebPresentation
         }
 
         // GET: Vehiculos/Edit/5
-        public ActionResult Edit(int idemp, int idvehi)
+        public ActionResult Edit(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
-            if (idemp == 0)
+            var vehiculo = vehi.GetVehiculo(id); //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -86,23 +76,21 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
+        public ActionResult Edit([Bind(Include = "Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(vehiculo).State = EntityState.Modified;
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
+                vehi.UpdateVehiculo(vehiculo);
+                return RedirectToAction("Index");
             }
             return View(vehiculo);
         }
 
         // GET: Vehiculos/Delete/5
-        public ActionResult Delete(int idemp, int idvehi)
+        public ActionResult Delete(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
-            if (idemp == 0)
+            var vehiculo = vehi.GetVehiculo(id);   //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -117,12 +105,9 @@ namespace WebPresentation
         // POST: Vehiculos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int idemp, int idvehi)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var vehiculo = empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
-            empresa.Lista_Vehiculos.Remove(vehiculo);
-            //db.SaveChanges();
+            vehi.DeleteVehiculo(id);
             return RedirectToAction("Index");
         }
 
