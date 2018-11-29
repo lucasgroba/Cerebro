@@ -57,8 +57,14 @@ namespace DataAccessLayer.Controladores
 
         public void UpdateEvento(Evento e)
         {
-            DeleteEvento(e.Id);
-            AddEvento(e);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Eventos ev = db.Eventos.Find(e.Id);
+                ev.setModel(e);
+                db.Eventos.Attach(ev);
+                db.SaveChanges();
+                
+            }
         }
     }
 }

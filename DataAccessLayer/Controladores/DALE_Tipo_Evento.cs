@@ -54,8 +54,14 @@ namespace DataAccessLayer.Controladores
 
         public void UpdateTipo_Evento(Tipo_Evento eve)
         {
-            DeleteTipo_Evento(eve.Id);
-            AddTipo_Evento(eve);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Tipo_Eventos e = db.Tipo_Evento.Find(eve.Id);
+                e.setModel(eve);
+                db.Tipo_Evento.Attach(e);
+                db.SaveChanges();
+
+            }
         }
     }
 }

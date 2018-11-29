@@ -131,14 +131,20 @@ namespace EmuladorSensor
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            hiloSender.Start();
+            if (hiloSender.ThreadState.ToString().Equals("Suspended")) {
+                hiloSender.Resume();
+            }
+            else
+            {
+                hiloSender.Start();
+            }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             hiloSender.Suspend();
+            
         }
     }
 }

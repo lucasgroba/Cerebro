@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTOs\DTOEventoHub.cs" />
+    <Compile Include="DTOs\DTOLecturaHub.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Evento.cs" />

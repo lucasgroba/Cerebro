@@ -18,6 +18,8 @@ namespace DataAccessLayer
         public Nullable<System.DateTime> Fecha { get; set; }
         public int Tipo_EventoRef { get; set; }
         public int VehiculoRef { get; set; }
+        public Nullable<double> Latitud { get; set; }
+        public Nullable<double> Longitud { get; set; }
     
         public virtual Tipo_Eventos Tipo_Evento { get; set; }
         public virtual Vehiculos Vehiculos { get; set; }

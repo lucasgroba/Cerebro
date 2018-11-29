@@ -58,8 +58,14 @@ namespace DataAccessLayer
 
         public void UpdateEmpresa(Empresa emp)
         {
-            DeleteEmpresa(emp.RUT);
-            AddEmpresa(emp);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Empresas e = db.Empresas.Find(emp.RUT);
+                e.setModel(emp);
+                db.Empresas.Attach(e);
+                db.SaveChanges();
+
+            }
         }
 
 

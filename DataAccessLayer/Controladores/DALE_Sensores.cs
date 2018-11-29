@@ -51,8 +51,14 @@ namespace DataAccessLayer.Controladores
 
         public void UpdateSensor(Sensor sen)
         {
-            DeleteSensor(sen.Id);
-            AddSensor(sen);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Sensores e = db.Sensores.Find(sen.Id);
+                e.setModel(sen);
+                db.Sensores.Attach(e);
+                db.SaveChanges();
+
+            }
         }
     }
 }

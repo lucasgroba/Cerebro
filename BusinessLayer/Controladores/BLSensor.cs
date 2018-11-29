@@ -29,5 +29,11 @@ namespace BusinessLayer.Controladores
             DALEmp.DeleteSensor(id);
         }
 
+        public Sensor GetSensor(int id)
+        {
+            return DALEmp.GetSensor(id);
+
+        }
+
     }
 }
