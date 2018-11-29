@@ -6,8 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using SHARE.DTOs;
 using WebPresentation.Hubs;
 
 
@@ -20,7 +23,9 @@ namespace WebApiLectura.Controllers
 
         private BLLecturaSensor BLLectura = new BLLecturaSensor();
         private BLVehiculo BLvehiculo = new BLVehiculo();
-        bool EnvioEvento = false;
+        private BLSensor BLSensor = new BLSensor();
+
+        bool EnvioEventoCoord = false;
         // GET: api/LecturaSensor/1
         public List<LecturaSensor> Get(int id)
         {
@@ -34,9 +39,15 @@ namespace WebApiLectura.Controllers
               
             if (value != null){
                 ListaEventos = BLLectura.AltaLectura(value);
-                if (ListaEventos != null)
+                if (BLLectura.ActualizoLectura(value))
                 {
-                    EventoHub hub = new EventoHub();
+                    DTOLecturaHub lec = new DTOLecturaHub();
+                    lec.Lectura = value;
+                    lec.VehiculoRef =BLvehiculo.GetVehiculo(BLSensor.GetSensor(value.SensorRef).VehiculoRef).Id;
+                    Task<String> responselec = CallLectura(lec);
+                }
+                if (!ListaEventos.Count.Equals(0))
+                {
                     Vehiculo nuevo = new Vehiculo();
                     nuevo = BLvehiculo.GetVehiculo(ListaEventos.First().VehiculoRef);
                     foreach(Sensor s in nuevo.Lista_Sensores)
@@ -44,13 +55,13 @@ namespace WebApiLectura.Controllers
                         if (s.Tipo_Sensor.Equals("G"))
                         {
                             
-                            hub.LanzarEvento(ListaEventos, s.GetUltimaLectura().Latitud, s.GetUltimaLectura().Longitud);
-                            EnvioEvento = true;
+                            Task<String> response = Call(ListaEventos);
+                            EnvioEventoCoord = true;
                         }
                     }
-                    if (!EnvioEvento)
+                    if (!EnvioEventoCoord)
                     {
-                        hub.LanzarEvento(ListaEventos);
+                        Task<String> response = Call(ListaEventos);
                     }
                     
                         
@@ -74,6 +85,36 @@ namespace WebApiLectura.Controllers
             
 
         }
+
+        static async Task<string> Call(List<Evento> ListaEventos)
+        {
+            
+                using (var cliente = new HttpClient())
+                {
+                    cliente.BaseAddress = new Uri("http://localhost:58143/");
+                    var content = new StringContent(JsonConvert.SerializeObject(ListaEventos), Encoding.UTF8, "application/json");
+                    var request = await cliente.PostAsync("EventosHub/Create", content);
+                    return await request.Content.ReadAsStringAsync();
+                }
+
+            
+        }
+
+
+        static async Task<string> CallLectura(DTOLecturaHub lec)
+        {
+
+            using (var cliente = new HttpClient())
+            {
+                cliente.BaseAddress = new Uri("http://localhost:58143/");
+                var content = new StringContent(JsonConvert.SerializeObject(lec), Encoding.UTF8, "application/json");
+                var request = await cliente.PostAsync("ActualizacionLocationHub/Create", content);
+                return await request.Content.ReadAsStringAsync();
+            }
+
+
+        }
+
 
     }
 }

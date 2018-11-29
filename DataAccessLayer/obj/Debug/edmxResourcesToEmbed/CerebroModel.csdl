@@ -304,6 +304,8 @@
     <Property Name="VehiculoRef" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Tipo_Evento" Relationship="CEREBROModel.FK__Eventos__Tipo_Ev__32767D0B" FromRole="Eventos" ToRole="Tipo_Eventos" />
     <NavigationProperty Name="Vehiculos" Relationship="CEREBROModel.FK__Eventos__Vehicul__336AA144" FromRole="Eventos" ToRole="Vehiculos" />
+    <Property Name="Latitud" Type="Double" />
+    <Property Name="Longitud" Type="Double" />
   </EntityType>
   <Association Name="FK__Eventos__Tipo_Ev__32767D0B">
     <End Type="CEREBROModel.Tipo_Eventos" Role="Tipo_Eventos" Multiplicity="1" />

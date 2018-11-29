@@ -55,6 +55,29 @@ namespace BusinessLayer.Controladores
             
         }
 
+        public bool ActualizoLectura(LecturaSensor lec)
+        {
+
+            if(lec != null)
+            {
+                Sensor nuevo = DALESensor.GetSensor(lec.SensorRef);
+                if (nuevo.Tipo_Sensor.Equals("G"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         public List<Evento> AnalizoLecturas(LecturaSensor lec) {
             Vehiculo veh;
             Sensor sen;
@@ -79,6 +102,8 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             retorno.Add(nuevo);
                                         }
                                     break;
@@ -89,6 +114,8 @@ namespace BusinessLayer.Controladores
                                         nuevo.TipoEventoRef = TE;
                                         nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                         nuevo.Fecha = lec.FechaLectura;
+                                        nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                        nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                         retorno.Add(nuevo);
                                       
                                     }
@@ -109,6 +136,8 @@ namespace BusinessLayer.Controladores
                                         nuevo.TipoEventoRef = TE;
                                         nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                         nuevo.Fecha = lec.FechaLectura;
+                                        nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                        nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                         retorno.Add(nuevo);
                                     }
                                     break;
@@ -119,6 +148,8 @@ namespace BusinessLayer.Controladores
                                         nuevo.TipoEventoRef = TE;
                                         nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                         nuevo.Fecha = lec.FechaLectura;
+                                        nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                        nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                         retorno.Add(nuevo);
                                     }
                                     break;
@@ -137,6 +168,8 @@ namespace BusinessLayer.Controladores
                                         nuevo.TipoEventoRef = TE;
                                         nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                         nuevo.Fecha = lec.FechaLectura;
+                                        nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                        nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                         retorno.Add(nuevo);
                                     }
                                     break;
@@ -156,6 +189,8 @@ namespace BusinessLayer.Controladores
                                         nuevo.TipoEventoRef = TE;
                                         nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                         nuevo.Fecha = lec.FechaLectura;
+                                        nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                        nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                         retorno.Add(nuevo);
                                     }
                                     break;
@@ -195,6 +230,8 @@ namespace BusinessLayer.Controladores
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
@@ -204,12 +241,14 @@ namespace BusinessLayer.Controladores
                                 case "A":
                                     if ((!(lec.Aceleracion <= TE.Maximo) || !(lec.Aceleracion >= TE.Minimo)) && lec.Aceleracion != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
@@ -228,12 +267,14 @@ namespace BusinessLayer.Controladores
                                 case "P":
                                     if ((!(lec.Presion <= TE.Maximo) || !(lec.Presion >= TE.Minimo)) && lec.Presion != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
@@ -242,12 +283,14 @@ namespace BusinessLayer.Controladores
                                 case "T":
                                     if ((!(lec.Temperatura <= TE.Maximo) || !(lec.Temperatura >= TE.Minimo)) && lec.Temperatura != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
@@ -264,12 +307,14 @@ namespace BusinessLayer.Controladores
                                 case "S":
                                     if (lec.Alarma_Activa)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }
@@ -287,12 +332,14 @@ namespace BusinessLayer.Controladores
                                 case "C":
                                     if (lec.Nivel_Combustible < TE.Minimo && lec.Nivel_Combustible != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef, TE.Maximo, TE.Minimo) < lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
                                             nuevo.VehiculoRef = DALESensor.GetSensor(lec.SensorRef).VehiculoRef;
                                             nuevo.Fecha = lec.FechaLectura;
+                                            nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
+                                            nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
                                             retorno.Add(nuevo);
                                         }

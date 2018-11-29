@@ -37,7 +37,9 @@ namespace WebPresentation.Controllers
                     {
                         LecturaSensor l= s.GetUltimaLectura();
                         markers += "'lat': '" + l.Latitud.ToString()+" ',";
-                        markers += "'lng': '" + l.Longitud.ToString() + "' }";
+                        markers += "'lng': '" + l.Longitud.ToString() + "',";
+                        markers += "'id': '" + s.VehiculoRef.ToString() + "'}";
+
                     }
 
                 }

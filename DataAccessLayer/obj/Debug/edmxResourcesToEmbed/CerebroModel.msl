@@ -165,6 +165,8 @@
     <EntitySetMapping Name="Eventos">
       <EntityTypeMapping TypeName="CEREBROModel.Eventos">
         <MappingFragment StoreEntitySet="Eventos">
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
           <ScalarProperty Name="VehiculoRef" ColumnName="VehiculoRef" />
           <ScalarProperty Name="Tipo_EventoRef" ColumnName="Tipo_EventoRef" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />

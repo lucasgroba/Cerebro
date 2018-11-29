@@ -55,8 +55,14 @@ namespace DataAccessLayer.Controladores
 
         public void UpdateVehiculo(Vehiculo vehi)
         {
-            DeleteVehiculo(vehi.Id);
-            AddVehiculo(vehi);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Vehiculos e = db.Vehiculos.Find(vehi.Id);
+                e.setModel(vehi);
+                db.Vehiculos.Attach(e);
+                db.SaveChanges();
+
+            }
         }
     }
 }

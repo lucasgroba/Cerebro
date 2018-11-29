@@ -98,6 +98,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fecha" Type="datetime" />
     <Property Name="Tipo_EventoRef" Type="int" Nullable="false" />
+    <Property Name="Latitud" Type="float" />
+    <Property Name="Longitud" Type="float" />
     <Property Name="VehiculoRef" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="LecturaSensores">
@@ -198,7 +200,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Eventos__Tipo_Ev__3B75D760">
+  <Association Name="FK__Eventos__Tipo_Ev__41B8C09B">
     <End Role="Tipo_Evento" Type="Self.Tipo_Evento" Multiplicity="1" />
     <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -210,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Eventos__Vehicul__3C69FB99">
+  <Association Name="FK__Eventos__Vehicul__42ACE4D4">
     <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
     <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -366,11 +368,11 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Empresa_Usuarios" EntitySet="Empresa_Usuarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__Eventos__Tipo_Ev__3B75D760" Association="Self.FK__Eventos__Tipo_Ev__3B75D760">
+    <AssociationSet Name="FK__Eventos__Tipo_Ev__41B8C09B" Association="Self.FK__Eventos__Tipo_Ev__41B8C09B">
       <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
       <End Role="Eventos" EntitySet="Eventos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Eventos__Vehicul__3C69FB99" Association="Self.FK__Eventos__Vehicul__3C69FB99">
+    <AssociationSet Name="FK__Eventos__Vehicul__42ACE4D4" Association="Self.FK__Eventos__Vehicul__42ACE4D4">
       <End Role="Vehiculos" EntitySet="Vehiculos" />
       <End Role="Eventos" EntitySet="Eventos" />
     </AssociationSet>

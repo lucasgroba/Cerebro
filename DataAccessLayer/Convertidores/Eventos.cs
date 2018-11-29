@@ -19,6 +19,8 @@ namespace DataAccessLayer
             this.Fecha = e.Fecha;
             this.Tipo_EventoRef = e.TipoEventoRef.Id;
             this.VehiculoRef = e.VehiculoRef;
+            this.Latitud = e.Latitud;
+            this.Longitud = e.Longitud;
 
         }
         public Evento getEntity()
@@ -28,6 +30,8 @@ namespace DataAccessLayer
             nuevo.Fecha = (DateTime)this.Fecha;
             nuevo.TipoEventoRef = DAL_T_E.GetTipo_Evento(this.Tipo_EventoRef);
             nuevo.VehiculoRef = this.VehiculoRef;
+            nuevo.Latitud = (float)this.Latitud;
+            nuevo.Longitud = (float)this.Longitud;
             return nuevo;
         }
     }

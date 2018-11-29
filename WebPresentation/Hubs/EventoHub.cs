@@ -9,14 +9,8 @@ namespace WebPresentation.Hubs
 {
     public class EventoHub : Hub
     {
-        public void LanzarEvento(List<Evento> le, float lat, float lng)
-        {
-            Clients.All.MostrarNuevosEventosCoord(le,lat,lng);
-        }
+       
 
-        public void LanzarEvento(List<Evento> le)
-        {
-            Clients.All.MostrarNuevosEventos(le);
-        }
     }
+
 }

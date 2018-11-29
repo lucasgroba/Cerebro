@@ -10,6 +10,8 @@ namespace SHARE.Entities
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
+        public float Latitud { get; set; }
+        public float Longitud { get; set; }
         public Tipo_Evento TipoEventoRef { get; set; }
         public int VehiculoRef { get; set; }
     }

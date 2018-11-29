@@ -56,8 +56,14 @@ namespace DataAccessLayer.Controladores
 
         public void UpdateEmpleado(Empleado emp)
         {
-            DeleteEmpleado(emp.Ci);
-            AddEmpleado(emp);
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Empleados e = db.Empleados.Find(emp.Ci);
+                e.setModel(emp);
+                db.Empleados.Attach(e);
+                db.SaveChanges();
+
+            }
         }
     }
 }

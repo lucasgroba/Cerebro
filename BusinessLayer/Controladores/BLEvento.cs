@@ -31,5 +31,24 @@ namespace BusinessLayer.Controladores
         {
             return DAL_E.GetEvento(id);
         }
+        public List<Evento> GetAllEvento()
+        {
+            return DAL_E.GetAllEvento();
+        }
+        public DateTime GetDateUltimoEvento(int idV, Tipo_Evento TE)
+        {
+            List<Evento> lista;
+            lista = this.GetAllEvento().FindAll(x => x.TipoEventoRef == TE && x.VehiculoRef == idV);
+            if(lista.Count != 0)
+            {
+                int idMax = lista.Max(x => x.Id);
+                return lista.Find(x => x.Id == idMax).Fecha;
+            }
+            else
+            {
+                return DateTime.Now;
+            }
+            
+        }
     }
 }

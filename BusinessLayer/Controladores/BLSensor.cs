@@ -38,5 +38,11 @@ namespace BusinessLayer.Controladores
             return DALEmp.GetAllSensor();
         }
 
+        public Sensor GetSensor(int id)
+        {
+            return DALEmp.GetSensor(id);
+
+        }
+
     }
 }
