@@ -15,10 +15,6 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\DataAccessLayer\bin\Debug\SHARE.dll.config
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.dll
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
@@ -31,4 +27,8 @@ C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\Enti
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\es\EntityFramework.resources.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

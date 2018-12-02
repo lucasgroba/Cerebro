@@ -75,7 +75,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
+        public ActionResult Edit([Bind(Include = "RUT,Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
         {
             if (ModelState.IsValid)
             {

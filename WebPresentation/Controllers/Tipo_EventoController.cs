@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Controladores;
 using SHARE.Entities;
+using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
 
@@ -9,6 +10,9 @@ namespace WebPresentation
     {
         private BLVehiculo vehi = new BLVehiculo();
         private BLTipo_Evento teven = new BLTipo_Evento();
+        private List<SelectListItem> Options = new List<SelectListItem>();
+        private List<SelectListItem> OptionsAction = new List<SelectListItem>();
+
 
         // GET: Tipo_Evento
         public ActionResult Index()
@@ -37,6 +41,19 @@ namespace WebPresentation
         // GET: Tipo_Evento/Create
         public ActionResult Create()
         {
+            OptionsAction.Add(new SelectListItem() { Text = "Mail", Value = "M" });
+            OptionsAction.Add(new SelectListItem() { Text = "Evento", Value = "E" });
+
+            Options.Add(new SelectListItem() { Text = "Velocidad", Value = "V" });
+            Options.Add(new SelectListItem() { Text = "Aceleracion", Value = "A" });
+            Options.Add(new SelectListItem() { Text = "Presion", Value = "P" });
+            Options.Add(new SelectListItem() { Text = "Temperatura", Value = "T" });
+            Options.Add(new SelectListItem() { Text = "Alarma", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+
+            ViewBag.OptionsAction = OptionsAction;
+            ViewBag.Options = Options;
+
             return View();
         }
 
@@ -45,9 +62,9 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Periodo,Maximo,Minimo,Accion,Activo")] Tipo_Evento tipo_Evento)
+        public ActionResult Create([Bind(Include = "Periodo,Nombre,Maximo,Minimo,Accion,Activo,TipoLectura")] Tipo_Evento tipo_Evento)
         {
-            var tipo_eventos = teven.GetAllTipo_Eventos();
+            //var tipo_eventos = teven.GetAllTipo_Eventos();
             if (ModelState.IsValid)
             {
                 teven.AltaVehiculo(tipo_Evento);
@@ -60,6 +77,19 @@ namespace WebPresentation
         // GET: Tipo_Evento/Edit/5
         public ActionResult Edit(int id)
         {
+            OptionsAction.Add(new SelectListItem() { Text = "Mail", Value = "M" });
+            OptionsAction.Add(new SelectListItem() { Text = "Evento", Value = "E" });
+
+            Options.Add(new SelectListItem() { Text = "Velocidad", Value = "V" });
+            Options.Add(new SelectListItem() { Text = "Aceleracion", Value = "A" });
+            Options.Add(new SelectListItem() { Text = "Presion", Value = "P" });
+            Options.Add(new SelectListItem() { Text = "Temperatura", Value = "T" });
+            Options.Add(new SelectListItem() { Text = "Alarma", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+
+            ViewBag.OptionsAction = OptionsAction;
+            ViewBag.Options = Options;
+
             //var vehiculos = vehi.GetAllVehiculos();
             var tevento = teven.GetTipo_Evento(id);// vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
             if (id == 0)
@@ -79,7 +109,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Periodo,Maximo,Minimo,Accion,Activo")] Tipo_Evento tipo_Eventos)
+        public ActionResult Edit([Bind(Include = "Id,Periodo,Nombre,Maximo,Minimo,Accion,Activo,TipoLectura")] Tipo_Evento tipo_Eventos)
         {
             if (ModelState.IsValid)
             {

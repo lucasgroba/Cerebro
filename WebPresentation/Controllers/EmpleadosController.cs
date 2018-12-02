@@ -48,7 +48,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Ci,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleado)
+        public ActionResult Create([Bind(Include = "Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleado)
         {
             var empleados = emple.GetAllEmpleados();
             if (ModelState.IsValid)
@@ -64,18 +64,18 @@ namespace WebPresentation
         // GET: Empleados/Edit/5
         public ActionResult Edit(int id)
         {
-            //var empresas = emp.GetAllEmpresas();
-            var empleados = emple.GetAllEmpleados();  //empresa.Lista_Empleados.Find(x => x.Ci == idemple);
+            var empresas = emp.GetAllEmpresas();
+            var empleado = emple.GetEmpleado(id);  //empresa.Lista_Empleados.Find(x => x.Ci == idemple);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = emple.GetEmpleado(id); //empleados.Find(x => x.Ci == id);
+            //Empleado empleado = emple.GetEmpleado(id); //empleados.Find(x => x.Ci == id);
             if (empleado == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
+            //ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleado.RUT_Empresa);
             return View(empleado);
         }
 
@@ -84,16 +84,15 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Ci,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleados)
+        public ActionResult Edit([Bind(Include = "CI,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleado)
         {
-           // var empresas = emp.GetAllEmpresas();
             if (ModelState.IsValid)
             {
-                emple.UpdateEmpleado(empleados);
+                emple.UpdateEmpleado(empleado);
                 return RedirectToAction("Index");
             }
            // ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
-            return View(empleados);
+            return View(empleado);
         }
 
         // GET: Empleados/Delete/5

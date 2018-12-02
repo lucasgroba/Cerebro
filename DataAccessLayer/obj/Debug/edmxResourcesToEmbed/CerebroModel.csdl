@@ -54,7 +54,7 @@
     <Key>
       <PropertyRef Name="Ci" />
     </Key>
-    <Property Name="Ci" Type="Int32" Nullable="false" />
+    <Property Name="Ci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
     <Property Name="Tel" Type="Int32" />

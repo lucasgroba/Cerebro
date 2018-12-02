@@ -72,7 +72,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.VehiculoRef, "Id_Vehiculo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Id_Vehiculo", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.VehiculoRef, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.VehiculoRef, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,7 +80,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Tipo_Sensor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tipo_Sensor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(X => X.Tipo_Sensor, (IEnumerable<SelectListItem>)ViewBag.Options, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Tipo_Sensor, "", new { @class = "text-danger" })
             </div>
         </div>

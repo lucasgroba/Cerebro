@@ -13,10 +13,12 @@ namespace DataAccessLayer
         public void setModel(Empleado emp)
         {
             Ci = emp.Ci;
-            Activo = emp.Activo;
+            Activo = (bool)emp.Activo;
             Direccion = emp.Direccion;
+            Fecha_Nac = emp.Fecha_Nac;
             Nombre = emp.Nombre;
-            Tel = emp.Tel;
+            Tel = (int)emp.Tel;
+            RUT_Empresa = emp.RUT_Empresa;
         }
 
         public Empleado getEntity()
@@ -25,9 +27,10 @@ namespace DataAccessLayer
             nuevo.Ci = Ci;
             nuevo.Activo = (bool)Activo;
             nuevo.Direccion = Direccion;
+            nuevo.Fecha_Nac = (DateTime)Fecha_Nac;
             nuevo.Nombre = Nombre;
             nuevo.Tel = (int)Tel;
-            nuevo.RUT_Empresa = (int)this.RUT_Empresa;
+            nuevo.RUT_Empresa = (int)RUT_Empresa;
             return nuevo;
 
         }

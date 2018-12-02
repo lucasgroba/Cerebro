@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Controladores;
 using SHARE.Entities;
+using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
 
@@ -9,6 +11,8 @@ namespace WebPresentation
     {
         private BLVehiculo vehi = new BLVehiculo();
         private BLSensor sens = new BLSensor();
+        private List<SelectListItem> Options = new List<SelectListItem>();
+        
         
         // GET: Sensores
         public ActionResult Index()
@@ -39,6 +43,12 @@ namespace WebPresentation
         {
             //var vehiculos = vehi.GetAllVehiculos();
             //ViewBag.Id_Vehiculo = new SelectList(vehiculos, "Id", "Marca");
+            
+            Options.Add(new SelectListItem() { Text = "GPS", Value = "G" });
+            Options.Add(new SelectListItem() { Text = "Motor", Value = "M" });
+            Options.Add(new SelectListItem() { Text = "Seguridad", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+            ViewBag.Options = Options;
             return View();
         }
 
@@ -47,7 +57,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,Id_Vehiculo,Tipo_Sensor")] Sensor sensores)
+        public ActionResult Create([Bind(Include = "Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,VehiculoRef,Tipo_Sensor")] Sensor sensores)
         {
             var vehiculos = vehi.GetAllVehiculos();
             if (ModelState.IsValid)
@@ -63,6 +73,12 @@ namespace WebPresentation
         // GET: Sensores/Edit/5
         public ActionResult Edit(int id)
         {
+            Options.Add(new SelectListItem() { Text = "GPS", Value = "G" });
+            Options.Add(new SelectListItem() { Text = "Motor", Value = "M" });
+            Options.Add(new SelectListItem() { Text = "Seguridad", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+            ViewBag.Options = Options;
+
             //var vehiculos = vehi.GetAllVehiculos();
             Sensor sensor = sens.GetSensor(id);  //vehiculo.Lista_Sensores.Find(x => x.Id == idsen);
             if (id == 0)
@@ -83,7 +99,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,Id_Vehiculo,Tipo_Sensor")] Sensor sensores)
+        public ActionResult Edit([Bind(Include = "Id,Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,VehiculoRef,Tipo_Sensor")] Sensor sensores)
         {
             //var vehiculos = vehi.GetAllVehiculos();
             if (ModelState.IsValid)

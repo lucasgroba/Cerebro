@@ -36,6 +36,9 @@ namespace WebPresentation
         // GET: Vehiculos/Create
         public ActionResult Create()
         {
+            var empresas = emp.GetAllEmpresas();
+
+            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre");
             return View();
         }
 
@@ -46,13 +49,14 @@ namespace WebPresentation
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
         {
+            var vehiculos = vehi.GetAllVehiculos();
             if (ModelState.IsValid)
             {
                 vehi.AltaVehiculo(vehiculo);
                 return RedirectToAction("Index");
             }
 
-            return View(vehiculo);
+            return View(vehiculos);
         }
 
         // GET: Vehiculos/Edit/5
@@ -76,7 +80,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
+        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {

@@ -12,6 +12,7 @@ namespace DataAccessLayer
     {
         public void setModel(Empresa emp)
         {
+            RUT = emp.RUT;
             Activo = (bool)emp.Activo;
             Nombre = emp.Nombre;
             Zona_Latitud = (Double)emp.Zona_Latitud;
