@@ -103,6 +103,9 @@
     <Property Name="Accion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
     <NavigationProperty Name="Vehiculos" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Tipo_Evento" ToRole="Vehiculos" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Sensor" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Eventos" Relationship="CEREBROModel.FK__Eventos__Tipo_Ev__32767D0B" FromRole="Tipo_Eventos" ToRole="Eventos" />
   </EntityType>
   <EntityType Name="Vehiculos">
     <Key>
@@ -117,6 +120,7 @@
     <NavigationProperty Name="Empresas" Relationship="Self.FK__Vehiculos__RUT_E__6383C8BA" FromRole="Vehiculos" ToRole="Empresas" />
     <NavigationProperty Name="Sensores" Relationship="Self.FK__Sensores__Id_Veh__66603565" FromRole="Vehiculos" ToRole="Sensores" />
     <NavigationProperty Name="Tipo_Evento" Relationship="Self.Vehiculo_Tipo_Evento" FromRole="Vehiculos" ToRole="Tipo_Evento" />
+    <NavigationProperty Name="Eventos" Relationship="CEREBROModel.FK__Eventos__Vehicul__336AA144" FromRole="Vehiculos" ToRole="Eventos" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="CEREBROModel.Usuarios" Multiplicity="1">
@@ -242,12 +246,21 @@
       <End Role="LecturaSensores" EntitySet="LecturaSensores" />
     </AssociationSet>
     <EntitySet Name="C__MigrationHistory" EntityType="CEREBROModel.C__MigrationHistory" />
+    <EntitySet Name="Eventos" EntityType="CEREBROModel.Eventos" />
+    <AssociationSet Name="FK__Eventos__Tipo_Ev__32767D0B" Association="CEREBROModel.FK__Eventos__Tipo_Ev__32767D0B">
+      <End Role="Tipo_Eventos" EntitySet="Tipo_Evento" />
+      <End Role="Eventos" EntitySet="Eventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Eventos__Vehicul__336AA144" Association="CEREBROModel.FK__Eventos__Vehicul__336AA144">
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+      <End Role="Eventos" EntitySet="Eventos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="LecturaSensores">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+    <Property Name="Fecha_Lectura" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" Precision="3" />
     <Property Name="Latitud" Type="Double" Nullable="false" />
     <Property Name="Longitud" Type="Double" Nullable="false" />
     <Property Name="Velocidad" Type="Int32" Nullable="false" />
@@ -257,7 +270,6 @@
     <Property Name="Nivel_Combustible" Type="Int32" Nullable="false" />
     <Property Name="Alarma_Activa" Type="Boolean" Nullable="false" />
     <Property Name="Id_Sensor" Type="Int32" Nullable="true" />
-    <NavigationProperty Name="Sensores" Relationship="CEREBROModel.FK__LecturaSe__Id_Se__09A971A2" FromRole="LecturaSensores" ToRole="Sensores" />
     <Property Name="Id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Association Name="FK__LecturaSe__Id_Se__09A971A2">
@@ -282,4 +294,41 @@
     <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Eventos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Tipo_EventoRef" Type="Int32" Nullable="false" />
+    <Property Name="VehiculoRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tipo_Evento" Relationship="CEREBROModel.FK__Eventos__Tipo_Ev__32767D0B" FromRole="Eventos" ToRole="Tipo_Eventos" />
+    <NavigationProperty Name="Vehiculos" Relationship="CEREBROModel.FK__Eventos__Vehicul__336AA144" FromRole="Eventos" ToRole="Vehiculos" />
+    <Property Name="Latitud" Type="Double" />
+    <Property Name="Longitud" Type="Double" />
+  </EntityType>
+  <Association Name="FK__Eventos__Tipo_Ev__32767D0B">
+    <End Type="CEREBROModel.Tipo_Eventos" Role="Tipo_Eventos" Multiplicity="1" />
+    <End Type="CEREBROModel.Eventos" Role="Eventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Eventos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Eventos">
+        <PropertyRef Name="Tipo_EventoRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Eventos__Vehicul__336AA144">
+    <End Type="CEREBROModel.Vehiculos" Role="Vehiculos" Multiplicity="1" />
+    <End Type="CEREBROModel.Eventos" Role="Eventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Eventos">
+        <PropertyRef Name="VehiculoRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

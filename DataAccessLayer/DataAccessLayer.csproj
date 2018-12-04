@@ -82,6 +82,7 @@
     <Compile Include="Controladores\DALE_Tipo_Evento.cs" />
     <Compile Include="Controladores\DALE_Usuario.cs" />
     <Compile Include="Controladores\DALE_Vehiculo.cs" />
+    <Compile Include="Controladores\DALRole.cs" />
     <Compile Include="Convertidores\ConvertType.cs" />
     <Compile Include="Convertidores\Empleados.cs" />
     <Compile Include="Convertidores\Empresas.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Convertidores\LecturaSensores.cs" />
     <Compile Include="Convertidores\Sensores.cs" />
     <Compile Include="Convertidores\Tipo_Eventos.cs" />
+    <Compile Include="Convertidores\Usuarios.cs" />
     <Compile Include="Convertidores\Vehiculos.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>CerebroModel.tt</DependentUpon>
@@ -106,6 +108,7 @@
     <Compile Include="Intefaces\IDALE_Empleado.cs" />
     <Compile Include="Intefaces\IDALE_Empresa.cs" />
     <Compile Include="Intefaces\IDALE_Evento.cs" />
+    <Compile Include="Intefaces\IDALE_Role.cs" />
     <Compile Include="Intefaces\IDALE_Sensor.cs" />
     <Compile Include="Intefaces\IDALE_Tipo_Evento.cs" />
     <Compile Include="Intefaces\IDALE_Usuario.cs" />

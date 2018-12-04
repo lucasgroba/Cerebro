@@ -11,6 +11,7 @@ using SHARE.Entities;
 
 namespace WebPresentation
 {
+    [Authorize(Roles = "A")]
     public class EmpleadosController : Controller
     {
        private BLEmpresa emp = new BLEmpresa();

@@ -17,6 +17,8 @@ namespace DataAccessLayer
             Direccion = emp.Direccion;
             Nombre = emp.Nombre;
             Tel = emp.Tel;
+            RUT_Empresa = emp.RUT_Empresa;
+            
         }
 
         public Empleado getEntity()

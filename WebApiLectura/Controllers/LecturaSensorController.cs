@@ -43,7 +43,7 @@ namespace WebApiLectura.Controllers
                 {
                     DTOLecturaHub lec = new DTOLecturaHub();
                     lec.Lectura = value;
-                    lec.VehiculoRef =BLvehiculo.GetVehiculo(BLSensor.GetSensor(value.SensorRef).VehiculoRef).Id;
+                    lec.vehiculoRef =BLvehiculo.GetVehiculo(BLSensor.GetSensor(value.SensorRef).VehiculoRef).Id;
                     Task<String> responselec = CallLectura(lec);
                 }
                 if (!ListaEventos.Count.Equals(0))

@@ -47,7 +47,7 @@ namespace DataAccessLayer.Controladores
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                var ListEmp = (from e in db.Vehiculos where e.Id==id select e).ToList();
+                var ListEmp = (from e in db.Vehiculos where e.Id == id select e).ToList();
                 return new ConvertType().VehiculoDBToVehiculo(ListEmp).First();
             }
         }

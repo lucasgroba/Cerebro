@@ -10,6 +10,6 @@ namespace SHARE.DTOs
     public class DTOLecturaHub
     {
         public LecturaSensor Lectura { get; set; }
-        public int VehiculoRef { get; set; }
+        public int vehiculoRef { get; set; }
     }
 }

@@ -142,11 +142,9 @@ namespace DataAccessLayer.Convertidores
             List<Usuarios> retorno = new List<Usuarios>();
             foreach (Usuario vehi in lista)
             {
-                //Usuarios nuevo = new Usuarios();
-                //nuevo.Mail = vehi.Mail;
-                //nuevo.Pass = vehi.Pass;
-                //nuevo.Tipo_User = vehi.Tipo_User;
-                //retorno.Add(nuevo);
+                Usuarios nuevo = new Usuarios();
+                nuevo.setModel(vehi);
+                retorno.Add(nuevo);
             }
             return retorno;
         }
@@ -157,11 +155,9 @@ namespace DataAccessLayer.Convertidores
             List<Usuario> retorno = new List<Usuario>();
             foreach (Usuarios vehi in lista)
             {
-                //Usuario nuevo = new Usuario();
-                //nuevo.Mail = vehi.Mail;
-                //nuevo.Pass = vehi.Pass;
-                //nuevo.Tipo_User = vehi.Tipo_User;
-                //retorno.Add(nuevo);
+                Usuario nuevo = new Usuario();
+                nuevo = vehi.getEntity();
+                retorno.Add(nuevo);
             }
             return retorno;
         }
