@@ -3,6 +3,7 @@ using DataAccessLayer.Intefaces;
 using SHARE.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,10 +58,12 @@ namespace DataAccessLayer.Controladores
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                Vehiculos e = db.Vehiculos.Find(vehi.Id);
+                Vehiculos e = new Vehiculos();
+                e = db.Vehiculos.Find(vehi.Id);
                 e.setModel(vehi);
-                db.Vehiculos.Attach(e);
+                db.Entry(e).State = EntityState.Modified;
                 db.SaveChanges();
+
 
             }
         }

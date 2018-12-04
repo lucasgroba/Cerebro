@@ -1,11 +1,7 @@
 ﻿using DataAccessLayer.Controladores;
 using DataAccessLayer.Intefaces;
 using SHARE.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Controladores
 {
@@ -29,5 +25,14 @@ namespace BusinessLayer.Controladores
             DALEmp.DeleteTipo_Evento(id);
         }
 
+        public Tipo_Evento GetTipo_Evento (int id)
+        {
+           return DALEmp.GetTipo_Evento(id);
+        }
+
+        public List<Tipo_Evento> GetAllTipo_Eventos()
+        {
+            return DALEmp.GetAllTipo_Evento();
+        }
     }
 }

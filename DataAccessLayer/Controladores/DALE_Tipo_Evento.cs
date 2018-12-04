@@ -3,6 +3,7 @@ using DataAccessLayer.Intefaces;
 using SHARE.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,10 @@ namespace DataAccessLayer.Controladores
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                if (eve != null)
-                {
-                    Tipo_Eventos nuevo = new Tipo_Eventos();
-                    nuevo.setModel(eve);
-                    db.Tipo_Evento.Add(nuevo);
-                    db.SaveChanges();
-                }
+                Tipo_Eventos nuevo = new Tipo_Eventos();
+                nuevo.setModel(eve);
+                db.Tipo_Evento.Add(nuevo);
+                db.SaveChanges();                
             }
         }
 
@@ -56,10 +54,12 @@ namespace DataAccessLayer.Controladores
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                Tipo_Eventos e = db.Tipo_Evento.Find(eve.Id);
+                Tipo_Eventos e = new Tipo_Eventos();
+                e = db.Tipo_Evento.Find(eve.Id);
                 e.setModel(eve);
-                db.Tipo_Evento.Attach(e);
+                db.Entry(e).State = EntityState.Modified;
                 db.SaveChanges();
+
 
             }
         }

@@ -18,5 +18,7 @@ namespace DataAccessLayer
         List<Empresa> GetAllEmpresas();
 
         Empresa GetEmpresa(int RUT);
+
+        Empresas GetEmpresaModel(int RUT);
     }
 }

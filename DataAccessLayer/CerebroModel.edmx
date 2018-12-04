@@ -169,7 +169,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="RUT_Empresa" Type="int" />
         </EntityType>
-        <Association Name="FK__Empleados__RUT_E__1F63A897">
+        <Association Name="FK__Empleados__RUT_E__145C0A3F">
           <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
           <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -181,7 +181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empresa_U__Id_Em__2EA5EC27">
+        <Association Name="FK__Empresa_U__Id_Em__37A5467C">
           <End Role="Empresas" Type="Self.Empresas" Multiplicity="1" />
           <End Role="Empresa_Usuarios" Type="Self.Empresa_Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -193,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empresa_U__Id_Us__2F9A1060">
+        <Association Name="FK__Empresa_U__Id_Us__38996AB5">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Empresa_Usuarios" Type="Self.Empresa_Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -205,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Eventos__Tipo_Ev__41B8C09B">
+        <Association Name="FK__Eventos__Tipo_Ev__49C3F6B7">
           <End Role="Tipo_Evento" Type="Self.Tipo_Evento" Multiplicity="1" />
           <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -217,7 +217,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Eventos__Vehicul__42ACE4D4">
+        <Association Name="FK__Eventos__Vehicul__4AB81AF0">
           <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
           <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -229,7 +229,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LecturaSe__Id_Se__27F8EE98">
+        <Association Name="FK__LecturaSe__Id_Se__1CF15040">
           <End Role="Sensores" Type="Self.Sensores" Multiplicity="0..1" />
           <End Role="LecturaSensores" Type="Self.LecturaSensores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -241,7 +241,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sensores__Id_Veh__251C81ED">
+        <Association Name="FK__Sensores__Id_Veh__1A14E395">
           <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
           <End Role="Sensores" Type="Self.Sensores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,7 +253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Vehiculo___Id_Ti__2BC97F7C">
+        <Association Name="FK__Vehiculo___Id_Ti__20C1E124">
           <End Role="Tipo_Evento" Type="Self.Tipo_Evento" Multiplicity="1" />
           <End Role="Vehiculo_Tipo_Evento" Type="Self.Vehiculo_Tipo_Evento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +265,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Vehiculo___Id_Ve__2AD55B43">
+        <Association Name="FK__Vehiculo___Id_Ve__1FCDBCEB">
           <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
           <End Role="Vehiculo_Tipo_Evento" Type="Self.Vehiculo_Tipo_Evento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -277,7 +277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Vehiculos__RUT_E__22401542">
+        <Association Name="FK__Vehiculos__RUT_E__173876EA">
           <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
           <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -361,43 +361,43 @@
           <EntitySet Name="Tipo_Evento" EntityType="Self.Tipo_Evento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo_Tipo_Evento" EntityType="Self.Vehiculo_Tipo_Evento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Empleados__RUT_E__1F63A897" Association="Self.FK__Empleados__RUT_E__1F63A897">
+          <AssociationSet Name="FK__Empleados__RUT_E__145C0A3F" Association="Self.FK__Empleados__RUT_E__145C0A3F">
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="Empleados" EntitySet="Empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empresa_U__Id_Em__2EA5EC27" Association="Self.FK__Empresa_U__Id_Em__2EA5EC27">
+          <AssociationSet Name="FK__Empresa_U__Id_Em__37A5467C" Association="Self.FK__Empresa_U__Id_Em__37A5467C">
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="Empresa_Usuarios" EntitySet="Empresa_Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empresa_U__Id_Us__2F9A1060" Association="Self.FK__Empresa_U__Id_Us__2F9A1060">
+          <AssociationSet Name="FK__Empresa_U__Id_Us__38996AB5" Association="Self.FK__Empresa_U__Id_Us__38996AB5">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Empresa_Usuarios" EntitySet="Empresa_Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Eventos__Tipo_Ev__41B8C09B" Association="Self.FK__Eventos__Tipo_Ev__41B8C09B">
+          <AssociationSet Name="FK__Eventos__Tipo_Ev__49C3F6B7" Association="Self.FK__Eventos__Tipo_Ev__49C3F6B7">
             <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
             <End Role="Eventos" EntitySet="Eventos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Eventos__Vehicul__42ACE4D4" Association="Self.FK__Eventos__Vehicul__42ACE4D4">
+          <AssociationSet Name="FK__Eventos__Vehicul__4AB81AF0" Association="Self.FK__Eventos__Vehicul__4AB81AF0">
             <End Role="Vehiculos" EntitySet="Vehiculos" />
             <End Role="Eventos" EntitySet="Eventos" />
           </AssociationSet>
-          <AssociationSet Name="FK__LecturaSe__Id_Se__27F8EE98" Association="Self.FK__LecturaSe__Id_Se__27F8EE98">
+          <AssociationSet Name="FK__LecturaSe__Id_Se__1CF15040" Association="Self.FK__LecturaSe__Id_Se__1CF15040">
             <End Role="Sensores" EntitySet="Sensores" />
             <End Role="LecturaSensores" EntitySet="LecturaSensores" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sensores__Id_Veh__251C81ED" Association="Self.FK__Sensores__Id_Veh__251C81ED">
+          <AssociationSet Name="FK__Sensores__Id_Veh__1A14E395" Association="Self.FK__Sensores__Id_Veh__1A14E395">
             <End Role="Vehiculos" EntitySet="Vehiculos" />
             <End Role="Sensores" EntitySet="Sensores" />
           </AssociationSet>
-          <AssociationSet Name="FK__Vehiculo___Id_Ti__2BC97F7C" Association="Self.FK__Vehiculo___Id_Ti__2BC97F7C">
+          <AssociationSet Name="FK__Vehiculo___Id_Ti__20C1E124" Association="Self.FK__Vehiculo___Id_Ti__20C1E124">
             <End Role="Tipo_Evento" EntitySet="Tipo_Evento" />
             <End Role="Vehiculo_Tipo_Evento" EntitySet="Vehiculo_Tipo_Evento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Vehiculo___Id_Ve__2AD55B43" Association="Self.FK__Vehiculo___Id_Ve__2AD55B43">
+          <AssociationSet Name="FK__Vehiculo___Id_Ve__1FCDBCEB" Association="Self.FK__Vehiculo___Id_Ve__1FCDBCEB">
             <End Role="Vehiculos" EntitySet="Vehiculos" />
             <End Role="Vehiculo_Tipo_Evento" EntitySet="Vehiculo_Tipo_Evento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Vehiculos__RUT_E__22401542" Association="Self.FK__Vehiculos__RUT_E__22401542">
+          <AssociationSet Name="FK__Vehiculos__RUT_E__173876EA" Association="Self.FK__Vehiculos__RUT_E__173876EA">
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="Vehiculos" EntitySet="Vehiculos" />
           </AssociationSet>
@@ -476,7 +476,7 @@
           <Key>
             <PropertyRef Name="Ci" />
           </Key>
-          <Property Name="Ci" Type="Int32" Nullable="false" />
+          <Property Name="Ci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
           <Property Name="Tel" Type="Int32" />
@@ -489,7 +489,7 @@
           <Key>
             <PropertyRef Name="RUT" />
           </Key>
-          <Property Name="RUT" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Zona_Latitud" Type="Double" />
           <Property Name="Zona_Longitud" Type="Double" />
@@ -502,7 +502,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Api" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Maximo" Type="Int32" Nullable="false" />
           <Property Name="Minimo" Type="Int32" Nullable="false" />
@@ -518,7 +518,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Periodo" Type="Int32" />
           <Property Name="Maximo" Type="Int32" />
           <Property Name="Minimo" Type="Int32" />
@@ -533,7 +533,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Marca" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Modelo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Id_Empleado" Type="Int32" Nullable="false" />

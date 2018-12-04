@@ -18,14 +18,15 @@
             @Html.DisplayNameFor(model => model.Modelo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Id_Empleado)
+            @Html.DisplayNameFor(model => model.EmpresaRef)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Activo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmpresaRef)
+            @Html.DisplayNameFor(model => model.Id_Empleado)
         </th>
+        
         <th></th>
     </tr>
 
@@ -38,13 +39,13 @@
             @Html.DisplayFor(modelItem => item.Modelo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Id_Empleado)
+            @Html.DisplayFor(modelItem => item.EmpresaRef)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpresaRef)
+            @Html.DisplayFor(modelItem => item.Id_Empleado)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

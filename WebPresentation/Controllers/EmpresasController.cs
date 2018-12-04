@@ -1,12 +1,6 @@
 ﻿using BusinessLayer.Controladores;
 using SHARE.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebPresentation
@@ -31,12 +25,12 @@ namespace WebPresentation
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empresa empre = empresas.Find(x => x.RUT == id);
+            Empresa empre = emp.GetEmpresa(id);
             if (empresas == null)
             {
                 return HttpNotFound();
             }
-            return View(empresas);
+            return View(empre);
         }
 
         // GET: Empresas/Create
@@ -65,17 +59,16 @@ namespace WebPresentation
         // GET: Empresas/Edit/5
         public ActionResult Edit(int id)
         {
-            var empresas = emp.GetAllEmpresas();
+            Empresa empresa = emp.GetEmpresa(id);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empresa empre = empresas.Find(x => x.RUT == id);
-            if (empresas == null)
+            if (empresa == null)
             {
                 return HttpNotFound();
             }
-            return View(empresas);
+            return View(empresa);
         }
 
         // POST: Empresas/Edit/5
@@ -83,12 +76,11 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
+        public ActionResult Edit([Bind(Include = "RUT,Nombre,Zona_Latitud,Zona_Longitud,Activo")] Empresa empresas)
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(empresas).State = EntityState.Modified;
-                //db.SaveChanges();
+                emp.UpdateEmpresa(empresas);
                 return RedirectToAction("Index");
             }
             return View(empresas);
@@ -97,13 +89,11 @@ namespace WebPresentation
         // GET: Empresas/Delete/5
         public ActionResult Delete(int id)
         {
-            var empresas = emp.GetAllEmpresas();
-            var empresa = empresas.Find(x => x.RUT == id);
+            var empresa = emp.GetEmpresa(id);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empresa empresa = empresas.Find(x => x.RUT == id);
             if (empresa == null)
             {
                 return HttpNotFound();
@@ -116,10 +106,7 @@ namespace WebPresentation
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var empresas = emp.GetAllEmpresas();
-            var empre = empresas.Find(x => x.RUT == id);
-            empresas.Remove(empre);
-            //db.SaveChanges();
+            emp.DeleteEmpresa(id);
             return RedirectToAction("Index");
         }
 

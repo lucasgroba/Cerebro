@@ -18,10 +18,6 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\SHARE.dll.config
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.pdb
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll.config
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.pdb
@@ -37,4 +33,8 @@ C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\Entity
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.resources.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.pdb

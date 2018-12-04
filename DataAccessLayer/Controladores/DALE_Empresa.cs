@@ -2,6 +2,7 @@
 using SHARE.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 
@@ -56,14 +57,26 @@ namespace DataAccessLayer
             }
         }
 
+        public Empresas GetEmpresaModel(int RUT)
+        {
+            List<Empresa> listaRetorno = new List<Empresa>();
+            using (CEREBROEntities1 db = new CEREBROEntities1())
+            {
+                Empresas ListEmp = (from e in db.Empresas where e.RUT == RUT select e).ToList().First();
+                return ListEmp;
+            }
+        }
+
         public void UpdateEmpresa(Empresa emp)
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
             {
-                Empresas e = db.Empresas.Find(emp.RUT);
+                Empresas e = new Empresas();
+                e = db.Empresas.Find(emp.RUT);
                 e.setModel(emp);
-                db.Empresas.Attach(e);
+                db.Entry(e).State = EntityState.Modified;
                 db.SaveChanges();
+
 
             }
         }

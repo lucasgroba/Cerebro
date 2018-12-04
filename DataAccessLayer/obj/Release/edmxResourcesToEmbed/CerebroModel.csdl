@@ -54,7 +54,7 @@
     <Key>
       <PropertyRef Name="Ci" />
     </Key>
-    <Property Name="Ci" Type="Int32" Nullable="false" />
+    <Property Name="Ci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Fecha_Nac" Type="DateTime" Precision="0" />
     <Property Name="Tel" Type="Int32" />
@@ -67,7 +67,7 @@
     <Key>
       <PropertyRef Name="RUT" />
     </Key>
-    <Property Name="RUT" Type="Int32" Nullable="false" />
+    <Property Name="RUT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Zona_Latitud" Type="Double" />
     <Property Name="Zona_Longitud" Type="Double" />
@@ -80,7 +80,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Api" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Maximo" Type="Int32" Nullable="false" />
     <Property Name="Minimo" Type="Int32" Nullable="false" />
@@ -96,7 +96,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Periodo" Type="Int32" />
     <Property Name="Maximo" Type="Int32" />
     <Property Name="Minimo" Type="Int32" />
@@ -111,7 +111,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Marca" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Modelo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Id_Empleado" Type="Int32" Nullable="false" />

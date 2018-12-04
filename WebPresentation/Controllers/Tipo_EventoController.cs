@@ -1,12 +1,7 @@
 ﻿using BusinessLayer.Controladores;
 using SHARE.Entities;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebPresentation
@@ -15,35 +10,49 @@ namespace WebPresentation
     public class Tipo_EventoController : Controller
     {
         private BLVehiculo vehi = new BLVehiculo();
+        private BLTipo_Evento teven = new BLTipo_Evento();
+        private List<SelectListItem> Options = new List<SelectListItem>();
+        private List<SelectListItem> OptionsAction = new List<SelectListItem>();
+
 
         // GET: Tipo_Evento
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            var vehiculo = vehi.GetVehiculo(id);
-            return View(vehiculo.Lista_Tipo_Eventos);
+            var teventos = teven.GetAllTipo_Eventos(); 
+            return View(teventos);
         }
 
         // GET: Tipo_Evento/Details/5
-        public ActionResult Details(int idvehi, int idtsen)
+        public ActionResult Details(int id)
         {
-            var vehiculo = vehi.GetVehiculo(idvehi);
-            var tsensor = vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
-            if (idvehi == 0)
-                if (idtsen == 0)
+            var tevento = teven.GetTipo_Evento(id); 
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           // Tipo_Eventos tipo_Eventos = db.Tipo_Evento.Find(id);
-            if (tsensor == null)
+            if (tevento == null)
             {
                 return HttpNotFound();
             }
-            return View(tsensor);
+            return View(tevento);
         }
 
         // GET: Tipo_Evento/Create
         public ActionResult Create()
         {
+            OptionsAction.Add(new SelectListItem() { Text = "Mail", Value = "M" });
+            OptionsAction.Add(new SelectListItem() { Text = "Evento", Value = "E" });
+
+            Options.Add(new SelectListItem() { Text = "Velocidad", Value = "V" });
+            Options.Add(new SelectListItem() { Text = "Aceleracion", Value = "A" });
+            Options.Add(new SelectListItem() { Text = "Presion", Value = "P" });
+            Options.Add(new SelectListItem() { Text = "Temperatura", Value = "T" });
+            Options.Add(new SelectListItem() { Text = "Alarma", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+
+            ViewBag.OptionsAction = OptionsAction;
+            ViewBag.Options = Options;
+
             return View();
         }
 
@@ -52,35 +61,43 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Periodo,Maximo,Minimo,Accion,Activo")] Tipo_Evento tipo_Eventos, int idvehi)
+        public ActionResult Create([Bind(Include = "Periodo,Nombre,Maximo,Minimo,Accion,Activo,TipoLectura")] Tipo_Evento tipo_Evento)
         {
             if (ModelState.IsValid)
             {
-                var vehiculo = vehi.GetVehiculo(idvehi);
-                var vehiculos = vehi.GetAllVehiculos();
-               // db.SaveChanges();
+                teven.AltaVehiculo(tipo_Evento);
                 return RedirectToAction("Index");
             }
 
-            return View(tipo_Eventos);
+            return View(tipo_Evento);
         }
 
         // GET: Tipo_Evento/Edit/5
-        public ActionResult Edit(int idvehi, int idtsen)
+        public ActionResult Edit(int id)
         {
-            var vehiculo = vehi.GetVehiculo(idvehi);
-            var vehiculos = vehi.GetAllVehiculos();
-            var tsensor = vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
-            if (idvehi == 0)
+            OptionsAction.Add(new SelectListItem() { Text = "Mail", Value = "M" });
+            OptionsAction.Add(new SelectListItem() { Text = "Evento", Value = "E" });
+
+            Options.Add(new SelectListItem() { Text = "Velocidad", Value = "V" });
+            Options.Add(new SelectListItem() { Text = "Aceleracion", Value = "A" });
+            Options.Add(new SelectListItem() { Text = "Presion", Value = "P" });
+            Options.Add(new SelectListItem() { Text = "Temperatura", Value = "T" });
+            Options.Add(new SelectListItem() { Text = "Alarma", Value = "S" });
+            Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+
+            ViewBag.OptionsAction = OptionsAction;
+            ViewBag.Options = Options;
+
+            var tevento = teven.GetTipo_Evento(id);
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //tsensor tipo_Eventos = db.Tipo_Evento.Find(id);
-            if (tsensor == null)
+            if (tevento == null)
             {
                 return HttpNotFound();
             }
-            return View(tsensor);
+            return View(tevento);
         }
 
         // POST: Tipo_Evento/Edit/5
@@ -88,43 +105,37 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Periodo,Maximo,Minimo,Accion,Activo")] Tipo_Evento tipo_Eventos)
+        public ActionResult Edit([Bind(Include = "Id,Periodo,Nombre,Maximo,Minimo,Accion,Activo,TipoLectura")] Tipo_Evento tipo_Eventos)
         {
             if (ModelState.IsValid)
             {
-               // db.Entry(tipo_Eventos).State = EntityState.Modified;
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
+                teven.UpdateTipo_Evento(tipo_Eventos);
+                return RedirectToAction("Index");
             }
             return View(tipo_Eventos);
         }
 
         // GET: Tipo_Evento/Delete/5
-        public ActionResult Delete(int idvehi, int idtsen)
+        public ActionResult Delete(int id)
         {
-            var vehiculo = vehi.GetVehiculo(idvehi);
-            var tsensor = vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
-            if (idvehi == 0)
+            var tevento = teven.GetTipo_Evento(id); 
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Tipo_Eventos tipo_Eventos = db.Tipo_Evento.Find(id);
-            if (tsensor == null)
+            if (tevento == null)
             {
                 return HttpNotFound();
             }
-            return View(tsensor);
+            return View(tevento);
         }
 
         // POST: Tipo_Evento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int idvehi, int idtsen)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var vehiculo = vehi.GetVehiculo(idvehi);
-            var tsensor = vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
-            vehiculo.Lista_Tipo_Eventos.Remove(tsensor);
-            //db.SaveChanges();
+            teven.DeleteTipo_Evento(id);
             return RedirectToAction("Index");
         }
 

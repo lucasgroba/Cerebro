@@ -1,4 +1,4 @@
-﻿@model DataAccessLayer.Sensores
+﻿@model SHARE.Entities.Sensor
 
 @{
     ViewBag.Title = "Delete";
@@ -12,11 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Api)
+            @Html.DisplayNameFor(model => model.API)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Api)
+            @Html.DisplayFor(model => model.API)
         </dd>
 
         <dt>
@@ -68,11 +68,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Vehiculos.Marca)
+            @Html.DisplayNameFor(model => model.VehiculoRef)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Vehiculos.Marca)
+            @Html.DisplayFor(model => model.VehiculoRef)
         </dd>
 
     </dl>

@@ -17,7 +17,7 @@ namespace DataAccessLayer
         {
             Accion = eve.Accion;
             Activo = eve.Activo;
-            Id = eve.Id;
+            //Id = eve.Id;
             Maximo = eve.Maximo;
             Minimo = eve.Minimo;
             Periodo = eve.Periodo;
@@ -28,12 +28,15 @@ namespace DataAccessLayer
 
         public void setListModelVehiculos(List<int> Lista_Vehiculos)
         {   List<Vehiculos> lista = new List<Vehiculos>();
-            foreach(int veh in Lista_Vehiculos)
+            if (Lista_Vehiculos != null)
             {
-                
-                Vehiculos nuevo = new Vehiculos();
-                nuevo.setModel(DAL.GetVehiculo(veh));
-                lista.Add(nuevo);
+                foreach (int veh in Lista_Vehiculos)
+                {
+
+                    Vehiculos nuevo = new Vehiculos();
+                    nuevo.setModel(DAL.GetVehiculo(veh));
+                    lista.Add(nuevo);
+                }
             }
             this.Vehiculos= lista;
         }

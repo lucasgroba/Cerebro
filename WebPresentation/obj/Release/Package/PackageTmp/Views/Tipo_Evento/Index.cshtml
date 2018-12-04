@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAccessLayer.Tipo_Eventos>
+﻿@model IEnumerable<SHARE.Entities.Tipo_Evento>
 
 @{
     ViewBag.Title = "Index";
@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.Periodo)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Maximo)
         </th>
         <th>
@@ -26,6 +29,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Activo)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoLectura)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +39,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Maximo)
@@ -47,9 +56,12 @@
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.TipoLectura)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

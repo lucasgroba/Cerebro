@@ -15,11 +15,14 @@ namespace DataAccessLayer.Convertidores
         public List<Tipo_Eventos> Tipo_EventoToTipo_EventoDB(List<Tipo_Evento> lista)
         {
             List<Tipo_Eventos> retorno = new List<Tipo_Eventos>();
-            foreach(Tipo_Evento eve in lista)
+            if (lista != null)
             {
-                Tipo_Eventos nuevo = new Tipo_Eventos();
-                nuevo.setModel(eve);
-                retorno.Add(nuevo);
+                foreach (Tipo_Evento eve in lista)
+                {
+                    Tipo_Eventos nuevo = new Tipo_Eventos();
+                    nuevo.setModel(eve);
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
@@ -28,10 +31,13 @@ namespace DataAccessLayer.Convertidores
         public List<Tipo_Evento> Tipo_EventoDBToTipo_Evento(List<Tipo_Eventos> lista)
         {
             List<Tipo_Evento> retorno = new List<Tipo_Evento>();
-            foreach (Tipo_Eventos eve in lista)
+            if (lista != null)
             {
-                Tipo_Evento nuevo = eve.getEntity();
-                retorno.Add(nuevo);
+                foreach (Tipo_Eventos eve in lista)
+                {
+                    Tipo_Evento nuevo = eve.getEntity();
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
@@ -56,32 +62,42 @@ namespace DataAccessLayer.Convertidores
         public List<Eventos> EventoToEventoDB(List<Evento> ListaEvento)
         {
             List<Eventos> retorno = new List<Eventos>();
-            foreach(Evento e in ListaEvento)
+            if (ListaEvento != null)
             {
-                Eventos nuevo = new Eventos();
-                nuevo.setModel(e);
-                retorno.Add(nuevo);
+                foreach (Evento e in ListaEvento)
+                {
+                    Eventos nuevo = new Eventos();
+                    nuevo.setModel(e);
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
         public List<Evento> EventoDBToEvento(List<Eventos> ListaEventos)
         {
             List<Evento> retorno = new List<Evento>();
-            foreach(Eventos e in ListaEventos)
+            if (ListaEventos != null)
             {
-                retorno.Add(e.getEntity());
+                foreach (Eventos e in ListaEventos)
+                {
+                    retorno.Add(e.getEntity());
+                }
+                return retorno;
             }
-            return retorno;
+            else return retorno;
         }
 
 
         public List<Vehiculo> VehiculoDBToVehiculo(List<Vehiculos> lista_vehiculo)
         {
             List<Vehiculo> retorno = new List<Vehiculo>();
-            foreach (Vehiculos vehi in lista_vehiculo)
+            if (lista_vehiculo != null)
             {
-                Vehiculo nuevo = vehi.getEntity();
-                retorno.Add(nuevo);
+                foreach (Vehiculos vehi in lista_vehiculo)
+                {
+                    Vehiculo nuevo = vehi.getEntity();
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
@@ -105,11 +121,14 @@ namespace DataAccessLayer.Convertidores
         public List<LecturaSensores> LecturaToLecturaDB(List<LecturaSensor> lecturas)
         {
             List<LecturaSensores> ret = new List<LecturaSensores>();
-            foreach (LecturaSensor cursor in lecturas)
+            if (lecturas != null)
             {
-                LecturaSensores nuevo = new LecturaSensores();
-                nuevo.setModel(cursor);
-                ret.Add(nuevo);
+                foreach (LecturaSensor cursor in lecturas)
+                {
+                    LecturaSensores nuevo = new LecturaSensores();
+                    nuevo.setModel(cursor);
+                    ret.Add(nuevo);
+                }
             }
             return ret;
         }
@@ -117,10 +136,13 @@ namespace DataAccessLayer.Convertidores
         public List<LecturaSensor> LecturaDBToLectura(List<LecturaSensores> lecturas) 
         {
             List<LecturaSensor> ret = new List<LecturaSensor>();
-            foreach (LecturaSensores cursor in lecturas)
+            if (lecturas != null)
             {
-                LecturaSensor nuevo = cursor.getEntity();
-                ret.Add(nuevo);
+                foreach (LecturaSensores cursor in lecturas)
+                {
+                    LecturaSensor nuevo = cursor.getEntity();
+                    ret.Add(nuevo);
+                }
             }
             return ret;
         }
@@ -128,10 +150,13 @@ namespace DataAccessLayer.Convertidores
         public List<Empleado> EmpleadoDBToEmpleado(List<Empleados> lista)
         {
             List<Empleado> retorno = new List<Empleado>();
-            foreach (Empleados vehi in lista)
+            if (lista != null)
             {
-                Empleado nuevo = vehi.getEntity();
-                retorno.Add(nuevo);
+                foreach (Empleados vehi in lista)
+                {
+                    Empleado nuevo = vehi.getEntity();
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
@@ -153,7 +178,7 @@ namespace DataAccessLayer.Convertidores
         public List<Usuario> UsuarioDBToUsuario(List<Usuarios> lista)
         {
             List<Usuario> retorno = new List<Usuario>();
-            foreach (Usuarios vehi in lista)
+            if (lista != null)
             {
                 Usuario nuevo = new Usuario();
                 nuevo = vehi.getEntity();
@@ -164,11 +189,15 @@ namespace DataAccessLayer.Convertidores
 
         public List<Empresas> EmpresaToEmpresaDB(List<Empresa> lista, String mail) {
             List<Empresas> retorno = new List<Empresas>();
-            foreach (Empresa emp in lista) {
-                Empresas nuevo = new Empresas();
-                nuevo.setModel(emp);
-                retorno.Add(nuevo);
+            if (lista != null)
+            {
+                foreach (Empresa emp in lista)
+                {
+                    Empresas nuevo = new Empresas();
+                    nuevo.setModel(emp);
+                    retorno.Add(nuevo);
 
+                }
             }
             return retorno;
         }
@@ -177,11 +206,14 @@ namespace DataAccessLayer.Convertidores
         public List<Empresa> EmpresaDBToEmpresa(List<Empresas> lista)
         {
             List<Empresa> retorno = new List<Empresa>();
-            foreach (Empresas emp in lista)
+            if (lista != null)
             {
-                Empresa nuevo = emp.getEntity();
-                retorno.Add(nuevo);
+                foreach (Empresas emp in lista)
+                {
+                    Empresa nuevo = emp.getEntity();
+                    retorno.Add(nuevo);
 
+                }
             }
             return retorno;
         }
@@ -189,11 +221,14 @@ namespace DataAccessLayer.Convertidores
         public List<Sensores> SensorToSensorDB(List<Sensor> lista)
         {
             List<Sensores> retorno = new List<Sensores>();
-            foreach (Sensor v in lista)
+            if (lista != null)
             {
-                Sensores nuevo = new Sensores();
-                nuevo.setModel(v);
-                retorno.Add(nuevo);
+                foreach (Sensor v in lista)
+                {
+                    Sensores nuevo = new Sensores();
+                    nuevo.setModel(v);
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
@@ -202,10 +237,13 @@ namespace DataAccessLayer.Convertidores
         public List<Sensor> SensorDBToSensor(List<Sensores> lista)
         {
             List<Sensor> retorno = new List<Sensor>();
-            foreach (Sensores v in lista)
+            if (lista != null)
             {
-                Sensor nuevo = v.getEntity();
-                retorno.Add(nuevo);
+                foreach (Sensores v in lista)
+                {
+                    Sensor nuevo = v.getEntity();
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }

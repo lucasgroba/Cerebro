@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
 using BusinessLayer.Controladores;
 using SHARE.Entities;
@@ -14,30 +8,30 @@ namespace WebPresentation
     [Authorize(Roles = "A")]
     public class EmpleadosController : Controller
     {
-       private BLEmpresa emp = new BLEmpresa();
+        private BLEmpresa emp = new BLEmpresa();
+        private BLEmpleado emple = new BLEmpleado(); 
 
         // GET: Empleados
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            var empresas = emp.GetEmpresa(id);   //   Empleados.Include(e => e.Empresas);
-            return View(empresas.Lista_Empleados);
+            var empleados = emple.GetAllEmpleados();
+            return View(empleados);
         }
 
         // GET: Empleados/Details/5
-        public ActionResult Details(int idemp, int idemple)
+        public ActionResult Details(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var empleados = empresa.Lista_Empleados.Find(x => x.Ci == idemple);
-            if (idemp == 0)
+            var empleados = emple.GetAllEmpleados();
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //BLEmpleado empleados = db.Empleados.Find(id);
+            Empleado empleado = emple.GetEmpleado(id);  
             if (empleados == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(empleado);
         }
 
         // GET: Empleados/Create
@@ -54,38 +48,33 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Ci,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleados,int idemp)
+        public ActionResult Create([Bind(Include = "Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleado)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var empresas = emp.GetAllEmpresas();
+            var empleados = emple.GetAllEmpleados();
             if (ModelState.IsValid)
             {
-                empresa.Lista_Empleados.Add(empleados);
-                //empresa.SaveChanges();
+                emple.AltaEmpleado(empleado);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
             return View(empleados);
         }
 
         // GET: Empleados/Edit/5
-        public ActionResult Edit(int idemp, int idemple)
+        public ActionResult Edit(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
             var empresas = emp.GetAllEmpresas();
-            var empleados = empresa.Lista_Empleados.Find(x => x.Ci == idemple);
-            if (idemp == 0)
+            var empleado = emple.GetEmpleado(id);  
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            if (empleado == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
-            return View(empleados);
+            ViewBag.RUT_Empresa = new SelectList(emp.GetAllEmpresas(), "RUT", "Nombre");
+            return View(empleado);
         }
 
         // POST: Empleados/Edit/5
@@ -93,45 +82,38 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Ci,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleados)
+        public ActionResult Edit([Bind(Include = "CI,Nombre,Fecha_Nac,Tel,Direccion,Activo,RUT_Empresa")] Empleado empleado)
         {
             if (ModelState.IsValid)
             {
-                
-                //db.Entry(empleados).State = EntityState.Modified;
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
+                emple.UpdateEmpleado(empleado);
+                return RedirectToAction("Index");
             }
-            //ViewBag.RUT_Empresa = new SelectList(db.Empresas, "RUT", "Nombre", empleados.RUT_Empresa);
-            return View(empleados);
+            return View(empleado);
         }
 
         // GET: Empleados/Delete/5
-        public ActionResult Delete(int idemp, int idemple )
+        public ActionResult Delete(int id )
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var empleados = empresa.Lista_Empleados.Find(x => x.Ci == idemple);
-            if (idemp == 0)
+            var empleados = emple.GetAllEmpleados();
+            var empleado = emple.GetEmpleado(id);  
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empleados empleados = db.Empleados.Find(id);
-            if (empleados == null)
+            if (empleado == null)
             {
                 return HttpNotFound();
             }
-            return View(empleados);
+            return View(empleado);
         }
 
         // POST: Empleados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int idemp, int idemple)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var empresa = emp.GetEmpresa(idemp);
-            var empleados = empresa.Lista_Empleados.Find(x => x.Ci == idemple);
-            empresa.Lista_Empleados.Remove(empleados);
-            //db.SaveChanges();
+            emple.DeleteEmpleado(id);
             return RedirectToAction("Index");
         }
 

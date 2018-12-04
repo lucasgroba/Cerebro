@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,10 +58,11 @@ namespace DataAccessLayer.Controladores
         public void UpdateEmpleado(Empleado emp)
         {
             using (CEREBROEntities1 db = new CEREBROEntities1())
-            {
-                Empleados e = db.Empleados.Find(emp.Ci);
+            {               
+                Empleados e = new Empleados();
+                e = db.Empleados.Find(emp.Ci);
                 e.setModel(emp);
-                db.Empleados.Attach(e);
+                db.Entry(e).State = EntityState.Modified;
                 db.SaveChanges();
 
             }
