@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Controladores;
+﻿using BusinessLayer.Controladores.Utilidades;
+using DataAccessLayer.Controladores;
 using DataAccessLayer.Intefaces;
 using SHARE.Entities;
 using System;
@@ -224,7 +225,7 @@ namespace BusinessLayer.Controladores
                                 case "V":
                                     if ((!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo)) && lec.Velocidad != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef,TE.Maximo,TE.Minimo)<lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef,TE.Maximo,TE.Minimo)<lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
@@ -233,6 +234,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
                                         
@@ -250,6 +255,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
 
@@ -276,6 +285,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -292,6 +305,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -316,6 +333,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
                                     }
@@ -341,6 +362,10 @@ namespace BusinessLayer.Controladores
                                             nuevo.Latitud = veh.GetUltimaLecturaGPS().Latitud;
                                             nuevo.Longitud = veh.GetUltimaLecturaGPS().Longitud;
                                             blEvento.AltaEvento(nuevo);
+                                            if (TE.Activo)
+                                            {
+                                                EnvioMail.Envio(TE);
+                                            }
                                             retorno.Add(nuevo);
                                         }
                                     }

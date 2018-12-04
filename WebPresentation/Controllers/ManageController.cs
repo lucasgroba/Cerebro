@@ -10,7 +10,7 @@ using WebPresentation.Models;
 
 namespace WebPresentation.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "A,S,V")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

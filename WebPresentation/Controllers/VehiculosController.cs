@@ -5,6 +5,7 @@ using SHARE.Entities;
 
 namespace WebPresentation
 {
+    [Authorize(Roles = "A")]
     public class VehiculosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();

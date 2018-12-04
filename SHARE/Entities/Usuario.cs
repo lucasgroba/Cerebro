@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,11 @@ namespace SHARE.Entities
 {
     public class Usuario
     {
-        //public String Mail { get; set; }
-        //public String Pass { get; set; }
-        //public String Tipo_User { get; set; }
-        //public List<Empresa> Lista_Empresas { get; set; }
+        public String Id { get; set; }
+        public String mail { get; set; }
+        public String Pass { get; set; }
+        public String Tipo_User { get; set; }
+        public int EmpresaRef { get; set; }
+
     }
 }

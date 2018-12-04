@@ -13,6 +13,8 @@ namespace BusinessLayer.Controladores
     public class BLEvento
     {
         IDALE_Evento DAL_E = new DALE_Evento();
+        BLVehiculo DAL_V = new BLVehiculo();
+
         public void AltaEvento(Evento e)
         {
             DAL_E.AddEvento(e);
@@ -35,6 +37,13 @@ namespace BusinessLayer.Controladores
         {
             return DAL_E.GetAllEvento();
         }
+
+        public List<Evento> GetAllEventoxEmp(int id)
+        {
+            List<Vehiculo> listav = DAL_V.GetAllVehiculosxEmp(id);
+            return null;
+        }
+
         public DateTime GetDateUltimoEvento(int idV, Tipo_Evento TE)
         {
             List<Evento> lista;

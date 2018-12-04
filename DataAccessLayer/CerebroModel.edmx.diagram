@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="889e199290bb40e79dc32bc87724ff06" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="CEREBROModel.AspNetRoles" Width="1.5" PointX="2.375" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CEREBROModel.AspNetUserClaims" Width="1.5" PointX="7.625" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CEREBROModel.AspNetUserLogins" Width="1.5" PointX="2.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.AspNetRoles" Width="1.5" PointX="2" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.AspNetUserClaims" Width="1.875" PointX="7.625" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CEREBROModel.AspNetUserLogins" Width="1.5" PointX="2" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Usuarios" Width="1.5" PointX="4.5" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Empleados" Width="1.5" PointX="2.375" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CEREBROModel.Empresas" Width="1.5" PointX="5" PointY="7.375" IsExpanded="true" />

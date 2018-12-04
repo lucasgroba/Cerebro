@@ -30,7 +30,21 @@ namespace BusinessLayer.Controladores
         public List<Vehiculo> GetAllVehiculos()
         {
             return DALEmp.GetAllVehiculos();
-        } 
+        }
+
+        public List<Vehiculo> GetAllVehiculosxEmp(int id)
+        {
+            List<Vehiculo> listav = DALEmp.GetAllVehiculos();
+            if (listav != null)
+            {
+                return listav.FindAll(x => x.EmpresaRef.Equals(id));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public Vehiculo GetVehiculo(int id)
         {
             return DALEmp.GetVehiculo(id);
