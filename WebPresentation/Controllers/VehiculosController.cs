@@ -9,23 +9,25 @@ namespace WebPresentation
     {
         private BLEmpresa emp = new BLEmpresa();
         private BLVehiculo vehi = new BLVehiculo();
+        private BLEmpleado emple = new BLEmpleado();
 
         // GET: Vehiculos
         public ActionResult Index()
         {
             var vehiculos = vehi.GetAllVehiculos();
+            //var user = User.Identity.Name;
+
             return View(vehiculos);
         }
 
         // GET: Vehiculos/Details/5
         public ActionResult Details(int id)
         {
-            var vehiculo = vehi.GetVehiculo(id);    //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            var vehiculo = vehi.GetVehiculo(id);   
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
             if (vehiculo == null)
             {
                 return HttpNotFound();
@@ -38,7 +40,9 @@ namespace WebPresentation
         {
             var empresas = emp.GetAllEmpresas();
 
-            ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre");
+            ViewBag.Id_Empleado = new SelectList(emple.GetAllEmpleados(), "CI", "Nombre");
+            ViewBag.EmpresaRef = new SelectList(empresas, "RUT", "Nombre");
+
             return View();
         }
 
@@ -47,7 +51,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
+        public ActionResult Create([Bind(Include = "Marca,Modelo,EmpresaRef,Activo,Id_Empleado")] Vehiculo vehiculo)
         {
             var vehiculos = vehi.GetAllVehiculos();
             if (ModelState.IsValid)
@@ -62,16 +66,19 @@ namespace WebPresentation
         // GET: Vehiculos/Edit/5
         public ActionResult Edit(int id)
         {
-            var vehiculo = vehi.GetVehiculo(id); //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            var vehiculo = vehi.GetVehiculo(id); 
+            var empre = vehiculo.EmpresaRef;
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
             if (vehiculo == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Id_Empleado = new SelectList(emp.GetEmpresa(empre).Lista_Empleados, "CI", "Nombre");
+            ViewBag.EmpresaRef = new SelectList(emp.GetAllEmpresas(), "RUT", "Nombre");
+
             return View(vehiculo);
         }
 
@@ -80,7 +87,7 @@ namespace WebPresentation
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,Id_Empleado,Activo,EmpresaRef")] Vehiculo vehiculo)
+        public ActionResult Edit([Bind(Include = "Id,Marca,Modelo,EmpresaRef,Activo,Id_Empleado")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
@@ -93,12 +100,11 @@ namespace WebPresentation
         // GET: Vehiculos/Delete/5
         public ActionResult Delete(int id)
         {
-            var vehiculo = vehi.GetVehiculo(id);   //empresa.Lista_Vehiculos.Find(s => s.Id == idvehi);
+            var vehiculo = vehi.GetVehiculo(id);   
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Vehiculo vehiculo = db.Vehiculoes.Find(id);
             if (vehiculo == null)
             {
                 return HttpNotFound();

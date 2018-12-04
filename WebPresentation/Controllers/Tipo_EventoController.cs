@@ -24,13 +24,11 @@ namespace WebPresentation
         // GET: Tipo_Evento/Details/5
         public ActionResult Details(int id)
         {
-            //var vehiculo = vehi.GetVehiculo(idvehi);
-            var tevento = teven.GetTipo_Evento(id); //vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
+            var tevento = teven.GetTipo_Evento(id); 
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           // Tipo_Eventos tipo_Eventos = db.Tipo_Evento.Find(id);
             if (tevento == null)
             {
                 return HttpNotFound();
@@ -64,7 +62,6 @@ namespace WebPresentation
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Periodo,Nombre,Maximo,Minimo,Accion,Activo,TipoLectura")] Tipo_Evento tipo_Evento)
         {
-            //var tipo_eventos = teven.GetAllTipo_Eventos();
             if (ModelState.IsValid)
             {
                 teven.AltaVehiculo(tipo_Evento);
@@ -90,13 +87,11 @@ namespace WebPresentation
             ViewBag.OptionsAction = OptionsAction;
             ViewBag.Options = Options;
 
-            //var vehiculos = vehi.GetAllVehiculos();
-            var tevento = teven.GetTipo_Evento(id);// vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
+            var tevento = teven.GetTipo_Evento(id);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //tsensor tipo_Eventos = db.Tipo_Evento.Find(id);
             if (tevento == null)
             {
                 return HttpNotFound();
@@ -122,12 +117,11 @@ namespace WebPresentation
         // GET: Tipo_Evento/Delete/5
         public ActionResult Delete(int id)
         {
-            var tevento = teven.GetTipo_Evento(id); //vehiculo.Lista_Tipo_Eventos.Find(x => x.Id == idtsen);
+            var tevento = teven.GetTipo_Evento(id); 
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Tipo_Eventos tipo_Eventos = db.Tipo_Evento.Find(id);
             if (tevento == null)
             {
                 return HttpNotFound();

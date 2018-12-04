@@ -24,7 +24,6 @@ namespace WebPresentation
         // GET: Sensores/Details/5
         public ActionResult Details(int id)
         {
-            //var vehiculo = vehi.GetVehiculo(idvehi);
             var sensores = sens.GetAllSensores();  
             if (id == 0)
             {
@@ -41,14 +40,15 @@ namespace WebPresentation
         // GET: Sensores/Create
         public ActionResult Create()
         {
-            //var vehiculos = vehi.GetAllVehiculos();
-            //ViewBag.Id_Vehiculo = new SelectList(vehiculos, "Id", "Marca");
             
             Options.Add(new SelectListItem() { Text = "GPS", Value = "G" });
             Options.Add(new SelectListItem() { Text = "Motor", Value = "M" });
             Options.Add(new SelectListItem() { Text = "Seguridad", Value = "S" });
             Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
+
             ViewBag.Options = Options;
+            ViewBag.VehiculoRef = new SelectList(vehi.GetAllVehiculos(), "Id", "Marca");
+
             return View();
         }
 
@@ -66,7 +66,6 @@ namespace WebPresentation
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.Id_Vehiculo = new SelectList(vehiculos, "Id", "Marca", sensores.VehiculoRef);
             return View(vehiculos);
         }
 
@@ -79,18 +78,17 @@ namespace WebPresentation
             Options.Add(new SelectListItem() { Text = "Combustible", Value = "C" });
             ViewBag.Options = Options;
 
-            //var vehiculos = vehi.GetAllVehiculos();
-            Sensor sensor = sens.GetSensor(id);  //vehiculo.Lista_Sensores.Find(x => x.Id == idsen);
+            var vehiculos = vehi.GetAllVehiculos();
+            Sensor sensor = sens.GetSensor(id);  
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Sensores sensores = db.Sensores.Find(id);
             if (sensor == null)
             {
                 return HttpNotFound();
             }
-           // ViewBag.Id_Vehiculo = new SelectList(vehiculos, "Id", "Marca", sensores.VehiculoRef);
+            ViewBag.VehiculoRef = new SelectList(vehi.GetAllVehiculos(), "Id", "Marca");
             return View(sensor);
         }
 
@@ -101,26 +99,22 @@ namespace WebPresentation
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Api,Maximo,Minimo,Envio_Siempre,Frecuencia,Activo,VehiculoRef,Tipo_Sensor")] Sensor sensores)
         {
-            //var vehiculos = vehi.GetAllVehiculos();
             if (ModelState.IsValid)
             {
                 sens.UpdateSensor(sensores);
                 return RedirectToAction("Index");
             }
-            //ViewBag.Id_Vehiculo = new SelectList(vehiculos, "Id", "Marca", sensores.VehiculoRef);
             return View(sensores);
         }
 
         // GET: Sensores/Delete/5
         public ActionResult Delete(int id)
         {
-            //var vehiculo = vehi.GetVehiculo(idvehi);
-            var sensor = sens.GetSensor(id);  //vehiculo.Lista_Sensores.Find(x => x.Id == idsen);
+            var sensor = sens.GetSensor(id);  
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Sensores sensores = db.Sensores.Find(id);
             if (sensor == null)
             {
                 return HttpNotFound();

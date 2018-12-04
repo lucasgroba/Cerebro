@@ -24,7 +24,7 @@ namespace WebPresentation
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empresa empre = emp.GetEmpresa(id);//resas.Find(x => x.RUT == id);
+            Empresa empre = emp.GetEmpresa(id);
             if (empresas == null)
             {
                 return HttpNotFound();
@@ -88,14 +88,11 @@ namespace WebPresentation
         // GET: Empresas/Delete/5
         public ActionResult Delete(int id)
         {
-            //var empresas = emp.GetAllEmpresas();
             var empresa = emp.GetEmpresa(id);
-            //var empresa = empresas.Find(x => x.RUT == id);
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empresa empresa = empresas.Find(x => x.RUT == id);
             if (empresa == null)
             {
                 return HttpNotFound();

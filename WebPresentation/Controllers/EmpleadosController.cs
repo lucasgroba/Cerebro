@@ -20,13 +20,12 @@ namespace WebPresentation
         // GET: Empleados/Details/5
         public ActionResult Details(int id)
         {
-            //var empresa = emp.GetEmpresa(idemp);
             var empleados = emple.GetAllEmpleados();
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = emple.GetEmpleado(id);  //empleados.Find(x => x.Ci == id);
+            Empleado empleado = emple.GetEmpleado(id);  
             if (empleados == null)
             {
                 return HttpNotFound();
@@ -57,7 +56,6 @@ namespace WebPresentation
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
             return View(empleados);
         }
 
@@ -65,17 +63,16 @@ namespace WebPresentation
         public ActionResult Edit(int id)
         {
             var empresas = emp.GetAllEmpresas();
-            var empleado = emple.GetEmpleado(id);  //empresa.Lista_Empleados.Find(x => x.Ci == idemple);
+            var empleado = emple.GetEmpleado(id);  
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empleado empleado = emple.GetEmpleado(id); //empleados.Find(x => x.Ci == id);
             if (empleado == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleado.RUT_Empresa);
+            ViewBag.RUT_Empresa = new SelectList(emp.GetAllEmpresas(), "RUT", "Nombre");
             return View(empleado);
         }
 
@@ -91,7 +88,6 @@ namespace WebPresentation
                 emple.UpdateEmpleado(empleado);
                 return RedirectToAction("Index");
             }
-           // ViewBag.RUT_Empresa = new SelectList(empresas, "RUT", "Nombre", empleados.RUT_Empresa);
             return View(empleado);
         }
 
@@ -99,12 +95,11 @@ namespace WebPresentation
         public ActionResult Delete(int id )
         {
             var empleados = emple.GetAllEmpleados();
-            var empleado = emple.GetEmpleado(id); //empleados.Find(x => x.Ci == id); 
+            var empleado = emple.GetEmpleado(id);  
             if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Empleados empleados = db.Empleados.Find(id);
             if (empleado == null)
             {
                 return HttpNotFound();
