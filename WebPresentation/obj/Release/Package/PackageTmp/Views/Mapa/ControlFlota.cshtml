@@ -1,0 +1,239 @@
+﻿@model IEnumerable<SHARE.DTOs.DTOLecturaHub>
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Location</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFhcBLYFwdk3Wk_ztpq5xmfQsbIwjKnnI&callback=initMap"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+        var listamarker = new Map(); 
+        var map;
+        var markers = @Html.Raw(ViewBag.Markers);
+        var connection = $.connection.actualizacionLocation;
+        $.connection.hub.start().done(function () {
+            connection.server.actualizarLocation();
+        });
+
+        connection.on("ActualizarLocation", (DTOlec) => {
+            ActualizarMarkers(DTOlec);
+        });
+        $.connection.hub.start().done(function () {
+            connection.server.lanzarEvento();
+        });
+
+        connection.on("MostrarNuevosEventosCoord", (eventos) => {
+            AddEventos(eventos);
+        });
+    
+        window.onload = function () {
+            
+            var mapOptions = {
+                center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+                zoom: 4,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            var infoWindow = new google.maps.InfoWindow();
+            
+            
+            for (i = 0; i < markers.length; i++) {
+                var data = markers[i]
+                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title
+                });
+                listamarker.set(data.id,marker);
+                (function (marker, data) {
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent(data.description);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+               
+            }
+        };
+
+        // ----------------------------EVENTOS---------------------------------------------------------------------
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        var listaEventos = [];
+        function AddEventos(eventos) {
+            // Add the message to the page.
+            if (eventos != null) {
+                var bodyTabla;
+                eventos.forEach(function (element) {
+                    bodyTabla += '<tr>';
+                    bodyTabla += '<td>' + element.Id + '</td>'
+                    bodyTabla += '<td>' + element.Fecha + '</td>'
+                    bodyTabla += '<td>' + element.VehiculoRef + '</td>'
+                    bodyTabla += '<td>' + element.TipoEventoRef.Nombre + '</td>'
+                    bodyTabla += '<td>' + element.Latitud + '</td>'
+                    bodyTabla += '<td>' + element.Longitud + '</td>'
+                    
+                    listaEventos.push(element);
+                    var coord = { lat: element.Latitud, lng: element.Longitud };
+
+                    console.log(coord);
+
+                    var marker = new google.maps.Marker({
+                        position: coord,
+                        map: map,
+                        title: element.TipoEventoRef.Nombre,
+                        icon: image
+                    });
+                    (function (marker, element) {
+                        google.maps.event.addListener(marker, "click", function (e) {
+                            infoWindow.setContent("Se registro un evento de tipo " + element.TipoEventoRef.Nombre + "para el vehiculo" + element.VehiculoRef);
+                            infoWindow.open(map, marker);
+                        });
+                    })(marker, element);
+
+
+                });
+
+                $('#teventos').append(bodyTabla);
+
+            }
+            
+
+            
+        }
+     
+        // -------------------------------------------Vehiculos------------------------------------------------------------
+
+        function ActualizarMarkers(DTOlec) {
+            var coord;
+            if (listamarker.has(DTOlec.vehiculoRef.toString())) {
+                coord = { lat: DTOlec.Lectura.Latitud, lng: DTOlec.Lectura.Longitud };
+                var marker = listamarker.get(DTOlec.vehiculoRef.toString());
+                marker.setPosition(coord);
+
+            } else {
+
+                coord = { lat: DTOlec.Lectura.Latitud, lng: DTOlec.Lectura.Longitud};
+
+                console.log(coord);
+
+                var marker = new google.maps.Marker({
+                    position: coord,
+                    map: map,
+                    title: DTOlec.vehiculoRef
+                });
+                (function (marker, DTOlec) {
+
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent("El ID del Vehiculo es:" + DTOlec.vehiculoRef);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, DTOlec);
+                listamarker.set(DTOlec.vehiculoRef, marker);
+            }
+
+
+
+        };
+    
+
+    </script>
+</head>
+<body>
+    @using (Html.BeginForm("Location", "Home", FormMethod.Post)) { 
+    <span onclick="prueba()">prueba</span>
+        <div class="container py-4">
+            <div class="card">
+                <div class="card-header bg-danger">
+                    <h2>Monitor de Control de Flota</h2>
+                </div>
+                <div class="card-body">
+                    <button style="margin-bottom:10px;" type="button" data-target="#myMap" data-toggle="modal" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-plus-circle"></i> Ver Eventos</button>
+
+                    <div class="modal fade" id="myMap">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Lista de Eventos</h4>
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Vehiculo</th>
+                                                    <th scope="col">Tipo Evento</th>
+                                                    <th scope="col">Latitud</th>
+                                                    <th scope="col">Longitud</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in ViewBag.Eventos)
+                                                {
+                                                <tr>
+
+                                                    <td>@item.Fecha</td>
+                                                    <td>@item.VehiculoRef</td>
+                                                    <td>
+                                                        @item.TipoEventoRef.Nombre
+                                                    </td>
+                                                    <td>@item.Latitud</td>
+                                                    <td>@item.Longitud</td>
+
+
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger rounded-0" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-primary rounded-0">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dvMap" class="card" style="width: 100%; height: 400px">
+                    </div>
+                    <div id="dvEvent" style="width:100%; height: 400px; margin:auto;">
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID_Evento</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Vehiculo</th>
+                                        <th scope="col">Tipo Evento</th>
+                                        <th scope="col">Latitud</th>
+                                        <th scope="col">Longitud</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="teventos">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+
+</html> 

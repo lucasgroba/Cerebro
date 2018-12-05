@@ -1,7 +1,5 @@
-﻿using DataAccessLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +12,7 @@ namespace WebPresentation
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer<CEREBROEntities1>(null);
+            
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -55,7 +55,7 @@ namespace BusinessLayer.Controladores
             }
             else
             {
-                return DateTime.Now.AddMinutes(-6);
+                return DateTime.Now;
             }
             
         }

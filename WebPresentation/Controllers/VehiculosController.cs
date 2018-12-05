@@ -2,23 +2,20 @@
 using System.Web.Mvc;
 using BusinessLayer.Controladores;
 using SHARE.Entities;
-using WebPresentation.ManejoPermisos;
 
 namespace WebPresentation
 {
-    //[Authorize(Roles = "A")]
+    [Authorize(Roles = "A")]
     public class VehiculosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();
         private BLVehiculo vehi = new BLVehiculo();
         private BLEmpleado emple = new BLEmpleado();
-        private Empresa empre = new Empresa();
 
         // GET: Vehiculos
         public ActionResult Index()
         {
-            empre = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
-            var vehiculos = empre.Lista_Vehiculos;
+            var vehiculos = vehi.GetAllVehiculos();
             //var user = User.Identity.Name;
 
             return View(vehiculos);

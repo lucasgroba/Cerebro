@@ -13,7 +13,7 @@ using BusinessLayer.Controladores;
 
 namespace WebPresentation
 {
-    //[Authorize(Roles = "A,S")]
+    [Authorize(Roles = "A,S")]
     public class UsuariosAdminController : Controller
     {
         private List<SelectListItem> options = new List<SelectListItem>();

@@ -40,7 +40,7 @@ namespace BusinessLayer.Controladores
                 usuarios = e.Lista_Usuarios;
                 foreach(Usuario u in usuarios)
                 {
-                    if(u.mail == id)
+                    if(u.Id == id)
                     {
                         ret = e;
                         break;

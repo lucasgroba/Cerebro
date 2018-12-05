@@ -2,23 +2,19 @@
 using System.Web.Mvc;
 using BusinessLayer.Controladores;
 using SHARE.Entities;
-using WebPresentation.ManejoPermisos;
 
 namespace WebPresentation
 {
-    //[Authorize(Roles = "A")]
+    [Authorize(Roles = "A")]
     public class EmpleadosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();
-        private BLEmpleado emple = new BLEmpleado();
-        private Empresa empre = new Empresa();
+        private BLEmpleado emple = new BLEmpleado(); 
 
         // GET: Empleados
         public ActionResult Index()
         {
-            empre = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
-
-            var empleados = empre.Lista_Empleados;
+            var empleados = emple.GetAllEmpleados();
             return View(empleados);
         }
 

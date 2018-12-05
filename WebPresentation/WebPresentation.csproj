@@ -351,10 +351,6 @@
       <Project>{6b937eee-18a4-4763-b32b-a15da7bc41f2}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{B8125339-F7BC-40D8-9AD8-414494EEB62C}</Project>
-      <Name>DataAccessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SHARE\SHARE.csproj">
       <Project>{ba4689e0-721a-4ebf-ac32-8f3e75cae873}</Project>
       <Name>SHARE</Name>

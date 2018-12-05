@@ -225,7 +225,7 @@ namespace BusinessLayer.Controladores
                                 case "V":
                                     if ((!(lec.Velocidad <= TE.Maximo) || !(lec.Velocidad >= TE.Minimo)) && lec.Velocidad != -1)
                                     {
-                                        if (getDateUltimaLecturaBuena(lec.SensorRef,TE.Maximo,TE.Minimo)<lec.FechaLectura.AddSeconds(-TE.Periodo))
+                                        if (getDateUltimaLecturaBuena(lec.SensorRef,TE.Maximo,TE.Minimo)<lec.FechaLectura.AddSeconds(-TE.Periodo) && lec.FechaLectura > blEvento.GetDateUltimoEvento(veh.Id, TE).AddMinutes(5))
                                         {
                                             Evento nuevo = new Evento();
                                             nuevo.TipoEventoRef = TE;
