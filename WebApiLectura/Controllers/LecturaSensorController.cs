@@ -91,7 +91,7 @@ namespace WebApiLectura.Controllers
             
                 using (var cliente = new HttpClient())
                 {
-                    cliente.BaseAddress = new Uri("http://localhost:58143/");
+                    cliente.BaseAddress = new Uri("https://cerebrotisj2.azurewebsites.net/");
                     var content = new StringContent(JsonConvert.SerializeObject(ListaEventos), Encoding.UTF8, "application/json");
                     var request = await cliente.PostAsync("EventosHub/Create", content);
                     return await request.Content.ReadAsStringAsync();
@@ -106,7 +106,7 @@ namespace WebApiLectura.Controllers
 
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("http://localhost:58143/");
+                cliente.BaseAddress = new Uri("https://cerebrotisj2.azurewebsites.net/");
                 var content = new StringContent(JsonConvert.SerializeObject(lec), Encoding.UTF8, "application/json");
                 var request = await cliente.PostAsync("ActualizacionLocationHub/Create", content);
                 return await request.Content.ReadAsStringAsync();

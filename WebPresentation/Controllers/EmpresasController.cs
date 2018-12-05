@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace WebPresentation
 {
-    [Authorize(Roles = "A,S")]
+    //[Authorize(Roles = "A,S")]
     public class EmpresasController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();

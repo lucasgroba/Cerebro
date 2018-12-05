@@ -14,7 +14,7 @@ using System.Web.Security;
 
 namespace WebPresentation.Controllers
 {
-    [Authorize(Roles = "A,V")]
+    //[Authorize(Roles = "A,V")]
 
     public class EventoController : Controller
     {

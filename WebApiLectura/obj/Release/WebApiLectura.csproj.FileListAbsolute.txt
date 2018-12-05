@@ -80,3 +80,5 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebApiLectura\bin\es\EntityFramework.re
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebApiLectura\bin\EntityFramework.SqlServer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebApiLectura\bin\EntityFramework.SqlServer.xml
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\WebApiLectura\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebApiLectura\obj\Release\WebApiLectura.csproj.CoreCompileInputs.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\WebApiLectura\obj\Release\WebApiLectura.csprojAssemblyReference.cache

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebPresentation
 {
-    [Authorize(Roles = "A")]
+    //[Authorize(Roles = "A")]
     public class Tipo_EventoController : Controller
     {
         private BLVehiculo vehi = new BLVehiculo();

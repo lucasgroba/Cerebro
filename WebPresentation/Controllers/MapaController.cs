@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebPresentation.ManejoPermisos;
 
 namespace WebPresentation.Controllers
 {
-    [Authorize(Roles = "SUPERADMIN,ADMINISTRADOR,VISUALIZADOR")]
+    //[Authorize(Roles = "S,A,V")]
     public class MapaController : Controller
     {
         BLEmpleado blemp = new BLEmpleado();
@@ -18,11 +19,11 @@ namespace WebPresentation.Controllers
             return View();
         }
 
-        public ActionResult ControlFlota(int id)
+        public ActionResult ControlFlota()
         {
             List<Evento> listaEventos = new List<Evento>();
             string markers = "[";
-            Empresa emp = blEmpresa.GetEmpresa(id);
+            Empresa emp = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
             foreach( Vehiculo v in emp.Lista_Vehiculos)
             {
                 listaEventos.AddRange(v.Lista_Eventos);

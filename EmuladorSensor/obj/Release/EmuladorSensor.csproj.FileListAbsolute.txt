@@ -1,0 +1,5 @@
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\EmuladorSensor\obj\Release\EmuladorSensor.Form1.resources
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\EmuladorSensor\obj\Release\EmuladorSensor.Properties.Resources.resources
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\EmuladorSensor\obj\Release\EmuladorSensor.csproj.GenerateResource.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\EmuladorSensor\obj\Release\EmuladorSensor.csproj.CoreCompileInputs.cache
+C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\EmuladorSensor\obj\Release\EmuladorSensor.csprojAssemblyReference.cache

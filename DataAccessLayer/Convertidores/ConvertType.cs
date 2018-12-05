@@ -180,9 +180,12 @@ namespace DataAccessLayer.Convertidores
             List<Usuario> retorno = new List<Usuario>();
             if (lista != null)
             {
-                Usuario nuevo = new Usuario();
-                nuevo = vehi.getEntity();
-                retorno.Add(nuevo);
+                foreach (Usuarios vehi in lista)
+                {
+                    Usuario nuevo = new Usuario();
+                    nuevo = vehi.getEntity();
+                    retorno.Add(nuevo);
+                }
             }
             return retorno;
         }
