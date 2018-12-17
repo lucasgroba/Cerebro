@@ -46,7 +46,7 @@ namespace BusinessLayer.Controladores
                         break;
                     }
                 }
-                if (ret != null)
+                if (ret.RUT == 0)
                 {
                     break;
                 }

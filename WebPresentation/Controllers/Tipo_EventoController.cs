@@ -6,7 +6,15 @@ using System.Web.Mvc;
 
 namespace WebPresentation
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A")]
+=======
+   
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public class Tipo_EventoController : Controller
     {
         private BLVehiculo vehi = new BLVehiculo();

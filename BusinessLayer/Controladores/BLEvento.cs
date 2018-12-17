@@ -55,7 +55,15 @@ namespace BusinessLayer.Controladores
             }
             else
             {
+<<<<<<< Updated upstream
                 return DateTime.Now;
+=======
+<<<<<<< Updated upstream
+                return DateTime.Now.AddMinutes(-6);
+=======
+                return DateTime.Now.AddDays(-1);
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             }
             
         }

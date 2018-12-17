@@ -5,7 +5,15 @@ using System.Web.Mvc;
 
 namespace WebPresentation
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A,S")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A,S")]
+=======
+   
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public class EmpresasController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();

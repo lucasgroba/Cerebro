@@ -14,7 +14,15 @@ using System.Web.Security;
 
 namespace WebPresentation.Controllers
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A,V")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A,V")]
+=======
+   
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     public class EventoController : Controller
     {

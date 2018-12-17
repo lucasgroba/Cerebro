@@ -13,7 +13,15 @@ using BusinessLayer.Controladores;
 
 namespace WebPresentation
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A,S")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A,S")]
+=======
+    
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public class UsuariosAdminController : Controller
     {
         private List<SelectListItem> options = new List<SelectListItem>();

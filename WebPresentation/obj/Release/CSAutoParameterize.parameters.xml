@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
+<<<<<<< Updated upstream
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="data source=cerebrotisj2.database.windows.net;initial catalog=cerebro2018;persist security info=True;user id=cerebro;password=Joaquin-00;MultipleActiveResultSets=True;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Joaquin\ Ferraro\\Documents\\Kraken\\Cerebro\\WebPresentation\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="CEREBROEntities1-Web.config Connection String" description="CEREBROEntities1 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/CerebroModel.csdl|res://*/CerebroModel.ssdl|res://*/CerebroModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=cerebrotisj2.database.windows.net;initial catalog=cerebro2018;persist security info=True;user id=cerebro;password=Joaquin-00;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Joaquin\ Ferraro\\Documents\\Kraken\\Cerebro\\WebPresentation\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CEREBROEntities1']/@connectionString" />
+=======
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="data source=cerebrotisj2.database.windows.net;initial catalog=cerebro;persist security info=True;user id=cerebro;password=Joaquin-00;MultipleActiveResultSets=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Nodum\ MSJ\\Documents\\Git\\Cerebro\\WebPresentation\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="CEREBROEntities1-Web.config Connection String" description="CEREBROEntities1 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/CerebroModel.csdl|res://*/CerebroModel.ssdl|res://*/CerebroModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=cerebrotisj2.database.windows.net;initial catalog=cerebro;persist security info=True;user id=cerebro;password=Joaquin-00;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Nodum\ MSJ\\Documents\\Git\\Cerebro\\WebPresentation\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CEREBROEntities1']/@connectionString" />
+>>>>>>> Stashed changes
   </parameter>
 </parameters>

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.pdb
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\DataAccessLayer.dll
@@ -18,6 +19,8 @@ C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\SHARE.dll.config
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+=======
+>>>>>>> Stashed changes
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll.config
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.pdb
@@ -38,3 +41,26 @@ C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\Busine
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\Joaquin Ferraro\Documents\Kraken\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.pdb
+<<<<<<< Updated upstream
+=======
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\SHARE.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\SHARE.pdb
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\SHARE.dll.config
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Nodum MSJ\Documents\Git\Cerebro\BusinessLayer\obj\Debug\BusinessLayer.pdb
+>>>>>>> Stashed changes

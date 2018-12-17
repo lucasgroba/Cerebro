@@ -6,6 +6,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+<<<<<<< Updated upstream
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXwuLATuZUUOiC9Yqw8xgSAAAAAACAAAAAAAQZgAAAAEAACAAAABQN8oHsb9qiPPkUaZi3dmeXK5JhjyoLi/IfsaMXMex5gAAAAAOgAAAAAIAACAAAACLmUyNz8zhJPNEGmZWxjwwplF8E5yagxShAMqpDQkvkIAAAADRcOZmKoCzpnXzEbTNZN3VcYW54/LE880P9XykPz7YtbtqxV4DdmLwO0nTnfv9EkHkd5wzpnITWfNy68zglVKJ4LlYJDdXYZte9ZHWPQha27WHE8I3BDtSWAXLsi/4BripkE4cbBBvdzyPrZOAsoIAInYhchMkpf4eaRFSTDkfYEAAAACEIwIMGOlus9EJVKrmyQnF5F+BafX6/pdv/aTkKcVAWjjuZaz3b/+MWFRjL3oGoYWouRmkTEgr9VHcPbGrr0kg</EncryptedPassword>
+=======
+<<<<<<< Updated upstream
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXwuLATuZUUOiC9Yqw8xgSAAAAAACAAAAAAAQZgAAAAEAACAAAADtB4+xlwX1pEVRAn4zwtBaHDkJdcZa8iHXSjuUBxv1FAAAAAAOgAAAAAIAACAAAAAR3g5GzeP6yJM+KFrna7l/pNOmI8/ZaC1qL2j5rMjs+IAAAAC/RPxNF2+0qkCfS/U2oo+nmDgpnFldgLogSK+nxcS9TjP9cCQ23oXkgBodVnTAL3wxOMQyceKbxtvhAesRmGmg5pTtz9gIw/Xr+Pk3cefO3pem6ivjbSHvqq7S8Zs1ev4FTwNJ5MHAilRzfRUddVqBISru9aYXcA0c2umrHxTEH0AAAACW5nm6YHhnxHXNG9vn/avY5z8DrEHXybVDHM3qu67ZIPipgHUZO2QxwRKd20Hi3kW7wXCQ/CCld5VIscwlN4UA</EncryptedPassword>
+=======
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2jO0K/HEeEmBx+W22X9cHwAAAAACAAAAAAAQZgAAAAEAACAAAADzR2Ya7Gx2CxSINzrKMCaJhavr6l1l/Zy9Cd7PwJTRswAAAAAOgAAAAAIAACAAAAB43g24iGVhpuJUSyEj4WVbR+McGlLbGPjtL2RuwEYu+4AAAAADdE7TgC0sX6VE/Ps97zH2gUgTzRQODJWdJZrtIFuXVIf7e0/FYojlNAfoHy2pNBG8QCUc77fLKHb5h8cges7tWXvwbDp0N5t5EHzLGrrWjI2cp9G0THbK/F8HCVf4Gd0T0YtyYLanddDtWQjagDyo+r/ObqI9SfMgeV6iche4+0AAAADc5lkB4ZPV5NFuSOLqBIOmhda1TMtyWKHjF+ZJYuAqjc0KG1wiFPpEt5SOJ4hI9a3mVDi5d2zgvBgHvGs8vcOC</EncryptedPassword>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   </PropertyGroup>
 </Project>

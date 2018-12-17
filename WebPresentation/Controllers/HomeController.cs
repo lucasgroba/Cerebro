@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace WebPresentation.Controllers
 {
-    [Authorize(Roles = "A,S,V")]
     public class HomeController : Controller
     {
         public ActionResult Index()

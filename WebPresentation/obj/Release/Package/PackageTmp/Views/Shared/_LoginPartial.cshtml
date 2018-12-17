@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNet.Identity
+<<<<<<< Updated upstream
+=======
+@using WebPresentation.ManejoPermisos
+>>>>>>> Stashed changes
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -6,6 +10,7 @@
     @Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
+<<<<<<< Updated upstream
     <li>
         @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
@@ -15,6 +20,37 @@
     <li>@Html.ActionLink("Vehículo", "index", "Vehiculos", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
     <li>@Html.ActionLink("Tipo Evento", "index", "Tipo_Evento", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
 
+=======
+    @if (UserRole.IsLoguedUserinRole("S", HttpContext.Current.User.Identity.Name))
+    {
+        <li>@Html.ActionLink("Empresa", "index", "Empresas", routeValues: null, htmlAttributes: new { id = "empresaLink" })</li>
+        <li>@Html.ActionLink("Usuarios", "index", "UsuariosAdmin", routeValues: null, htmlAttributes: new { id = "empresaLink" })</li>
+    }
+    else
+    {
+        if (UserRole.IsLoguedUserinRole("A", HttpContext.Current.User.Identity.Name))
+        {
+            <li>@Html.ActionLink("Empresa", "index", "Empresas", routeValues: null, htmlAttributes: new { id = "empresaLink" })</li>
+            <li>@Html.ActionLink("Empleado", "index", "Empleados", routeValues: null, htmlAttributes: new { id = "empleadoLink" })</li>
+            <li>@Html.ActionLink("Sensor", "index", "Sensores", routeValues: null, htmlAttributes: new { id = "sensorLink" })</li>
+            <li>@Html.ActionLink("Vehículo", "index", "Vehiculos", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
+            <li>@Html.ActionLink("Tipo Evento", "index", "Tipo_Evento", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
+            <li>@Html.ActionLink("Monitor de Flota", "index", "Mapa/ControlFlota", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
+
+        }
+        else
+        {
+            if (UserRole.IsLoguedUserinRole("V", HttpContext.Current.User.Identity.Name))
+            {
+                <li>@Html.ActionLink("Monitor de Flota", "index", "Mapa/ControlFlota", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
+            }
+        }
+    }
+
+    <li>
+        @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+>>>>>>> Stashed changes
     <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
 </ul>
     }

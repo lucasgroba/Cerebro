@@ -49,20 +49,40 @@
     </div>
 
     <div class="form-group">
+<<<<<<< Updated upstream
         @Html.LabelFor(model => model.Accion, htmlAttributes: new { @class = "control-label col-md-2" })
+=======
+<<<<<<< Updated upstream
+        @Html.LabelFor("Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+>>>>>>> Stashed changes
         <div class="col-md-10">
             @Html.DropDownListFor(X => X.Accion, (IEnumerable<SelectListItem>)ViewBag.OptionsAction, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Accion, "", new { @class = "text-danger" })
+=======
+        @Html.Label("Envia mail?:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Activo)
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+            </div>
+>>>>>>> Stashed changes
         </div>
     </div>
 
     <div class="form-group">
+<<<<<<< Updated upstream
         @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Activo)
                 @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
             </div>
+=======
+        @Html.Label("Mail:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Accion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Accion, "", new { @class = "text-danger" })
+>>>>>>> Stashed changes
         </div>
     </div>
 

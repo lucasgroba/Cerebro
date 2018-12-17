@@ -26,9 +26,9 @@
         }
         else
         {
-            if (UserRole.IsLoguedUserinRole("A", HttpContext.Current.User.Identity.Name))
+            if (UserRole.IsLoguedUserinRole("V", HttpContext.Current.User.Identity.Name))
             {
-                <li>@Html.ActionLink("Monitor de Flota", "index", "Mapa", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
+                <li>@Html.ActionLink("Monitor de Flota", "index", "Mapa/ControlFlota", routeValues: null, htmlAttributes: new { id = "t_eventoLink" })</li>
             }
         }
     }

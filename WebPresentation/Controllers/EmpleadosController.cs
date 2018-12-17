@@ -5,7 +5,15 @@ using SHARE.Entities;
 
 namespace WebPresentation
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A")]
+=======
+  
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public class EmpleadosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();
@@ -14,8 +22,27 @@ namespace WebPresentation
         // GET: Empleados
         public ActionResult Index()
         {
+<<<<<<< Updated upstream
             var empleados = emple.GetAllEmpleados();
+=======
+            empre = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
+
+<<<<<<< Updated upstream
+            var empleados = empre.Lista_Empleados;
+>>>>>>> Stashed changes
             return View(empleados);
+=======
+            if (empre.Lista_Empleados == null)
+            { 
+                return View(emple.GetAllEmpleados());
+            }
+            else
+            {
+                var empleados = empre.Lista_Empleados;
+                return View(empleados);
+            }
+            
+>>>>>>> Stashed changes
         }
 
         // GET: Empleados/Details/5

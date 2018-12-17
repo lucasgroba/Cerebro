@@ -32,7 +32,15 @@ namespace EmuladorSensor
 
             using (var cliente = new HttpClient())
             {
+<<<<<<< Updated upstream
                 cliente.BaseAddress = new Uri("http://localhost:56225");
+=======
+<<<<<<< Updated upstream
+                cliente.BaseAddress = new Uri("https://monitorflota.azurewebsites.net/");
+=======
+                cliente.BaseAddress = new Uri("https://monitorflota.azurewebsites.net");
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                 var content = new StringContent(JsonConvert.SerializeObject(lec), Encoding.UTF8, "application/json");
                 var request = await cliente.PostAsync("/api/LecturaSensor", content);
                 return await request.Content.ReadAsStringAsync();

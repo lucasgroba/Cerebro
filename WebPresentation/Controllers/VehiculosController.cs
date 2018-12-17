@@ -5,20 +5,55 @@ using SHARE.Entities;
 
 namespace WebPresentation
 {
+<<<<<<< Updated upstream
     [Authorize(Roles = "A")]
+=======
+<<<<<<< Updated upstream
+    //[Authorize(Roles = "A")]
+=======
+   
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public class VehiculosController : Controller
     {
         private BLEmpresa emp = new BLEmpresa();
         private BLVehiculo vehi = new BLVehiculo();
         private BLEmpleado emple = new BLEmpleado();
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+        private BLTipo_Evento teve = new BLTipo_Evento();
+>>>>>>> Stashed changes
+        private Empresa empre = new Empresa();
+>>>>>>> Stashed changes
 
         // GET: Vehiculos
         public ActionResult Index()
         {
+<<<<<<< Updated upstream
             var vehiculos = vehi.GetAllVehiculos();
+=======
+<<<<<<< Updated upstream
+            empre = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
+            var vehiculos = empre.Lista_Vehiculos;
+>>>>>>> Stashed changes
             //var user = User.Identity.Name;
 
             return View(vehiculos);
+=======
+            if (empre.Lista_Empleados == null)
+            {
+                return View(vehi.GetAllVehiculos());
+            }
+            else
+            { 
+                empre = new UserRole().GetEmpresaUser(HttpContext.User.Identity.Name);
+                var vehiculos = empre.Lista_Vehiculos;
+                //var user = User.Identity.Name;
+                return View(vehiculos);
+            }
+>>>>>>> Stashed changes
         }
 
         // GET: Vehiculos/Details/5
@@ -40,9 +75,16 @@ namespace WebPresentation
         public ActionResult Create()
         {
             var empresas = emp.GetAllEmpresas();
+<<<<<<< Updated upstream
 
             ViewBag.Id_Empleado = new SelectList(emple.GetAllEmpleados(), "CI", "Nombre");
             ViewBag.EmpresaRef = new SelectList(empresas, "RUT", "Nombre");
+=======
+            
+            ViewBag.Id_Empleado = new SelectList(emple.GetAllEmpleados(), "CI", "Nombre");
+            ViewBag.EmpresaRef = new SelectList(empresas, "RUT", "Nombre");
+            
+>>>>>>> Stashed changes
 
             return View();
         }
